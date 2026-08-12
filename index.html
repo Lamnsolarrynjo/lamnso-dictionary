@@ -4,51 +4,98 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Làmnso Dictionary</title>
-body { font-family: Arial, sans-serif; background: #f0f8ff; margin: 0; padding: 20px; }
-h1 { text-align: center; color: #006400; }
-input { width: 100%; padding: 12px; font-size: 16px; border: 2px solid #006400; border-radius: 8px; margin-bottom: 20px; }
-.card { background: white; padding: 15px; margin: 10px 0; border-radius: 10px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
-.lamnso { font-size: 20px; font-weight: bold; color: #006400; }
-.english { font-size: 16px; color: #333; }
-.example { font-style: italic; color: #666; margin-top: 5px; }
+<style>
+body { 
+  font-family: Arial, sans-serif; 
+  background: #f0f8ff; 
+  margin: 0; 
+  padding: 20px; 
+}
+h1 { 
+  text-align: center; 
+  color: #006400; 
+}
+input { 
+  width: 100%; 
+  padding: 12px; 
+  font-size: 16px; 
+  border: 2px solid #006400; 
+  border-radius: 8px; 
+  margin-bottom: 20px; 
+  box-sizing: border-box;
+}
+.card { 
+  background: white; 
+  padding: 15px; 
+  margin: 10px 0; 
+  border-radius: 10px; 
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1); 
+}
+.lamnso { 
+  font-size: 20px; 
+  font-weight: bold; 
+  color: #006400; 
+}
+.english { 
+  font-size: 16px; 
+  color: #333; 
+}
+.example { 
+  font-style: italic; 
+  color: #666; 
+  margin-top: 5px; 
+}
+.no-results {
+  text-align: center;
+  color: #666;
+  margin-top: 20px;
+}
 </style>
 </head>
 <body>
-<h1> Làmnso Dictionary</h1>
-<input type="text" id="search" placeholder="Search Làmnsɔ or English...">
+
+<h1>Làmnso Dictionary</h1>
+<input type="text" id="search" placeholder="Search Làmnso or English...">
 <div id="results"></div>
 
 <script>
+let dictionary = [];
+
+// Load your lamnso.json file
 fetch('lamnso.json')
-  .then(res => res.json())
+  .then(response => response.json())
   .then(data => {
-    const results = document.getElementById('results');
-    const search = document.getElementById('search');
-    
-    function showWords(list) {
-      results.innerHTML = '';
-      list.forEach(item => {
-        results.innerHTML += `
-          <div class="card">
-            <div class="lamnso">${item.lamnso}</div>
-            <div class="english">→ ${item.english}</div>
-            <div class="example">${item.example}</div>
-          </div>
-        `;
-      });
-    }
-    
-    showWords(data);
-    
-    search.addEventListener('input', () => {
-      const q = search.value.toLowerCase();
-      const filtered = data.filter(item => 
-        item.lamnso.toLowerCase().includes(q) || 
-        item.english.toLowerCase().includes(q)
-      );
-      showWords(filtered);
-    });
+    dictionary = data;
+    displayResults(dictionary);
+  })
+  .catch(err => {
+    document.getElementById('results').innerHTML = '<p class="no-results">Error loading dictionary. Make sure lamnso.json is uploaded.</p>';
   });
+
+document.getElementById('search').addEventListener('input', function(e) {
+  const term = e.target.value.toLowerCase();
+  const filtered = dictionary.filter(word => 
+    word.lamnso.toLowerCase().includes(term) || 
+    word.english.toLowerCase().includes(term)
+  );
+  displayResults(filtered);
+});
+
+function displayResults(words) {
+  const resultsDiv = document.getElementById('results');
+  if(words.length === 0) {
+    resultsDiv.innerHTML = '<p class="no-results">No words found</p>';
+    return;
+  }
+  resultsDiv.innerHTML = words.map(word => `
+    <div class="card">
+      <div class="lamnso">${word.lamnso}</div>
+      <div class="english">${word.english}</div>
+      ${word.example ? `<div class="example">Example: ${word.example}</div>` : ''}
+    </div>
+  `).join('');
+}
 </script>
+
 </body>
 </html>
