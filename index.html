@@ -1,52 +1,56 @@
-!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Lamnso Dictionary</title>
-  <style>
-    body { font-family: Arial, sans-serif; background: #f5f5f5; padding: 20px; text-align: center; }
-    h1 { color: #2c3e50; }
-    input { width: 80%; max-width: 400px; padding: 12px; font-size: 16px; border: 2px solid #3498db; border-radius: 8px; }
-    .result { margin-top: 20px; background: white; padding: 15px; border-radius: 10px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); text-align: left; max-width: 600px; margin: 20px auto; }
-    .word { font-size: 22px; font-weight: bold; color: #e74c3c; }
-    .meaning { font-size: 18px; color: #2c3e50; }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Larry Njo Lamnso Dictionary</title>
+    <style>
+        body { font-family: Arial, sans-serif; background: #f5f5f5; padding: 20px; text-align: center; }
+        h1 { color: #2c3e50; }
+        input { width: 80%; max-width: 400px; padding: 12px; font-size: 16px; border: 2px solid #3498db; border-radius: 8px; }
+        .result { margin-top: 20px; background: white; padding: 15px; border-radius: 10px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); text-align: left; max-width: 600px; margin: 20px auto; }
+        .word { font-size: 22px; font-weight: bold; color: #e74c3c; }
+        .meaning { font-size: 18px; color: #2c3e50; }
+    </style>
 </head>
-  <body>
-  <h1>📖 Làmnso Dictionary</h1>
-  <p>Search for a Làmnso word</p>
-  <input type="text" id="searchBox" placeholder="Type a word like: njo, wui..." onkeyup="searchWord()">
-  <div id="results"></div>
+<body>
+    <h1>Larry Njo Lamnso Dictionary</h1>
+    <input type="text" id="searchBox" placeholder="Search Lamnso word...">
+    <div id="results"></div>
 
-  <script>
-    let dictionary = [];
-    fetch('lamnso.json')
-      .then(response => response.json())
-      .then(data => { dictionary = data; });
-    
-    function searchWord() {
-      const query = document.getElementById('searchBox').value.toLowerCase();
-      const resultsDiv = document.getElementById('results');
-      resultsDiv.innerHTML = '';
-      if (query.length < 1) return;
-      const matches = dictionary.filter(item => 
-        item.lamnso.toLowerCase().includes(query) || 
-        item.english.toLowerCase().includes(query)
-      );
-      if (matches.length > 0) {
-        matches.slice(0, 10).forEach(item => {
-          resultsDiv.innerHTML += `
-            <div class="result">
-              <div class="word">${item.lamnso}</div>
-              <div class="meaning">→ ${item.english}</div>
-            </div>
-          `;
+    <script>
+        let dictionary = [];
+
+        fetch('./lamnso.json')
+            .then(response => response.json())
+            .then(data => {
+                dictionary = data;
+                console.log("Dictionary loaded:", dictionary.length, "words");
+            })
+            .catch(error => {
+                document.getElementById('results').innerHTML = "<p style='color:red'>Error: Could not load dictionary</p>";
+            });
+
+        document.getElementById('searchBox').addEventListener('input', function() {
+            const query = this.value.toLowerCase();
+            const resultsDiv = document.getElementById('results');
+            resultsDiv.innerHTML = '';
+
+            if (query.length < 2) return;
+
+            const matches = dictionary.filter(item => 
+                item.lamnso.toLowerCase().includes(query) || item.english.toLowerCase().includes(query)
+            ).slice(0, 10);
+
+            matches.forEach(item => {
+                resultsDiv.innerHTML += `
+                    <div class="result">
+                        <div class="word">${item.lamnso}</div>
+                        <div class="meaning">${item.english}</div>
+                    </div>
+                `;
+            });
         });
-      } else {
-        resultsDiv.innerHTML = `<p>No results found for "${query}"</p>`;
-      }
-    }
-  </script>
+    </script>
 </body>
-</html
+</html>
