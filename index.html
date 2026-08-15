@@ -1,56 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Larry Njo Lamnso Dictionary</title>
-    <style>
-        body { font-family: Arial, sans-serif; background: #f5f5f5; padding: 20px; text-align: center; }
-        h1 { color: #2c3e50; }
-        input { width: 80%; max-width: 400px; padding: 12px; font-size: 16px; border: 2px solid #3498db; border-radius: 8px; }
-        .result { margin-top: 20px; background: white; padding: 15px; border-radius: 10px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); text-align: left; max-width: 600px; margin: 20px auto; }
-        .word { font-size: 22px; font-weight: bold; color: #e74c3c; }
-        .meaning { font-size: 18px; color: #2c3e50; }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lamnso Larry Njo Dictionary - Lite</title>
+<style>
+body{font-family:Arial,sans-serif;padding:15px;max-width:600px;margin:auto;background:#fff;color:#000}
+h1{font-size:20px;text-align:center;color:#004d00}
+input{width:100%;padding:10px;font-size:16px;margin:10px 0;border:1px solid #ccc;border-radius:5px}
+.word{padding:8px;border-bottom:1px solid #eee}
+.lamnso{font-weight:bold;font-size:18px}
+.english{color:#555}
+small{display:block;text-align:center;margin-top:20px;color:#777}
+</style>
 </head>
 <body>
-    <h1>Larry Njo Lamnso Dictionary</h1>
-    <input type="text" id="searchBox" placeholder="Search Lamnso word...">
-    <div id="results"></div>
+<h1>Lamnso Larry Njo Dictionary</h1>
+<input type="text" id="search" placeholder="Search Lamnso or English...">
+<div id="results"></div>
+<small>11 words • Works on H+</small>
 
-    <script>
-        let dictionary = [];
-
-        fetch('./lamnso.json')
-            .then(response => response.json())
-            .then(data => {
-                dictionary = data;
-                console.log("Dictionary loaded:", dictionary.length, "words");
-            })
-            .catch(error => {
-                document.getElementById('results').innerHTML = "<p style='color:red'>Error: Could not load dictionary</p>";
-            });
-
-        document.getElementById('searchBox').addEventListener('input', function() {
-            const query = this.value.toLowerCase();
-            const resultsDiv = document.getElementById('results');
-            resultsDiv.innerHTML = '';
-
-            if (query.length < 2) return;
-
-            const matches = dictionary.filter(item => 
-                item.lamnso.toLowerCase().includes(query) || item.english.toLowerCase().includes(query)
-            ).slice(0, 10);
-
-            matches.forEach(item => {
-                resultsDiv.innerHTML += `
-                    <div class="result">
-                        <div class="word">${item.lamnso}</div>
-                        <div class="meaning">${item.english}</div>
-                    </div>
-                `;
-            });
-        });
-    </script>
+<script>
+const words=[
+{lamnso:"Alùminyun", english:"Aluminium"},
+{lamnso:"Kilii", english:"Ant"},
+{lamnso:"Nǵú'uy bí", english:"Ape"},
+{lamnso:"Tè", english:"Apple"},
+{lamnso:"Àf", english:"Arm"},
+{lamnso:"Nǵwə̀ə̀", english:"Arrow"},
+{lamnso:"Fù", english:"Ash"},
+{lamnso:"Ǹsèy", english:"Ax"},
+{lamnso:"Bà", english:"Baby"},
+{lamnso:"Bàŋ", english:"Back"},
+{lamnso:"Nǵə̀ə̀", english:"Bag"}
+];
+const results=document.getElementById('results');
+const search=document.getElementById('search');
+function show(list){
+results.innerHTML=list.map(w=>`<div class="word"><span class="lamnso">${w.lamnso}</span> - <span class="english">${w.english}</span></div>`).join('')
+}
+show(words);
+search.oninput=()=>{
+let q=search.value.toLowerCase();
+show(words.filter(w=>w.lamnso.toLowerCase().includes(q)||w.english.toLowerCase().includes(q)))
+}
+</script>
 </body>
 </html>
