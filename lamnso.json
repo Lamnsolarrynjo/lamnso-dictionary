@@ -1,6 +1,6 @@
 [
-{lamnso: "Alùminyun", english:"Aluminium"},
-{lamnso: "Kilii", english:"Ant"},
+{lamnso: "Alùminyun", english: "Aluminium"},
+{lamnso: "Kilii", english: "Ant"},
 {"lamnso": "Wanyeeto", "english": "Ant eater"},
 {"lamnso": "Ŋáv", "english": "Antelope"},
 {"lamnso": "Ntóŋ", "english": "Anus"},
@@ -174,4 +174,4 @@
 {"lamnso": "Kilá’ay", "english": "Base"},
 {"lamnso": "Kiyà ghə́əm", "english": "Decade"},
 {"lamnso": "Sártsə́n, ntúŋ kijàv", "english": "Denominator"},
-];
+]
