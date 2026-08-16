@@ -3,211 +3,63 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Lamnso Larry Njo Dictionary - Lite</title>
+<title>Lamnso Dictionary</title>
 <style>
-body{font-family:Arial,sans-serif;padding:15px;max-width:600px;margin:auto;background:#fff;color:#000}
-h1{font-size:20px;text-align:center;color:#004d00}
-input{width:100%;padding:10px;font-size:16px;margin:10px 0;border:1px solid #ccc;border-radius:5px}
-.word{padding:8px;border-bottom:1px solid #eee}
-.lamnso{font-weight:bold;font-size:18px}
-.english{color:#555}
-small{display:block;text-align:center;margin-top:20px;color:#777}
+  body { font-family: Arial; padding: 20px; background: #f5f5f5; }
+  input { width: 100%; padding: 10px; font-size: 16px; margin-bottom: 20px; }
+  .word { background: white; padding: 15px; margin: 10px 0; border-radius: 8px; }
+  .lamnso { font-weight: bold; font-size: 18px; color: #2c3e50; }
+  .english { color: #7f8c8d; }
 </style>
 </head>
 <body>
-<h1>Lamnso Larry Njo Dictionary</h1>
+
+<h1>Lamnso Dictionary</h1>
 <input type="text" id="search" placeholder="Search Lamnso or English...">
-<div id="results"></div>
-<small>11 words • Works on H+</small>
+<div id="results">Loading...</div>
 
 <script>
-const words=[
-{lamnso:"Alùminyun", english:"Aluminium"},
-{lamnso:"Kilii", english:"Ant"},
-{"lamnso": "Wanyeeto", "english": "Ant eater"},
-{"lamnso": "Ŋáv", "english": "Antelope"},
-{"lamnso": "Ntóŋ", "english": "Anus"},
-{"lamnso": "Kóoy", "english": "Arm"},
-{"lamnso": "Mvə̀n", "english": "Arrow"},
-{"lamnso": "Wóŋ'", "english": "As he, a traditional society"},
-{"lamnso": "Kimbébíy", "english": "Ass"},
-{"lamnso": "àntsernsai", "english": "Ancestors"},
-{"lamnso": "Ŋgùuy bí’", "english": "Mathematics"},
-{"lamnso": "Nshwáan lóm", "english": "Excretory system"},
-{"lamnso": "Kfə̀v vito", "english": "Duodenum"},
-{"lamnso": "Kito ke ŋkóŋ", "english": "Tibia plateau"},
-{"lamnso": "Bán tù'ur", "english": "Alternating current"},
-{"lamnso": "Mendzəv", "english": "Water"},
-{"lamnso": "Sóŋ", "english": "Tooth"},
-{"lamnso": "Tàr", "english": "Father"},
-{"lamnso": "Yìy", "english": "Mother"},
-{"lamnso": "Wan", "english": "Child"},
-{"lamnso": "Láv", "english": "House"},
-{"lamnso": "Bvəəy lóŋ", "english": "Goat"},
-{"lamnso": "Ná", "english": "Cow"},
-{"lamnso": "Ŋgə̀v", "english": "Chicken"},
-{"lamnso": "Viyikir", "english": "Food"},
-{"lamnso": "Kún", "english": "Beans"},
-{"lamnso": "Koki", "english": "Koki beans"},
-{"lamnso": "Ŋgashiŋa", "english": "Cassava"},
-{"lamnso": "Meŋwə̀ər", "english": "Oil"},
-{"lamnso": "Shiŋgwáŋ", "english": "Salt"},
-{"lamnso": "Ŋwáa", "english": "Meeting"},
-{"lamnso": "Lámnso", "english": "Lamnso language"},
-{"lamnso": "Nso", "english": "Nso people"},
-{"lamnso": "Fon", "english": "King"},
-{"lamnso": "Ŋgaywir", "english": "Elder"},
-{"lamnso": "Ŋwá Nyùy", "english": "Bible"},
-{"lamnso": "Nyùy", "english": "God"},
-{"lamnso": "Bunri", "english": "Pray"},
-{"lamnso": "Lá yè’ey", "english": "School"},
-{"lamnso": "Ŋwà", "english": "Book"},
-{"lamnso": "Kinsáŋ", "english": "Pen"},
-{"lamnso": "Ntáa", "english": "Chair"},
-{"lamnso": "Kitaatí", "english": "Table"},
-{"lamnso": "Dzə̀ə", "english": "Road"},
-{"lamnso": "Kitenten", "english": "Car"},
-{"lamnso": "Yikír", "english": "Eat"},
-{"lamnso": "Nú", "english": "Drink"},
-{"lamnso": "Mbùune", "english": "Sleep"},
-{"lamnso": "Yimén", "english": "Wake up"},
-{"lamnso": "Lim", "english": "Work"},
-{"lamnso": "Kishiiy", "english": "Day"},
-{"lamnso": "Vitsə́", "english": "Night"},
-{"lamnso": "Kiyá", "english": "Year"},
-{"lamnso": "Ŋgwee", "english": "Month"},
-{"lamnso": "Ŋgàm", "english": "Week"},
-{"lamnso": "Monlé", "english": "Monday"},
-{"lamnso": "Cúusidey", "english": "Tuesday"},
-{"lamnso": "Wenesidéy", "english": "Wednesday"},
-{"lamnso": "Tóosidey", "english": "Thursday"},
-{"lamnso": "Fə̀raydey", "english": "Friday"},
-{"lamnso": "Saatudéy", "english": "Saturday"},
-{"lamnso": "Sónlé", "english": "Sunday"},
-{"lamnso": "War", "english": "Market"},
-{"lamnso": "Là shiv", "english": "Hospital"},
-{"lamnso": "Ŋgaa shiv", "english": "Doctor"},
-{"lamnso": "Shív", "english": "Medicine"},
-{"lamnso": "Kitu", "english": "Head"},
-{"lamnso": "Sí'", "english": "Eye"},
-{"lamnso": "Kitù’ur", "english": "Ear"},
-{"lamnso": "Yúuy", "english": "Nose"},
-{"lamnso": "Shuu", "english": "Mouth"},
-{"lamnso": "Kiwó", "english": "Hand"},
-{"lamnso": "Shwíin", "english": "Leg"},
-{"lamnso": "Kitúr", "english": "Stomach"},
-{"lamnso": "Tíim", "english": "Heart"},
-{"lamnso": "Mentsə̀", "english": "Blood"},
-{"lamnso": "Wúm", "english": "Egg"},
-{"lamnso": "Sə̀", "english": "Fish"},
-{"lamnso": "Wúu", "english": "Rain"},
-{"lamnso": "Shúy", "english": "Sun"},
-{"lamnso": "Shijìy", "english": "Star"},
-{"lamnso": "Shwer", "english": "Wind"},
-{"lamnso": "Və́y", "english": "Fire"},
-{"lamnso": "Saamba", "english": "Seven"},
-{"lamnso": "Mve'ey, Sèké", "english": "Chaff"},
-{"lamnso": "Aay", "english": "Negative"},
-{"lamnso": "Abu'ur", "english": "Boots (Rain boots)"},
-{"lamnso": "Abve'ey", "english": "Molars"},
-{"lamnso": "A'kang", "english": "Multiplication"},
-{"lamnso": "A'kang tang", "english": "Multiples"},
-{"lamnso": "Anyur", "english": "Onion"},
-{"lamnso": "Kun vito", "english": "Appendix"},
-{"lamnso": "Báŋ se Ndzèn", "english": "Testicles"},
-{"lamnso": "Bà", "english": "Knit"},
-{"lamnso": "Shingeenge", "english": "Smallest"},
-{"lamnso": "Ba'mshuushiliv", "english": "Inferior epigastrium"},
-{"lamnso": "Banfogháŋ", "english": "Side light"},
-{"lamnso": "Bavkir, Baykir, Nge'", "english": "Tickling sensation/Tingling"},
-{"lamnso": "Báy", "english": "to explode"},
-{"lamnso": "Bè’ey", "english": "carrier"},
-{"lamnso": "Biimbvə̀v", "english": "Assets"},
-{"lamnso": "Biibi", "english": "brown color"},
-{"lamnso": "Biibiy", "english": "parasite"},
-{"lamnso": "Bi' jii", "english": "Calculate"},
-{"lamnso": "Bí’ bey", "english": "Logic"},
-{"lamnso": "Bínen", "english": "copy"},
-{"lamnso": "Réŋfeyi", "english": "perfect"},
-{"lamnso": "Nsáŋti vibooŋi", "english": "aesthetic"},
-{"lamnso": "Bùbá", "english": "blouse"},
-{"lamnso": "Bòjóo", "english": "obesity"},
-{"lamnso": "Fémsí", "english": "deceive"},
-{"lamnso": "Abodí", "english": "Bra (breast wear)"},
-{"lamnso": "Bùu", "english": "appetite"},
-{"lamnso": "Bubú", "english": "phone"},
-{"lamnso": "Bùŋ", "english": "red"},
-{"lamnso": "Bubúu", "english": "cheek"},
-{"lamnso": "Ntam réŋréŋ", "english": "square measure"},
-{"lamnso": "Buubvəm ŋkoovi", "english": "Left lower quadrant"},
-{"lamnso": "Bvə’ən", "english": "flex"},
-{"lamnso": "Bvəybvəəy", "english": "eye lashes"},
-{"lamnso": "Kiwuv ke sí", "english": "eyelid"},
-{"lamnso": "Kiyoy ke kiwuu", "english": "sole of the foot"},
-{"lamnso": "Bìi", "english": "Camwood"},
-{"lamnso": "Cíciwaar", "english": "flag"},
-{"lamnso": "Shuuyúm, ntsə̀tishuu", "english": "unbelievable"},
-{"lamnso": "Cí", "english": "spoon"},
-{"lamnso": "Saŋlem", "english": "computer"},
-{"lamnso": "Mnsoŋ", "english": "creatures"},
-{"lamnso": "Dám", "english": "sperm"},
-{"lamnso": "Mboor njàkòŋ", "english": "dandillion"},
-{"lamnso": "Mfí kóo", "english": "height"},
-{"lamnso": "Dinmbishwer", "english": "wind vane"},
-{"lamnso": "Bómen", "english": "obese"},
-{"lamnso": "Díŋ", "english": "chin"},
-{"lamnso": "Dinmbiv", "english": "compass"},
-{"lamnso": "Dinsàv", "english": "Dictionary"},
-{"lamnso": "Kifin (ke ŋwá)", "english": "stamp"},
-{"lamnso": "Dóon", "english": "signature"},
-{"lamnso": "Dóoŋ", "english": "brain"},
-{"lamnso": "Duayìi", "english": "License"},
-{"lamnso": "Dór shaa", "english": "less than"},
-{"lamnso": "Mfíi si ŋwá", "english": "computer keyboard"},
-{"lamnso": "Mòo yíi", "english": "Method"},
-{"lamnso": "Dzə̀ə yìi", "english": "System"},
-{"lamnso": "Nshásin baníŕ", "english": "light system"},
-{"lamnso": "Ghámsín", "english": "embedded"},
-{"lamnso": "Vidzə̀əsí", "english": "weight"},
-{"lamnso": "Mfí kúu", "english": "amount"},
-{"lamnso": "é fée", "english": "to"},
-{"lamnso": "Ée na", "english": "Hello"},
-{"lamnso": "é", "english": "@"},
-{"lamnso": "Bínsi", "english": "positive"},
-{"lamnso": "Faar", "english": "reduce"},
-{"lamnso": "Kemshó", "english": "ego, interest"},
-{"lamnso": "Mavkú", "english": "extra large"},
-{"lamnso": "é medà", "english": "oblong"},
-{"lamnso": "Fáa", "english": "maogani (tree)"},
-{"lamnso": "Fán", "english": "fear"},
-{"lamnso": "Shisí’nkwí", "english": "flash drive"},
-{"lamnso": "Féesi", "english": "blow"},
-{"lamnso": "Ton kiláya", "english": "fumigate"},
-{"lamnso": "Dòm é ki dú", "english": "push away"},
-{"lamnso": "Shàŋi, fə̀ŋ, kiyúy ke bí ki", "english": "ordour"},
-{"lamnso": "Luŋ fòfó", "english": "Impact"},
-{"lamnso": "Fə́vir", "english": "white"},
-{"lamnso": "Fə̀ə nsíi", "english": "Certificate"},
-{"lamnso": "Feesí", "english": "Spray"},
-{"lamnso": "Fəəsí", "english": "crimwhite"},
-{"lamnso": "Féem yó’", "english": "paint"},
-{"lamnso": "Fí’sin", "english": "suffocate"},
-{"lamnso": "Fó kitu", "english": "helm"},
-{"lamnso": "Nyumereeto", "english": "Numerator"},
-{"lamnso": "Kilá’ay", "english": "Base"},
-{"lamnso": "Kiyà ghə́əm", "english": "Decade"},
-{"lamnso": "Sártsə́n, ntúŋ kijàv", "english": "Denominator"},
-];
-const results=document.getElementById('results');
-const search=document.getElementById('search');
-function show(list){
-results.innerHTML=list.map(w=>`<div class="word"><span class="lamnso">${w.lamnso}</span> - <span class="english">${w.english}</span></div>`).join('')
-}
-show(words);
-search.oninput=()=>{
-let q=search.value.toLowerCase();
-show(words.filter(w=>w.lamnso.toLowerCase().includes(q)||w.english.toLowerCase().includes(q)))
-}
+let dictionary = [];
+
+// 1. LOAD THE JSON FILE
+fetch('lamnso.json')
+  .then(response => response.json())
+  .then(data => {
+    dictionary = data;
+    document.getElementById('results').innerHTML = 'Type to search 159 words';
+  })
+  .catch(error => {
+    document.getElementById('results').innerHTML = 'Error loading dictionary: ' + error;
+  });
+
+// 2. SEARCH FUNCTION
+document.getElementById('search').addEventListener('input', function() {
+  let query = this.value.toLowerCase();
+  let resultsDiv = document.getElementById('results');
+  
+  if(query.length < 1) {
+    resultsDiv.innerHTML = 'Type to search 159 words';
+    return;
+  }
+
+  let filtered = dictionary.filter(item => 
+    item.lamnso.toLowerCase().includes(query) || 
+    item.english.toLowerCase().includes(query)
+  );
+
+  if(filtered.length === 0) {
+    resultsDiv.innerHTML = 'No results found';
+    return;
+  }
+
+  resultsDiv.innerHTML = filtered.map(item => `
+    <div class="word">
+      <div class="lamnso">${item.lamnso}</div>
+      <div class="english">${item.english}</div>
+    </div>
+  `).join('');
+});
 </script>
+
 </body>
 </html>
