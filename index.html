@@ -15,253 +15,105 @@ body.dark h1{color:#eee}
 .btn{padding:9px 14px;border:none;border-radius:8px;margin:4px;font-weight:600;cursor:pointer}
 .btn-export{background:orange;color:#000}.btn-import{background:#10b981;color:#fff}.btn-dark{background:#222;color:#fff}
 .word{background:#fff;padding:16px;margin:10px 0;border-radius:10px;box-shadow:0 2px 5px rgba(0,0,0,.1);border-left:4px solid #3498db}
-body.dark.word{background:#222;border-left-color:#f39c12}
 .lamnso{font-size:21px;font-weight:bold;color:#c0392b;margin-bottom:5px}
 .english{font-size:16px;color:#34495e}
-body.dark.english{color:#ccc}
 #count{text-align:center;color:#7f8c8d;margin-bottom:15px}
 </style>
 </head>
 <body>
 <h1>📚 Lamnso Larry Njo Dictionary</h1>
 <p class="subtitle">NICC Bamdzeng • Nso Heritage Since 2007 • 3-Year Project to 2029</p>
-
 <div class="topbar">
 <button class="btn btn-dark" onclick="toggleDark()">🌙 Dark</button>
 <button class="btn btn-export" onclick="exportJSON()">📄 Export JSON</button>
 <label class="btn btn-import">📤 Import<input type="file" id="importFile" hidden onchange="importJSON(event)"></label>
 </div>
-
 <input type="text" id="search" placeholder="Type to search... e.g. Mendzəv or Water">
-<div id="count"></div>
+<div id="count">Loading dictionary...</div>
 <div id="results"></div>
-<div style="text-align:center;font-size:11px;color:#888;margin-top:30px" id="status">175 words • GitHub Safe • NICC Bamdzeng</div>
-
+<div style="text-align:center;font-size:11px;color:#888;margin-top:30px" id="status">GitHub Safe • NICC Bamdzeng</div>
 <script>
 let dictionary = [
-{lamnso:"Alùminyun", english:"Aluminium"},
-{lamnso:"Kilii", english:"Ant"},
-{lamnso:"Wanyeeto", english:"Ant eater"},
-{lamnso:"Ŋáv", english:"Antelope"},
-{lamnso:"Ntóŋ", english:"Anus"},
-{lamnso:"Kóoy", english:"Arm"},
-{lamnso:"Mvə̀n", english:"Arrow"},
-{lamnso:"Wóŋ'", english:"As he, a traditional society"},
-{lamnso:"Kimbébíy", english:"Ass"},
-{lamnso:"àntsernsai", english:"Ancestors"},
-{lamnso:"Ŋgùuy bí’", english:"Mathematics"},
-{lamnso:"Nshwáan lóm", english:"Excretory system"},
-{lamnso:"Kfə̀v vito", english:"Duodenum"},
-{lamnso:"Kito ke ŋkóŋ", english:"Tibia plateau"},
-{lamnso:"Bán tù'ur", english:"Alternating current"},
-{lamnso:"Mendzəv", english:"Water"},
-{lamnso:"Sóŋ", english:"Tooth"},
-{lamnso:"Tàr", english:"Father"},
-{lamnso:"Yìy", english:"Mother"},
-{lamnso:"Wan", english:"Child"},
-{lamnso:"Láv", english:"House"},
-{lamnso:"Bvəəy lóŋ", english:"Goat"},
-{lamnso:"Ná", english:"Cow"},
-{lamnso:"Ŋgə̀v", english:"Chicken"},
-{lamnso:"Viyikir", english:"Food"},
-{lamnso:"Kún", english:"Beans"},
-{lamnso:"Koki", english:"Koki beans"},
-{lamnso:"Ŋgashiŋa", english:"Cassava"},
-{lamnso:"Meŋwə̀ər", english:"Oil"},
-{lamnso:"Shiŋgwáŋ", english:"Salt"},
-{lamnso:"Ŋwáa", english:"Meeting"},
-{lamnso:"Lámnso", english:"Lamnso language"},
-{lamnso:"Nso", english:"Nso people"},
-{lamnso:"Fon", english:"King"},
-{lamnso:"Ŋgaywir", english:"Elder"},
-{lamnso:"Ŋwá Nyùy", english:"Bible"},
-{lamnso:"Nyùy", english:"God"},
-{lamnso:"Bunri", english:"Pray"},
-{lamnso:"Lá yè’ey", english:"School"},
-{lamnso:"Ŋwà", english:"Book"},
-{lamnso:"Kinsáŋ", english:"Pen"},
-{lamnso:"Ntáa", english:"Chair"},
-{lamnso:"Kitaatí", english:"Table"},
-{lamnso:"Dzə̀ə", english:"Road"},
-{lamnso:"Kitenten", english:"Car"},
-{lamnso:"Yikír", english:"Eat"},
-{lamnso:"Nú", english:"Drink"},
-{lamnso:"Mbùune", english:"Sleep"},
-{lamnso:"Yimén", english:"Wake up"},
-{lamnso:"Lim", english:"Work"},
-{lamnso:"Kishiiy", english:"Day"},
-{lamnso:"Vitsə́", english:"Night"},
-{lamnso:"Kiyá", english:"Year"},
-{lamnso:"Ŋgwee", english:"Month"},
-{lamnso:"Ŋgàm", english:"Week"},
-{lamnso:"Monlé", english:"Monday"},
-{lamnso:"Cúusidey", english:"Tuesday"},
-{lamnso:"Wenesidéy", english:"Wednesday"},
-{lamnso:"Tóosidey", english:"Thursday"},
-{lamnso:"Fə̀raydey", english:"Friday"},
-{lamnso:"Saatudéy", english:"Saturday"},
-{lamnso:"Sónlé", english:"Sunday"},
-{lamnso:"War", english:"Market"},
-{lamnso:"Là shiv", english:"Hospital"},
-{lamnso:"Ŋgaa shiv", english:"Doctor"},
-{lamnso:"Shív", english:"Medicine"},
-{lamnso:"Kitu", english:"Head"},
-{lamnso:"Sí'", english:"Eye"},
-{lamnso:"Kitù’ur", english:"Ear"},
-{lamnso:"Yúuy", english:"Nose"},
-{lamnso:"Shuu", english:"Mouth"},
-{lamnso:"Kiwó", english:"Hand"},
-{lamnso:"Shwíin", english:"Leg"},
-{lamnso:"Kitúr", english:"Stomach"},
-{lamnso:"Tíim", english:"Heart"},
-{lamnso:"Mentsə̀", english:"Blood"},
-{lamnso:"Wúm", english:"Egg"},
-{lamnso:"Sə̀", english:"Fish"},
-{lamnso:"Wúu", english:"Rain"},
-{lamnso:"Shúy", english:"Sun"},
-{lamnso:"Shijìy", english:"Star"},
-{lamnso:"Shwer", english:"Wind"},
+{lamnso:"Nta'", english:"chair"},
+{lamnso:"Kikún", english:"Bed"},
+{lamnso:"Bvə̀rnaŋkí", english:"Blanket"},
+{lamnso:"Mbuùy", english:"Pillow"},
+{lamnso:"Ŋkiŋkikùn", english:"Bed support"},
+{lamnso:"Tèŋlav", english:"Window"},
+{lamnso:"Kiseŋ", english:"Door shutter"},
+{lamnso:"Mfìn", english:"lock"},
+{lamnso:"Kinsə̀ŋ", english:"foundation"},
+{lamnso:"Kiboó", english:"Backyard"},
+{lamnso:"Mbvəmlav", english:"Inside the house"},
+{lamnso:"Kìy", english:"Fire place"},
+{lamnso:"Faási", english:"Fire place stone"},
 {lamnso:"Və́y", english:"Fire"},
-{lamnso:"Saamba", english:"Seven"},
-{lamnso:"Mve'ey, Sèké", english:"Chaff"},
-{lamnso:"Aay", english:"Negative"},
-{lamnso:"Abu'ur", english:"Boots (Rain boots)"},
-{lamnso:"Abve'ey", english:"Molars"},
-{lamnso:"A'kang", english:"Multiplication"},
-{lamnso:"A'kang tang", english:"Multiples"},
-{lamnso:"Anyur", english:"Onion"},
-{lamnso:"Kun vito", english:"Appendix"},
-{lamnso:"Báŋ se Ndzèn", english:"Testicles"},
-{lamnso:"Bà", english:"Knit"},
-{lamnso:"Shingeenge", english:"Smallest"},
-{lamnso:"Ba'mshuushiliv", english:"Inferior epigastrium"},
-{lamnso:"Banfogháŋ", english:"Side light"},
-{lamnso:"Bavkir, Baykir, Nge'", english:"Tickling sensation/Tingling"},
-{lamnso:"Báy", english:"to explode"},
-{lamnso:"Bè’ey", english:"carrier"},
-{lamnso:"Biimbvə̀v", english:"Assets"},
-{lamnso:"Biibi", english:"brown color"},
-{lamnso:"Biibiy", english:"parasite"},
-{lamnso:"Bi' jii", english:"Calculate"},
-{lamnso:"Bí’ bey", english:"Logic"},
-{lamnso:"Bínen", english:"copy"},
-{lamnso:"Réŋfeyi", english:"perfect"},
-{lamnso:"Nsáŋti vibooŋi", english:"aesthetic"},
-{lamnso:"Bùbá", english:"blouse"},
-{lamnso:"Bòjóo", english:"obesity"},
-{lamnso:"Fémsí", english:"deceive"},
-{lamnso:"Abodí", english:"Bra (breast wear)"},
-{lamnso:"Bùu", english:"appetite"},
-{lamnso:"Bubú", english:"phone"},
-{lamnso:"Bùŋ", english:"red"},
-{lamnso:"Bubúu", english:"cheek"},
-{lamnso:"Ntam réŋréŋ", english:"square measure"},
-{lamnso:"Buubvəm ŋkoovi", english:"Left lower quadrant"},
-{lamnso:"Bvə’ən", english:"flex"},
-{lamnso:"Bvəybvəəy", english:"eye lashes"},
-{lamnso:"Kiwuv ke sí", english:"eyelid"},
-{lamnso:"Kiyoy ke kiwuu", english:"sole of the foot"},
-{lamnso:"Bìi", english:"Camwood"},
-{lamnso:"Cíciwaar", english:"flag"},
-{lamnso:"Shuuyúm, ntsə̀tishuu", english:"unbelievable"},
-{lamnso:"Cí", english:"spoon"},
-{lamnso:"Saŋlem", english:"computer"},
-{lamnso:"Mnsoŋ", english:"creatures"},
-{lamnso:"Dám", english:"sperm"},
-{lamnso:"Mboor njàkòŋ", english:"dandillion"},
-{lamnso:"Mfí kóo", english:"height"},
-{lamnso:"Dinmbishwer", english:"wind vane"},
-{lamnso:"Bómen", english:"obese"},
-{lamnso:"Díŋ", english:"chin"},
-{lamnso:"Dinmbiv", english:"compass"},
-{lamnso:"Dinsàv", english:"Dictionary"},
-{lamnso:"Kifin (ke ŋwá)", english:"stamp"},
-{lamnso:"Dóon", english:"signature"},
-{lamnso:"Dóoŋ", english:"brain"},
-{lamnso:"Duayìi", english:"License"},
-{lamnso:"Dór shaa", english:"less than"},
-{lamnso:"Mfíi si ŋwá", english:"computer keyboard"},
-{lamnso:"Mòo yíi", english:"Method"},
-{lamnso:"Dzə̀ə yìi", english:"System"},
-{lamnso:"Nshásin baníŕ", english:"light system"},
-{lamnso:"Ghámsín", english:"embedded"},
-{lamnso:"Vidzə̀əsí", english:"weight"},
-{lamnso:"Mfí kúu", english:"amount"},
-{lamnso:"é fée", english:"to"},
-{lamnso:"Ée na", english:"Hello"},
-{lamnso:"é", english:"@"},
-{lamnso:"Bínsi", english:"positive"},
-{lamnso:"Faar", english:"reduce"},
-{lamnso:"Kemshó", english:"ego, interest"},
-{lamnso:"Mavkú", english:"extra large"},
-{lamnso:"é medà", english:"oblong"},
-{lamnso:"Fáa", english:"maogani (tree)"},
-{lamnso:"Fán", english:"fear"},
-{lamnso:"Shisí’nkwí", english:"flash drive"},
-{lamnso:"Féesi", english:"blow"},
-{lamnso:"Ton kiláya", english:"fumigate"},
-{lamnso:"Dòm é ki dú", english:"push away"},
-{lamnso:"Shàŋi, fə̀ŋ, kiyúy ke bí ki", english:"ordour"},
-{lamnso:"Luŋ fòfó", english:"Impact"},
-{lamnso:"Fə́vir", english:"white"},
-{lamnso:"Fə̀ə nsíi", english:"Certificate"},
-{lamnso:"Feesí", english:"Spray"},
-{lamnso:"Fəəsí", english:"crimwhite"},
-{lamnso:"Féem yó’", english:"paint"},
-{lamnso:"Fí’sin", english:"suffocate"},
-{lamnso:"Fó kitu", english:"helm"},
-{lamnso:"Nyumereeto", english:"Numerator"},
-{lamnso:"Kilá’ay", english:"Base"},
-{lamnso:"Kiyà ghə́əm", english:"Decade"},
-{lamnso:"Sártsə́n, ntúŋ kijàv", english:"Denominator"}
+{lamnso:"Cíŋkóo", english:"Cigarette pipe"},
+{lamnso:"Ntòn", english:"Small pot"},
+{lamnso:"Kiyúy", english:"Steam or vapour"},
+{lamnso:"Nsaàlav", english:"The Floor"},
+{lamnso:"Kitém", english:"Calabash"},
+{lamnso:"Kighín", english:"Calabash bowl"},
+{lamnso:"Kicí", english:"Tree"},
+{lamnso:"Tám kici", english:"Branch"},
+{lamnso:"Kibábár", english:"Dry leaf"},
+{lamnso:"Vàv", english:"Wet leaf"},
+{lamnso:"Kibuushì", english:"Flower"},
+{lamnso:"Bàŋ", english:"Fruit"},
+{lamnso:"Ŋgoòy", english:"Seed"},
+{lamnso:"Woŋrì kici", english:"Stem"},
+{lamnso:"Gháŋ", english:"Root"},
+{lamnso:"Nsay", english:"Soil"},
+{lamnso:"Ŋkənri", english:"Recapitulation"}
 ];
-
 const resultsDiv = document.getElementById('results');
 const countDiv = document.getElementById('count');
+async function loadDict(){
+ try{
+  let res = await fetch('lamnso.json?v='+Date.now());
+  if(res.ok){
+   let data = await res.json();
+   let jsonWords = [];
+   if(Array.isArray(data)){
+     if(data[0].lamnso) jsonWords = data;
+     else if(data[0].word) jsonWords = data.map(x=>({lamnso:x.word, english:x.meaning||x.english}));
+   }
+   // merge, remove duplicates
+   let seen = new Set(dictionary.map(d=>d.lamnso.toLowerCase()));
+   jsonWords.forEach(w=>{ if(w.lamnso &&!seen.has(w.lamnso.toLowerCase())){ dictionary.push(w); seen.add(w.lamnso.toLowerCase()); } });
+  }
+ }catch(e){ console.log('Could not load lamnso.json', e); }
+ show('');
+}
 document.getElementById('search').oninput = e => show(e.target.value.toLowerCase());
-
 function show(q){
   let filtered = dictionary.filter(i=>i.lamnso.toLowerCase().includes(q)||i.english.toLowerCase().includes(q));
   let out = filtered.map(i=>`<div class="word"><div class="lamnso">${i.lamnso}</div><div class="english">${i.english}</div></div>`).join('');
   resultsDiv.innerHTML = out || 'No results found. Try another word.';
   countDiv.innerHTML = q? `${filtered.length} results` : `${dictionary.length} words in dictionary - NICC Bamdzeng`;
+  document.getElementById('status').innerText = `${dictionary.length} words • GitHub Safe • NICC Bamdzeng`;
 }
-
-function toggleDark(){
-  document.body.classList.toggle('dark');
-  localStorage.setItem('dark', document.body.classList.contains('dark')?'1':'0');
-}
+function toggleDark(){ document.body.classList.toggle('dark'); localStorage.setItem('dark', document.body.classList.contains('dark')?'1':'0'); }
 if(localStorage.getItem('dark')==='1') document.body.classList.add('dark');
-
 function exportJSON(){
   let data=JSON.stringify(dictionary,null,2);
   let blob=new Blob([data],{type:'application/json'});
-  let a=document.createElement('a');
-  let d=new Date().toISOString().slice(0,10);
-  a.href=URL.createObjectURL(blob);
-  a.download='Lamnso_175words_'+d+'.json';
-  a.click();
-  document.getElementById('status').innerText='Backed up '+d+' • '+dictionary.length+' words • Safe on GitHub';
+  let a=document.createElement('a'); let d=new Date().toISOString().slice(0,10);
+  a.href=URL.createObjectURL(blob); a.download='Lamnso_'+dictionary.length+'words_'+d+'.json'; a.click();
 }
-
 function importJSON(e){
   let file=e.target.files[0]; if(!file) return;
-  let r=new FileReader();
-  r.onload=ev=>{
+  let r=new FileReader(); r.onload=ev=>{
     try{
       let imp=JSON.parse(ev.target.result);
       if(!Array.isArray(imp)) throw 0;
       if(imp.length>0 && imp[0].lamnso){ dictionary=imp; }
       else if(imp.length>0 && imp[0].word){ dictionary=imp.map(x=>({lamnso:x.word, english:x.meaning})); }
-      else throw 0;
-      show('');
-      alert('Imported '+dictionary.length+' words! Now save index.html to GitHub');
+      else throw 0; show(''); alert('Imported '+dictionary.length+' words! Now commit this index.html');
     }catch{ alert('Invalid JSON file'); }
-  };
-  r.readAsText(file);
+  }; r.readAsText(file);
 }
-
-show('');
+loadDict();
 </script>
 </body>
 </html>
