@@ -1,119 +1,57 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Lamnso Larry Njo Dictionary - NICC Bamdzeng</title>
-<style>
-body{font-family:Arial,sans-serif;max-width:900px;margin:0 auto;padding:20px;background:#f5f5f5;transition:0.3s}
-body.dark{background:#111;color:#eee}
-h1{text-align:center;color:#2c3e50;margin-bottom:10px}
-body.dark h1{color:#eee}
-.subtitle{text-align:center;color:#7f8c8d;margin-bottom:15px}
-#search{width:100%;padding:14px;font-size:17px;border:2px solid #3498db;border-radius:10px;margin-bottom:15px;box-sizing:border-box}
-.topbar{text-align:center;margin-bottom:15px}
-.btn{padding:9px 14px;border:none;border-radius:8px;margin:4px;font-weight:600;cursor:pointer}
-.btn-export{background:orange;color:#000}.btn-import{background:#10b981;color:#fff}.btn-dark{background:#222;color:#fff}
-.word{background:#fff;padding:16px;margin:10px 0;border-radius:10px;box-shadow:0 2px 5px rgba(0,0,0,.1);border-left:4px solid #3498db}
-.lamnso{font-size:21px;font-weight:bold;color:#c0392b;margin-bottom:5px}
-.english{font-size:16px;color:#34495e}
-#count{text-align:center;color:#7f8c8d;margin-bottom:15px}
-</style>
-</head>
-<body>
-<h1>📚 Lamnso Larry Njo Dictionary</h1>
-<p class="subtitle">NICC Bamdzeng • Nso Heritage Since 2007 • 3-Year Project to 2029</p>
-<div class="topbar">
-<button class="btn btn-dark" onclick="toggleDark()">🌙 Dark</button>
-<button class="btn btn-export" onclick="exportJSON()">📄 Export JSON</button>
-<label class="btn btn-import">📤 Import<input type="file" id="importFile" hidden onchange="importJSON(event)"></label>
+<!DOCTYPE html><html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Lamnso Dictionary - Larry Njo</title>
+<style>:root{--bg:#f6f8f6;--card:#fff;--text:#111;--green:#0d4a0d;--bd:#ddd}.dark{--bg:#0f1710;--card:#1b2a1d;--text:#e8f5e9;--bd:#2a4a2e}
+*{box-sizing:border-box}body{max-width:900px;margin:auto;padding:12px;background:var(--bg);color:var(--text);font-family:system-ui}h1{text-align:center;color:var(--green)}
+input,select{width:100%;padding:14px;border:2px solid var(--green);border-radius:12px;background:var(--card);color:var(--text);margin:5px 0}
+.btn{padding:8px 14px;border:1px solid var(--bd);border-radius:20px;background:var(--card);color:var(--text);cursor:pointer;margin:3px}
+.btn.active{background:var(--green);color:#fff}.card{background:var(--card);border:1px solid var(--bd);padding:12px;margin:8px 0;border-radius:12px}
+.l{font-weight:bold;color:var(--green);font-size:18px}.pos{font-size:11px;background:#e8f5e9;padding:2px 8px;border-radius:10px}
+#addBox{display:none;background:var(--card);border:2px solid var(--green);padding:15px;border-radius:15px;margin:10px 0}
+</style></head><body>
+<h1>📖 Lamnso Dictionary</h1><p style="text-align:center">Larry Njo - Nso Heritage</p>
+<div style="text-align:center">
+<button class="btn" onclick="document.body.classList.toggle('dark')">🌙 Dark Mode</button>
+<button class="btn" style="background:var(--green);color:#fff" onclick="toggleAdd()">➕ Add Word</button>
+<button class="btn" onclick="document.getElementById('fileIn').click()">📥 Import CSV/JSON</button>
+<button class="btn" onclick="exportJSON()">⬇️ Export</button>
+<button class="btn" onclick="removeDup()">🧹 Duplicates</button>
+<input type="file" id="fileIn" hidden accept=".json,.csv">
 </div>
-<input type="text" id="search" placeholder="Type to search... e.g. Mendzəv or Water">
-<div id="count">Loading dictionary...</div>
-<div id="results"></div>
-<div style="text-align:center;font-size:11px;color:#888;margin-top:30px" id="status">GitHub Safe • NICC Bamdzeng</div>
+
+<div id="addBox">
+<h3>➕ Add New Word</h3>
+<input id="newLamnso" placeholder="Lamnso word e.g. Mendzəv">
+<input id="newEng" placeholder="English e.g. Water">
+<select id="newPos"><option value="noun">Noun</option><option value="verb">Verb</option><option value="adjective">Adjective</option><option value="greeting">Greeting</option><option value="number">Number</option><option value="other">Other</option></select>
+<button class="btn active" onclick="addWord()">Save Word ✅</button>
+<button class="btn" onclick="toggleAdd()">Cancel</button>
+</div>
+
+<input id="q" placeholder="Search... mendzəv, water">
+<div style="text-align:center;margin:10px" id="cats">
+<button class="btn active" data-c="all">All</button><button class="btn" data-c="noun">Nouns</button><button class="btn" data-c="verb">Verbs</button><button class="btn" data-c="adjective">Adjectives</button><button class="btn" data-c="greeting">Greetings</button><button class="btn" data-c="number">Numbers</button><button class="btn" data-c="other">Others</button>
+</div>
+<div id="count" style="text-align:center;font-weight:bold">Loading...</div><div id="list"></div>
 <script>
-let dictionary = [
-{lamnso:"Nta'", english:"chair"},
-{lamnso:"Kikún", english:"Bed"},
-{lamnso:"Bvə̀rnaŋkí", english:"Blanket"},
-{lamnso:"Mbuùy", english:"Pillow"},
-{lamnso:"Ŋkiŋkikùn", english:"Bed support"},
-{lamnso:"Tèŋlav", english:"Window"},
-{lamnso:"Kiseŋ", english:"Door shutter"},
-{lamnso:"Mfìn", english:"lock"},
-{lamnso:"Kinsə̀ŋ", english:"foundation"},
-{lamnso:"Kiboó", english:"Backyard"},
-{lamnso:"Mbvəmlav", english:"Inside the house"},
-{lamnso:"Kìy", english:"Fire place"},
-{lamnso:"Faási", english:"Fire place stone"},
-{lamnso:"Və́y", english:"Fire"},
-{lamnso:"Cíŋkóo", english:"Cigarette pipe"},
-{lamnso:"Ntòn", english:"Small pot"},
-{lamnso:"Kiyúy", english:"Steam or vapour"},
-{lamnso:"Nsaàlav", english:"The Floor"},
-{lamnso:"Kitém", english:"Calabash"},
-{lamnso:"Kighín", english:"Calabash bowl"},
-{lamnso:"Kicí", english:"Tree"},
-{lamnso:"Tám kici", english:"Branch"},
-{lamnso:"Kibábár", english:"Dry leaf"},
-{lamnso:"Vàv", english:"Wet leaf"},
-{lamnso:"Kibuushì", english:"Flower"},
-{lamnso:"Bàŋ", english:"Fruit"},
-{lamnso:"Ŋgoòy", english:"Seed"},
-{lamnso:"Woŋrì kici", english:"Stem"},
-{lamnso:"Gháŋ", english:"Root"},
-{lamnso:"Nsay", english:"Soil"},
-{lamnso:"Ŋkənri", english:"Recapitulation"}
-];
-const resultsDiv = document.getElementById('results');
-const countDiv = document.getElementById('count');
-async function loadDict(){
- try{
-  let res = await fetch('lamnso.json?v='+Date.now());
-  if(res.ok){
-   let data = await res.json();
-   let jsonWords = [];
-   if(Array.isArray(data)){
-     if(data[0].lamnso) jsonWords = data;
-     else if(data[0].word) jsonWords = data.map(x=>({lamnso:x.word, english:x.meaning||x.english}));
-   }
-   // merge, remove duplicates
-   let seen = new Set(dictionary.map(d=>d.lamnso.toLowerCase()));
-   jsonWords.forEach(w=>{ if(w.lamnso &&!seen.has(w.lamnso.toLowerCase())){ dictionary.push(w); seen.add(w.lamnso.toLowerCase()); } });
-  }
- }catch(e){ console.log('Could not load lamnso.json', e); }
- show('');
-}
-document.getElementById('search').oninput = e => show(e.target.value.toLowerCase());
-function show(q){
-  let filtered = dictionary.filter(i=>i.lamnso.toLowerCase().includes(q)||i.english.toLowerCase().includes(q));
-  let out = filtered.map(i=>`<div class="word"><div class="lamnso">${i.lamnso}</div><div class="english">${i.english}</div></div>`).join('');
-  resultsDiv.innerHTML = out || 'No results found. Try another word.';
-  countDiv.innerHTML = q? `${filtered.length} results` : `${dictionary.length} words in dictionary - NICC Bamdzeng`;
-  document.getElementById('status').innerText = `${dictionary.length} words • GitHub Safe • NICC Bamdzeng`;
-}
-function toggleDark(){ document.body.classList.toggle('dark'); localStorage.setItem('dark', document.body.classList.contains('dark')?'1':'0'); }
-if(localStorage.getItem('dark')==='1') document.body.classList.add('dark');
-function exportJSON(){
-  let data=JSON.stringify(dictionary,null,2);
-  let blob=new Blob([data],{type:'application/json'});
-  let a=document.createElement('a'); let d=new Date().toISOString().slice(0,10);
-  a.href=URL.createObjectURL(blob); a.download='Lamnso_'+dictionary.length+'words_'+d+'.json'; a.click();
-}
-function importJSON(e){
-  let file=e.target.files[0]; if(!file) return;
-  let r=new FileReader(); r.onload=ev=>{
+let all=[],cat='all';fetch('./lamnso.json').then(r=>r.json()).then(d=>{all=d;update()}).catch(e=>{document.getElementById('count').innerText='Error: '+e});
+function update(){document.getElementById('count').innerText=all.length+' words loaded ✅';apply(document.getElementById('q').value)}
+function render(a){let h='';a.slice(0,500).forEach(o=>{h+=`<div class="card"><span class="l">${o.lamnso}</span><span class="pos">${o.pos}</span><div>${o.english}</div></div>`});document.getElementById('list').innerHTML=h||'No words found'}
+document.getElementById('q').addEventListener('input',e=>apply(e.target.value));
+document.querySelectorAll('#cats.btn').forEach(b=>b.addEventListener('click',()=>{document.querySelectorAll('#cats.btn').forEach(x=>x.classList.remove('active'));b.classList.add('active');cat=b.dataset.c;apply(document.getElementById('q').value)}));
+function apply(q=''){q=q.toLowerCase();let f=all.filter(o=>{if(cat!='all'&&o.pos!=cat)return false;return!q||(o.lamnso+' '+o.english).toLowerCase().includes(q)});document.getElementById('count').innerText=f.length+' / '+all.length+' words • '+cat;render(f)}
+function toggleAdd(){let b=document.getElementById('addBox');b.style.display=b.style.display==='none'?'block':'none'}
+function addWord(){let l=document.getElementById('newLamnso').value.trim(),e=document.getElementById('newEng').value.trim(),p=document.getElementById('newPos').value;if(!l||!e)return alert('Fill both words');all.unshift({lamnso:l,english:e,pos:p});document.getElementById('newLamnso').value='';document.getElementById('newEng').value='';toggleAdd();update();alert('Added! Now Export to save');}
+function exportJSON(){let blob=new Blob([JSON.stringify(all,null,2)],{type:'application/json'});let a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='lamnso.json';a.click()}
+function removeDup(){let seen=new Set(),out=[];all.forEach(o=>{let k=(o.lamnso+'|'+o.english).toLowerCase();if(!seen.has(k)){seen.add(k);out.push(o)}});alert((all.length-out.length)+' removed');all=out;update()}
+document.getElementById('fileIn').addEventListener('change',e=>{
+  let file=e.target.files[0];if(!file)return;let r=new FileReader();
+  r.onload=ev=>{
     try{
-      let imp=JSON.parse(ev.target.result);
-      if(!Array.isArray(imp)) throw 0;
-      if(imp.length>0 && imp[0].lamnso){ dictionary=imp; }
-      else if(imp.length>0 && imp[0].word){ dictionary=imp.map(x=>({lamnso:x.word, english:x.meaning})); }
-      else throw 0; show(''); alert('Imported '+dictionary.length+' words! Now commit this index.html');
-    }catch{ alert('Invalid JSON file'); }
-  }; r.readAsText(file);
-}
-loadDict();
-</script>
-</body>
-</html>
+      if(file.name.endsWith('.json')){let d=JSON.parse(ev.target.result);all=all.concat(d.map(x=>({lamnso:x.lamnso||x.word,english:x.english||x.meaning,pos:(x.pos||x.type||'noun').toLowerCase()})))}
+      else{let lines=ev.target.result.split('\n');lines.slice(1).forEach(line=>{let c=line.split(',');if(c.length>=2){let lam=c[0].replace(/"/g,'').trim(),eng=c[1].replace(/"/g,'').trim(),pos=(c[2]||'noun').replace(/"/g,'').trim().toLowerCase();if(lam&&eng)all.push({lamnso:lam,english:eng,pos:pos})}})}
+      alert(file.name+' imported! Total: '+all.length+' words. Now click Export!');update();
+    }catch(err){alert('Import error: '+err)}
+  };
+  if(file.name.endsWith('.json'))r.readAsText(file);else r.readAsText(file);
+});
+</script></body></html>
