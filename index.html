@@ -13,6 +13,7 @@
  .toolbar{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;padding:12px;background:var(--card);box-shadow:0 2px 6px rgba(0,0,0,.08);position:sticky;top:0;z-index:20}
  .tool{padding:8px 14px;border-radius:20px;border:1px solid #ddd;background:var(--card);color:var(--text);font-size:13px;cursor:pointer}
  .tool.primary{background:var(--red);color:#fff;border-color:var(--red);font-weight:bold}
+ .tool.danger{background:#dc3545;color:#fff;border-color:#dc3545;font-weight:bold}
  .tool.active{background:var(--red);color:#fff}
  .searchWrap{padding:12px;background:var(--card)}
  .searchWrap input{width:100%;padding:14px 16px;border:2px solid #f0c36a;border-radius:12px;font-size:16px;background:var(--bg);color:var(--text);outline:none}
@@ -43,7 +44,8 @@
   <button class="tool primary" onclick="openModal()">➕ Add Word</button>
   <button class="tool" onclick="document.getElementById('fileInput').click()">📥 Import CSV/JSON</button>
   <button class="tool" onclick="exportJSON()">📤 Export</button>
-  <button class="tool" onclick="showDuplicates()">🖊️ Duplicates</button>
+  <button class="tool" onclick="showDuplicates()">👁️ View Duplicates</button>
+  <button class="tool danger" onclick="deleteDuplicates()">🗑️ Clear Duplicates</button>
 </div>
 
 <div class="searchWrap">
@@ -84,7 +86,7 @@ async function load(){
     let r=await fetch('lamnso.json?v='+Date.now()); if(!r.ok) r=await fetch('dictionary.json?v='+Date.now());
     const data=await r.json(); baseWords=data.map(x=>({word:x.word||x.lamnso||'',meaning:x.meaning||x.english||'',type:(x.type||'noun').toLowerCase(),example:x.example||''})).filter(x=>x.word);
   }catch(e){ baseWords=[]; }
-  allWords=[...customWords,...baseWords.filter(b=>!customWords.some(c=>c.word.toLowerCase()===b.word.toLowerCase()))];
+  allWords=[...customWords,...baseWords.filter(b=>!customWords.some(c=>c.word.toLowerCase().trim()===b.word.toLowerCase().trim()))];
   render(allWords);
 }
 function render(list){
@@ -111,7 +113,10 @@ function closeModal(){document.getElementById('modal').classList.remove('open');
 function saveWord(){
   const word=document.getElementById('w').value.trim(), meaning=document.getElementById('m').value.trim(), type=document.getElementById('t').value, ex=document.getElementById('e').value.trim();
   if(!word||!meaning) return alert('Enter Lamnso and English');
-  customWords=customWords.filter(x=>x.word.toLowerCase()!==word.toLowerCase());
+  if(customWords.some(x=>x.word.toLowerCase().trim()===word.toLowerCase().trim())){
+    if(!confirm(`"${word}" already exists! Replace it?`)) return;
+  }
+  customWords=customWords.filter(x=>x.word.toLowerCase().trim()!==word.toLowerCase().trim());
   customWords.unshift({word,meaning,type,example:ex});
   localStorage.setItem('lamnso_custom', JSON.stringify(customWords)); closeModal(); load();
 }
@@ -121,20 +126,52 @@ function exportJSON(){
 }
 function showDuplicates(){
   const seen={}; const dups=[];
-  allWords.forEach(x=>{ const k=x.word.toLowerCase(); if(seen[k]) dups.push(x.word); seen[k]=1; });
-  if(!dups.length) alert('No duplicates found ✅'); else alert('Duplicates: \n'+[...new Set(dups)].join('\n'));
+  allWords.forEach(x=>{ const k=x.word.toLowerCase().trim(); if(seen[k]) dups.push(x.word); seen[k]=1; });
+  if(!dups.length) alert('No duplicates found ✅'); else alert('Duplicates Found ('+[...new Set(dups)].length+'): \n'+[...new Set(dups)].join('\n')+'\n\nClick 🗑️ Clear Duplicates to delete them!');
+}
+function deleteDuplicates(){
+  if(allWords.length===0){ alert('No words to clean'); return; }
+  if(!confirm(`Founder, delete all duplicate Lamnso words? You have ${allWords.length} words now. This will keep only 1 of each word.`)) return;
+  
+  let seen = new Set();
+  let cleanCustom = [];
+  let delCustom = 0;
+  
+  // Clean customWords
+  for(let w of customWords){
+    let k = (w.word||'').trim().toLowerCase();
+    if(!k) continue;
+    if(!seen.has(k)){ seen.add(k); cleanCustom.push(w); }
+    else { delCustom++; }
+  }
+  
+  // Clean also against baseWords for export safety
+  let seenAll = new Set();
+  let cleanAll = [];
+  let delAll = 0;
+  for(let w of allWords){
+    let k = (w.word||'').trim().toLowerCase();
+    if(!k) continue;
+    if(!seenAll.has(k)){ seenAll.add(k); cleanAll.push(w); }
+    else { delAll++; }
+  }
+
+  customWords = cleanCustom;
+  localStorage.setItem('lamnso_custom', JSON.stringify(customWords));
+  load();
+  alert(`Done Founder Njolai!\n\nDeleted from your edits: ${delCustom}\nTotal duplicates removed: ${delAll}\nClean total now: ${cleanAll.length}\n\nNow click 📤 Export to get clean lamnso.json!`);
 }
 document.getElementById('fileInput').addEventListener('change', async e=>{
   const file=e.target.files[0]; if(!file) return; const text=await file.text();
   try{
     let imported=[];
     if(file.name.endsWith('.json')){ const j=JSON.parse(text); imported=j.map(x=>({word:x.word||x.lamnso,meaning:x.meaning||x.english,type:(x.type||'noun').toLowerCase(),example:x.example||''})); }
-    else{ // CSV
+    else{
       const lines=text.split('\n'); const headers=lines[0].toLowerCase();
       const wi=headers.split(',').findIndex(h=>h.includes('lamnso')||h.includes('word')), mi=headers.split(',').findIndex(h=>h.includes('english')||h.includes('meaning'));
       for(let i=1;i<lines.length;i++){ const cols=lines[i].split(','); if(cols.length>1){ imported.push({word:cols[wi]||cols[0],meaning:cols[mi]||cols[1],type:(cols[2]||'noun').toLowerCase(),example:cols[3]||''}); } }
     }
-    customWords=[...imported,...customWords]; localStorage.setItem('lamnso_custom', JSON.stringify(customWords)); alert(`Imported ${imported.length} words! Now click Export to save.`); load();
+    customWords=[...imported,...customWords]; localStorage.setItem('lamnso_custom', JSON.stringify(customWords)); alert(`Imported ${imported.length} words! Now click 🗑️ Clear Duplicates to clean.`); load();
   }catch(err){ alert('Import failed: '+err.message); }
 });
 load();
