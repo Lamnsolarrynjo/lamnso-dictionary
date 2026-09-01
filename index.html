@@ -1,179 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Lamnso Dictionary - Dinsav</title>
-<style>
-  :root{--red:#8B0000;--bg:#fdfaf3;--card:#fff;--text:#222;--muted:#777}
-  body.dark{--bg:#121212;--card:#1e1e1e;--text:#eee;--muted:#aaa}
-  *{box-sizing:border-box} body{margin:0;background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif;transition:.2s}
-  header{background:var(--red);color:#fff;padding:18px;text-align:center}
-  header h1{margin:0;font-size:22px} header p{margin:4px 0 0;font-size:13px;opacity:.9}
- .toolbar{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;padding:12px;background:var(--card);box-shadow:0 2px 6px rgba(0,0,0,.08);position:sticky;top:0;z-index:20}
- .tool{padding:8px 14px;border-radius:20px;border:1px solid #ddd;background:var(--card);color:var(--text);font-size:13px;cursor:pointer}
- .tool.primary{background:var(--red);color:#fff;border-color:var(--red);font-weight:bold}
- .tool.danger{background:#dc3545;color:#fff;border-color:#dc3545;font-weight:bold}
- .tool.active{background:var(--red);color:#fff}
- .searchWrap{padding:12px;background:var(--card)}
- .searchWrap input{width:100%;padding:14px 16px;border:2px solid #f0c36a;border-radius:12px;font-size:16px;background:var(--bg);color:var(--text);outline:none}
- .pills{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;padding:10px}
- .pill{padding:6px 14px;border-radius:20px;border:1px solid #ddd;background:var(--card);color:var(--text);font-size:13px;cursor:pointer}
- .pill.active{background:#0a5c36;color:#fff;border-color:#0a5c36}
-  #count{text-align:center;padding:8px;font-weight:bold;color:var(--red);font-size:14px}
-  #list{padding:12px;display:grid;gap:10px;grid-template-columns:repeat(auto-fill,minmax(280px,1fr))}
- .card{background:var(--card);border-radius:12px;padding:14px;box-shadow:0 2px 6px rgba(0,0,0,.07);border-left:5px solid var(--red)}
- .lam{font-weight:bold;font-size:18px;color:var(--red)}.type{font-size:11px;background:#f0e6d3;color:#5a3e1b;padding:2px 7px;border-radius:10px;margin-left:6px}
- .eng{margin-top:4px}
-  #modal{position:fixed;inset:0;background:rgba(0,0,0,.6);display:none;align-items:center;justify-content:center;z-index:99;padding:15px}
-  #modal.open{display:flex} #box{background:var(--card);border-radius:16px;padding:20px;width:100%;max-width:420px}
-  #box h3{margin:0 0 10px;color:var(--red)} #box input,#box select{width:100%;padding:12px;margin:6px 0;border:1px solid #ccc;border-radius:8px;font-size:15px}
- .row{display:flex;gap:10px;margin-top:10px}.btn{flex:1;padding:12px;border:none;border-radius:8px;font-weight:bold;cursor:pointer}
- .btn-save{background:var(--red);color:#fff}.btn-cancel{background:#ccc}
- .footer{text-align:center;padding:18px;color:var(--muted);font-size:12px}
-</style>
-</head>
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Lamnso Dictionary - Dinsav</title>
+<style>:root{--red:#8B0000;--bg:#fdfaf3;--card:#fff;--text:#222;--muted:#777}body.dark{--bg:#121212;--card:#1e1e1e;--text:#eee;--muted:#aaa}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif;transition:.2s}header{background:var(--red);color:#fff;padding:18px;text-align:center}header h1{margin:0;font-size:22px}header p{margin:4px 0 0;font-size:13px;opacity:.9}.toolbar{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;padding:12px;background:var(--card);box-shadow:0 2px 6px rgba(0,0,0,.08);position:sticky;top:0;z-index:20}.tool{padding:8px 14px;border-radius:20px;border:1px solid #ddd;background:var(--card);color:var(--text);font-size:13px;cursor:pointer}.tool.primary{background:var(--red);color:#fff;border-color:var(--red);font-weight:bold}.tool.danger{background:#dc3545;color:#fff;border-color:#dc3545;font-weight:bold}.searchWrap{padding:12px;background:var(--card)}.searchWrap input{width:100%;padding:14px 16px;border:2px solid #f0c36a;border-radius:12px;font-size:16px;background:var(--bg);color:var(--text);outline:none}.pills{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;padding:10px}.pill{padding:6px 14px;border-radius:20px;border:1px solid #ddd;background:var(--card);color:var(--text);font-size:13px;cursor:pointer}.pill.active{background:#0a5c36;color:#fff;border-color:#0a5c36}#count{text-align:center;padding:8px;font-weight:bold;color:var(--red);font-size:14px}#list{padding:12px;display:grid;gap:10px;grid-template-columns:repeat(auto-fill,minmax(280px,1fr))}.card{background:var(--card);border-radius:12px;padding:14px;box-shadow:0 2px 6px rgba(0,0,0,.07);border-left:5px solid var(--red)}.lam{font-weight:bold;font-size:18px;color:var(--red)}.type{font-size:11px;background:#f0e6d3;color:#5a3e1b;padding:2px 7px;border-radius:10px;margin-left:6px}.eng{margin-top:4px}#modal{position:fixed;inset:0;background:rgba(0,0,0,.6);display:none;align-items:center;justify-content:center;z-index:99;padding:15px}#modal.open{display:flex}#box{background:var(--card);border-radius:16px;padding:20px;width:100%;max-width:420px}#box h3{margin:0 0 10px;color:var(--red)}#box input,#box select{width:100%;padding:12px;margin:6px 0;border:1px solid #ccc;border-radius:8px;font-size:15px}.row{display:flex;gap:10px;margin-top:10px}.btn{flex:1;padding:12px;border:none;border-radius:8px;font-weight:bold;cursor:pointer}.btn-save{background:var(--red);color:#fff}.btn-cancel{background:#ccc}.footer{text-align:center;padding:18px;color:var(--muted);font-size:12px}#importModal{position:fixed;inset:0;background:rgba(0,0,0,.6);display:none;align-items:center;justify-content:center;z-index:100;padding:15px}#importModal.open{display:flex}#importBox{background:var(--card);border-radius:16px;padding:20px;width:100%;max-width:500px;max-height:90vh;overflow-y:auto}#importBox h3{margin:0 0 10px;color:var(--red)}#importText{width:100%;height:180px;padding:12px;border:1.5px solid #ccc;border-radius:10px;font-family:monospace;font-size:13px;background:var(--bg);color:var(--text)}</style></head>
 <body>
-<header>
-  <h1>📖 Lamnso Dictionary</h1>
-  <p>Larry Njo - Nso Heritage</p>
-</header>
-
-<div class="toolbar">
-  <button class="tool" onclick="toggleDark()">🌙 Dark Mode</button>
-  <button class="tool primary" onclick="openModal()">➕ Add Word</button>
-  <button class="tool" onclick="document.getElementById('fileInput').click()">📥 Import CSV/JSON</button>
-  <button class="tool" onclick="exportJSON()">📤 Export</button>
-  <button class="tool" onclick="showDuplicates()">👁️ View Duplicates</button>
-  <button class="tool danger" onclick="deleteDuplicates()">🗑️ Clear Duplicates</button>
-</div>
-
-<div class="searchWrap">
-  <input id="q" type="text" placeholder="Search Lamnso or English... e.g. Kimbébiy" oninput="doSearch()">
-</div>
-
-<div class="pills" id="pills">
-  <button class="pill active" data-t="all" onclick="setType('all')">All</button>
-  <button class="pill" data-t="noun" onclick="setType('noun')">Nouns</button>
-  <button class="pill" data-t="verb" onclick="setType('verb')">Verbs</button>
-  <button class="pill" data-t="adjective" onclick="setType('adjective')">Adjectives</button>
-  <button class="pill" data-t="greeting" onclick="setType('greeting')">Greetings</button>
-  <button class="pill" data-t="number" onclick="setType('number')">Numbers</button>
-  <button class="pill" data-t="other" onclick="setType('other')">Others</button>
-</div>
-
-<div id="count">Loading...</div>
-<div id="list"></div>
-<div class="footer">Works offline in Acodes • Add words then Export → upload lamnso.json to GitHub</div>
-
+<header><h1>📖 Lamnso Dictionary</h1><p>Larry Njo - Nso Heritage</p></header>
+<div class="toolbar"><button class="tool" onclick="toggleDark()">🌙 Dark Mode</button><button class="tool primary" onclick="openModal()">➕ Add Word</button><button class="tool" onclick="showImportModal()">📥 Import Words</button><button class="tool" onclick="exportJSON()">📤 Export</button><button class="tool" onclick="showDuplicates()">👁️ View Duplicates</button><button class="tool danger" onclick="deleteDuplicates()">🗑️ Clear Duplicates</button></div>
+<div class="searchWrap"><input id="q" type="text" placeholder="Search Lamnso or English... e.g. Kimbébíy" oninput="doSearch()"></div>
+<div class="pills" id="pills"><button class="pill active" data-t="all" onclick="setType('all')">All</button><button class="pill" data-t="noun" onclick="setType('noun')">Nouns</button><button class="pill" data-t="verb" onclick="setType('verb')">Verbs</button><button class="pill" data-t="adjective" onclick="setType('adjective')">Adjectives</button><button class="pill" data-t="greeting" onclick="setType('greeting')">Greetings</button><button class="pill" data-t="number" onclick="setType('number')">Numbers</button><button class="pill" data-t="other" onclick="setType('other')">Others</button></div>
+<div id="count">Loading...</div><div id="list"></div><div class="footer">Works offline in Acodes • Add words then Export → upload lamnso.json to GitHub</div>
 <input type="file" id="fileInput" accept=".json,.csv" hidden>
-
-<div id="modal"><div id="box">
-  <h3>Add / Edit Word</h3>
-  <input id="w" placeholder="Lamnso e.g. Kimbébíy">
-  <input id="m" placeholder="English e.g. Ass / Donkey">
-  <select id="t"><option value="noun">noun</option><option value="verb">verb</option><option value="adjective">adjective</option><option value="greeting">greeting</option><option value="number">number</option><option value="pronoun">pronoun</option><option value="other">other</option></select>
-  <input id="e" placeholder="Example (optional)">
-  <div class="row"><button class="btn btn-save" onclick="saveWord()">Save</button><button class="btn btn-cancel" onclick="closeModal()">Cancel</button></div>
-</div></div>
-
+<div id="modal"><div id="box"><h3>Add / Edit Word</h3><input id="w" placeholder="Lamnso e.g. Kimbébíy"><input id="m" placeholder="English e.g. Ass / Donkey"><select id="t"><option value="noun">noun</option><option value="verb">verb</option><option value="adjective">adjective</option><option value="greeting">greeting</option><option value="number">number</option><option value="pronoun">pronoun</option><option value="other">other</option></select><input id="e" placeholder="Example (optional)"><div class="row"><button class="btn btn-save" onclick="saveWord()">Save</button><button class="btn btn-cancel" onclick="closeModal()">Cancel</button></div></div></div>
+<div id="importModal"><div id="importBox"><h3>📥 Import Words</h3><p style="font-size:13px;color:var(--muted);margin:0 0 8px;">Paste your JSON array here:</p><textarea id="importText" placeholder='[{"word":"Ndo","meaning":"Come","type":"verb","example":""}]'></textarea><p style="font-size:13px;margin:12px 0 6px;">Or upload file (JSON or CSV):</p><input type="file" id="importFile" accept=".json,.csv" style="width:100%;padding:8px;border:1px dashed #ccc;border-radius:8px;margin-bottom:12px;"><div style="display:flex;gap:15px;margin:10px 0;font-size:13px;"><label><input type="radio" name="impMode" value="merge" checked> Merge (add)</label><label><input type="radio" name="impMode" value="replace"> Replace (wipe first)</label></div><div style="font-size:11px;color:#888;margin-bottom:12px;">Auto-fixes extra quotes like "Alùminyun" → Alùminyun • Fixes � encoding</div><div class="row"><button class="btn btn-save" onclick="doEasyImport()">Import</button><button class="btn btn-cancel" onclick="closeImportModal()">Cancel</button></div></div></div>
 <script>
 let baseWords=[], customWords=JSON.parse(localStorage.getItem('lamnso_custom')||'[]'), allWords=[], currentType='all';
 function isDark(){return localStorage.getItem('dark')==='1'}; if(isDark()) document.body.classList.add('dark');
 function toggleDark(){document.body.classList.toggle('dark'); localStorage.setItem('dark', document.body.classList.contains('dark')?'1':'0');}
 async function load(){
-  try{
-    let r=await fetch('lamnso.json?v='+Date.now()); if(!r.ok) r=await fetch('dictionary.json?v='+Date.now());
-    const data=await r.json(); baseWords=data.map(x=>({word:x.word||x.lamnso||'',meaning:x.meaning||x.english||'',type:(x.type||'noun').toLowerCase(),example:x.example||''})).filter(x=>x.word);
-  }catch(e){ baseWords=[]; }
-  allWords=[...customWords,...baseWords.filter(b=>!customWords.some(c=>c.word.toLowerCase().trim()===b.word.toLowerCase().trim()))];
+  try{let r=await fetch('lamnso.json?v='+Date.now()); if(!r.ok) r=await fetch('dictionary.json?v='+Date.now()); const data=await r.json(); baseWords=data.map(x=>({word:x.word||x.lamnso||'',meaning:x.meaning||x.english||'',type:(x.type||'noun').toLowerCase(),example:x.example||''})).filter(x=>x.word);}catch(e){baseWords=[];}
+  if(baseWords.length===0 && customWords.length>0){allWords=[...customWords];} else {allWords=[...customWords,...baseWords.filter(b=>!customWords.some(c=>c.word.toLowerCase().trim()===b.word.toLowerCase().trim()))];}
+  if(allWords.length===0 && location.protocol==='file:'){document.getElementById('count').innerHTML="⚠️ Acodes Mode: Please click 📥 Import and select lamnso.json<br><small style='color:#666'>Put lamnso.json in same folder as index.html</small>";document.getElementById('list').innerHTML="<div style='text-align:center;padding:20px;color:#888'>No words loaded yet.<br>Click Import to load your dictionary file.</div>";return;}
   render(allWords);
 }
-function render(list){
-  document.getElementById('count').textContent=`${list.length} / ${allWords.length} words • ${currentType}`;
-  const c=document.getElementById('list'); c.innerHTML='';
-  list.slice(0,600).forEach(it=>{
-    const d=document.createElement('div'); d.className='card';
-    d.innerHTML=`<div class="lam">${it.word} <span class="type">${it.type}</span></div><div class="eng">${it.meaning}</div>`;
-    d.onclick=()=>{ document.getElementById('w').value=it.word; document.getElementById('m').value=it.meaning; document.getElementById('t').value=it.type; document.getElementById('e').value=it.example||''; openModal(); };
-    c.appendChild(d);
-  });
-}
-function doSearch(){
-  const q=document.getElementById('q').value.toLowerCase().trim();
-  let f=allWords; if(currentType!=='all') f=f.filter(x=>x.type.includes(currentType));
-  if(q) f=f.filter(x=>x.word.toLowerCase().includes(q)||x.meaning.toLowerCase().includes(q));
-  render(f);
-}
-function setType(t){
-  currentType=t; document.querySelectorAll('.pill').forEach(p=>p.classList.toggle('active', p.dataset.t===t)); doSearch();
-}
+function render(list){document.getElementById('count').textContent=`${list.length} / ${allWords.length} words • ${currentType}`; const c=document.getElementById('list'); c.innerHTML=''; if(list.length===0){c.innerHTML="<div style='text-align:center;padding:20px'>No words found</div>";return;} list.slice(0,600).forEach(it=>{const d=document.createElement('div'); d.className='card'; d.innerHTML=`<div class="lam">${it.word} <span class="type">${it.type}</span></div><div class="eng">${it.meaning}</div>`; d.onclick=()=>{document.getElementById('w').value=it.word; document.getElementById('m').value=it.meaning; document.getElementById('t').value=it.type; document.getElementById('e').value=it.example||''; openModal();}; c.appendChild(d);});}
+function doSearch(){const q=document.getElementById('q').value.toLowerCase().trim(); let f=allWords; if(currentType!=='all') f=f.filter(x=>x.type.includes(currentType)); if(q) f=f.filter(x=>x.word.toLowerCase().includes(q)||x.meaning.toLowerCase().includes(q)); render(f);}
+function setType(t){currentType=t; document.querySelectorAll('.pill').forEach(p=>p.classList.toggle('active', p.dataset.t===t)); doSearch();}
 function openModal(){document.getElementById('modal').classList.add('open');}
 function closeModal(){document.getElementById('modal').classList.remove('open');}
-function saveWord(){
-  const word=document.getElementById('w').value.trim(), meaning=document.getElementById('m').value.trim(), type=document.getElementById('t').value, ex=document.getElementById('e').value.trim();
-  if(!word||!meaning) return alert('Enter Lamnso and English');
-  if(customWords.some(x=>x.word.toLowerCase().trim()===word.toLowerCase().trim())){
-    if(!confirm(`"${word}" already exists! Replace it?`)) return;
-  }
-  customWords=customWords.filter(x=>x.word.toLowerCase().trim()!==word.toLowerCase().trim());
-  customWords.unshift({word,meaning,type,example:ex});
-  localStorage.setItem('lamnso_custom', JSON.stringify(customWords)); closeModal(); load();
-}
-function exportJSON(){
-  const blob=new Blob([JSON.stringify(allWords,null,2)],{type:'application/json'});
-  const url=URL.createObjectURL(blob); const a=document.createElement('a'); a.href=url; a.download='lamnso.json'; a.click();
-}
-function showDuplicates(){
-  const seen={}; const dups=[];
-  allWords.forEach(x=>{ const k=x.word.toLowerCase().trim(); if(seen[k]) dups.push(x.word); seen[k]=1; });
-  if(!dups.length) alert('No duplicates found ✅'); else alert('Duplicates Found ('+[...new Set(dups)].length+'): \n'+[...new Set(dups)].join('\n')+'\n\nClick 🗑️ Clear Duplicates to delete them!');
-}
-function deleteDuplicates(){
-  if(allWords.length===0){ alert('No words to clean'); return; }
-  if(!confirm(`Founder, delete all duplicate Lamnso words? You have ${allWords.length} words now. This will keep only 1 of each word.`)) return;
-  
-  let seen = new Set();
-  let cleanCustom = [];
-  let delCustom = 0;
-  
-  // Clean customWords
-  for(let w of customWords){
-    let k = (w.word||'').trim().toLowerCase();
-    if(!k) continue;
-    if(!seen.has(k)){ seen.add(k); cleanCustom.push(w); }
-    else { delCustom++; }
-  }
-  
-  // Clean also against baseWords for export safety
-  let seenAll = new Set();
-  let cleanAll = [];
-  let delAll = 0;
-  for(let w of allWords){
-    let k = (w.word||'').trim().toLowerCase();
-    if(!k) continue;
-    if(!seenAll.has(k)){ seenAll.add(k); cleanAll.push(w); }
-    else { delAll++; }
-  }
-
-  customWords = cleanCustom;
-  localStorage.setItem('lamnso_custom', JSON.stringify(customWords));
-  load();
-  alert(`Done Founder Njolai!\n\nDeleted from your edits: ${delCustom}\nTotal duplicates removed: ${delAll}\nClean total now: ${cleanAll.length}\n\nNow click 📤 Export to get clean lamnso.json!`);
-}
-document.getElementById('fileInput').addEventListener('change', async e=>{
-  const file=e.target.files[0]; if(!file) return; const text=await file.text();
-  try{
-    let imported=[];
-    if(file.name.endsWith('.json')){ const j=JSON.parse(text); imported=j.map(x=>({word:x.word||x.lamnso,meaning:x.meaning||x.english,type:(x.type||'noun').toLowerCase(),example:x.example||''})); }
-    else{
-      const lines=text.split('\n'); const headers=lines[0].toLowerCase();
-      const wi=headers.split(',').findIndex(h=>h.includes('lamnso')||h.includes('word')), mi=headers.split(',').findIndex(h=>h.includes('english')||h.includes('meaning'));
-      for(let i=1;i<lines.length;i++){ const cols=lines[i].split(','); if(cols.length>1){ imported.push({word:cols[wi]||cols[0],meaning:cols[mi]||cols[1],type:(cols[2]||'noun').toLowerCase(),example:cols[3]||''}); } }
-    }
-    customWords=[...imported,...customWords]; localStorage.setItem('lamnso_custom', JSON.stringify(customWords)); alert(`Imported ${imported.length} words! Now click 🗑️ Clear Duplicates to clean.`); load();
-  }catch(err){ alert('Import failed: '+err.message); }
-});
+function saveWord(){const word=document.getElementById('w').value.trim(), meaning=document.getElementById('m').value.trim(), type=document.getElementById('t').value, ex=document.getElementById('e').value.trim(); if(!word||!meaning) return alert('Enter Lamnso and English'); customWords=customWords.filter(x=>x.word.toLowerCase().trim()!==word.toLowerCase().trim()); customWords.unshift({word,meaning,type,example:ex}); localStorage.setItem('lamnso_custom', JSON.stringify(customWords)); closeModal(); load();}
+function exportJSON(){const blob=new Blob([JSON.stringify(allWords,null,2)],{type:'application/json'}); const url=URL.createObjectURL(blob); const a=document.createElement('a'); a.href=url; a.download='lamnso.json'; a.click();}
+function showDuplicates(){const seen={}; const dups=[]; allWords.forEach(x=>{const k=x.word.toLowerCase().trim(); if(seen[k]) dups.push(x.word); seen[k]=1;}); if(!dups.length) alert('No duplicates found ✅'); else alert('Duplicates ('+[...new Set(dups)].length+'): \n'+[...new Set(dups)].join('\n'));}
+function deleteDuplicates(){if(allWords.length===0){alert('No words to clean. First Import lamnso.json!');return;} if(!confirm(`Delete duplicates? Current: ${allWords.length} words. This will keep only 1 of each word.`)) return; let seen=new Set(); let cleanCustom=[]; let delCustom=0; for(let w of customWords){let k=(w.word||'').trim().toLowerCase(); if(!k) continue; if(!seen.has(k)){seen.add(k); cleanCustom.push(w);} else {delCustom++;}} if(customWords.length===0){let seenAll=new Set(); let cleanAll=[]; for(let w of allWords){let k=(w.word||'').trim().toLowerCase(); if(!k) continue; if(!seenAll.has(k)){seenAll.add(k); cleanAll.push(w);}} customWords=cleanAll; delCustom=allWords.length-cleanAll.length;} else {customWords=cleanCustom;} localStorage.setItem('lamnso_custom', JSON.stringify(customWords)); load(); alert(`Done! Deleted ${delCustom} duplicates.\nClean total: ${customWords.length || allWords.length}\n\nNow click 📤 Export!`);}
+function showImportModal(){document.getElementById('importModal').classList.add('open');}
+function closeImportModal(){document.getElementById('importModal').classList.remove('open');}
+function cleanValue(v){if(v==null) return ''; let s=v.toString().trim(); s=s.replace(/^["'\uFEFF]+|["'\uFEFF]+$/g,'').trim(); s=s.replace(/^"+|"+$/g,'').replace(/""/g,'"'); return s;}
+document.getElementById('importFile').addEventListener('change', async e=>{const file=e.target.files[0]; if(!file) return; const text=await file.text(); document.getElementById('importText').value=text;});
+function doEasyImport(){try{let raw=document.getElementById('importText').value.trim(); if(!raw) return alert('Paste JSON or upload file first!'); let mode=document.querySelector('input[name="impMode"]:checked').value; let imported=[]; if(raw.startsWith('[')||raw.startsWith('{')){let j=JSON.parse(raw); if(!Array.isArray(j)) j=[j]; imported=j.map(x=>({word:cleanValue(x.word||x.lamnso||x.Lamnso),meaning:cleanValue(x.meaning||x.english||x.English),type:cleanValue(x.type||'noun').toLowerCase()||'noun',example:cleanValue(x.example||'')})).filter(x=>x.word && x.meaning);} else {const lines=raw.split(/\r?\n/); for(let i=0;i<lines.length;i++){let line=lines[i].trim(); if(!line) continue; if(i===0 && line.toLowerCase().includes('lamnso') && line.toLowerCase().includes('english')) continue; let cols=line.split(',').map(c=>cleanValue(c)); if(cols.length>=2){imported.push({word:cols[0],meaning:cols[1],type:(cols[2]||'noun').toLowerCase(),example:cols[3]||''});}}} if(imported.length===0) return alert('No valid words found!'); if(mode==='replace'){if(!confirm(`REPLACE? This will DELETE current ${allWords.length} words and keep only ${imported.length} new words. Continue?`)) return; customWords=imported;} else {customWords=[...imported,...customWords];} let seen=new Set(); let clean=[]; for(let w of customWords){let k=(w.word||'').trim().toLowerCase(); if(!k||seen.has(k)) continue; seen.add(k); clean.push(w);} customWords=clean; localStorage.setItem('lamnso_custom', JSON.stringify(customWords)); closeImportModal(); alert(`Beri wo Founder! Imported ${imported.length} words. Clean total: ${customWords.length}.\nNow click Export!`); load();}catch(err){alert('Import failed: '+err.message);}}
+document.getElementById('fileInput').addEventListener('change', async e=>{const file=e.target.files[0]; if(!file) return; const text=await file.text(); document.getElementById('importText').value=text; showImportModal();});
 load();
 </script>
 </body>
