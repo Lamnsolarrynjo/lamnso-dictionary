@@ -1,53 +1,3728 @@
 [
-  {"word": "Nta'", "meaning": "chair", "type": "noun", "example": ""},
-  {"word": "Kikún", "meaning": "Bed", "type": "noun", "example": ""},
-  {"word": "Bvərnaŋkí", "meaning": "Blanket", "type": "noun", "example": ""},
-  {"word": "Mbuuy", "meaning": "Pillow", "type": "noun", "example": ""},
-  {"word": "Ŋkiŋkikun", "meaning": "Bed support", "type": "noun", "example": ""},
-  {"word": "Teŋlav", "meaning": "Window", "type": "noun", "example": ""},
-  {"word": "Kiseŋ", "meaning": "Door shutter", "type": "noun", "example": ""},
-  {"word": "Mfin", "meaning": "lock", "type": "noun", "example": ""},
-  {"word": "Kinsəŋ", "meaning": "foundation", "type": "noun", "example": ""},
-  {"word": "Kiboo", "meaning": "Backyard", "type": "noun", "example": ""},
-  {"word": "Mbvəmlav", "meaning": "Inside the house", "type": "noun", "example": ""},
-  {"word": "Kiy", "meaning": "Fire place", "type": "noun", "example": ""},
-  {"word": "Faasi", "meaning": "Fire place stone", "type": "noun", "example": ""},
-  {"word": "Vəy", "meaning": "Fire", "type": "noun", "example": ""},
-  {"word": "Kiŋ", "meaning": "Pot", "type": "noun", "example": ""},
-  {"word": "Nton", "meaning": "Small pot", "type": "noun", "example": ""},
-  {"word": "Kiyuy", "meaning": "Steam", "type": "noun", "example": ""},
-  {"word": "Kóŋ", "meaning": "Spear", "type": "noun", "example": ""},
-  {"word": "Nsaalav", "meaning": "The Floor", "type": "noun", "example": ""},
-  {"word": "Kitem", "meaning": "Calabash", "type": "noun", "example": ""},
-  {"word": "Kitu", "meaning": "Head", "type": "noun", "example": ""},
-  {"word": "Si'", "meaning": "Eye", "type": "noun", "example": ""},
-  {"word": "Kitu'ur", "meaning": "Ear", "type": "noun", "example": ""},
-  {"word": "Yuy", "meaning": "Nose", "type": "noun", "example": ""},
-  {"word": "Shuu", "meaning": "Mouth", "type": "noun", "example": ""},
-  {"word": "Kiwó", "meaning": "Hand", "type": "noun", "example": ""},
-  {"word": "Shwiin", "meaning": "Leg", "type": "noun", "example": ""},
-  {"word": "Kitúr", "meaning": "Stomach", "type": "noun", "example": ""},
-  {"word": "Tiim", "meaning": "Heart", "type": "noun", "example": ""},
-  {"word": "Mentsà", "meaning": "Blood", "type": "noun", "example": ""},
-  {"word": "Wúm", "meaning": "Egg", "type": "noun", "example": ""},
-  {"word": "Sà", "meaning": "Fish", "type": "noun", "example": ""},
-  {"word": "Wùu", "meaning": "Rain", "type": "noun", "example": ""},
-  {"word": "Shúy", "meaning": "Sun", "type": "noun", "example": ""},
-  {"word": "Shijiy", "meaning": "Star", "type": "noun", "example": ""},
-  {"word": "Shwer", "meaning": "Wind", "type": "noun", "example": ""},
-  {"word": "Vày", "meaning": "Fire", "type": "noun", "example": ""},
-  {"word": "Saamba", "meaning": "Seven", "type": "number", "example": ""},
-  {"word": "Mve'ey", "meaning": "Twin", "type": "noun", "example": ""},
-  {"word": "Sèkè", "meaning": "Twin", "type": "noun", "example": ""},
-  {"word": "Aay", "meaning": "Negative", "type": "particle", "example": ""},
-  {"word": "Abu'ur", "meaning": "Boot", "type": "noun", "example": ""},
-  {"word": "Abve'ey", "meaning": "Mole", "type": "noun", "example": ""},
-  {"word": "A'kang", "meaning": "Multitude", "type": "noun", "example": ""},
-  {"word": "A'kang tang", "meaning": "Many", "type": "adjective", "example": ""},
-  {"word": "Anyur", "meaning": "Onion", "type": "noun", "example": ""},
-  {"word": "Kun vito", "meaning": "Apple", "type": "noun", "example": ""},
-  {"word": "Bàŋ se Ndzèn", "meaning": "Palm wine tapper", "type": "noun", "example": ""},
-  {"word": "Bà", "meaning": "Knit", "type": "verb", "example": ""},
-  {"word": "Shingeenge", "meaning": "Cricket", "type": "noun", "example": ""},
-  {"word": "Banfoghán", "meaning": "Spider", "type": "noun", "example": ""}
+  {
+    "word": "litì",
+    "meaning": "to hide something",
+    "type": "verb",
+    "example": ""
+  },
+  {
+    "word": "liy",
+    "meaning": "to raise a child or livestock ; an insult",
+    "type": "verb",
+    "example": ""
+  },
+  {
+    "word": "líy",
+    "meaning": "to jump; to skip",
+    "type": "verb",
+    "example": ""
+  },
+  {
+    "word": "lo",
+    "meaning": "to leave ; to fall",
+    "type": "verb",
+    "example": ""
+  },
+  {
+    "word": "ló",
+    "meaning": "rain",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "lò",
+    "meaning": "stand",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "lóm",
+    "meaning": "dirty skin",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "lòn",
+    "meaning": "misfortune ; bad luck",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "longsé",
+    "meaning": "horns",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "lóo",
+    "meaning": "before ; when",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "lor",
+    "meaning": "misfortune ; curse",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "lum",
+    "meaning": "heat ; husband ; expensive",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "lúm",
+    "meaning": "to bite ; labor (childbirth)",
+    "type": "verb",
+    "example": ""
+  },
+  {
+    "word": "lùm",
+    "meaning": "dry season ; large rat",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "M",
+    "meaning": "I",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "má",
+    "meaning": "dumbfounded (never used alone)",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "mà",
+    "meaning": "please",
+    "type": "other",
+    "example": ""
+  },
+  {
+    "word": "ma",
+    "meaning": "book",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "màmé",
+    "meaning": "mother",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "matí",
+    "meaning": "to dish out in large loaves or portions",
+    "type": "verb",
+    "example": ""
+  },
+  {
+    "word": "maysi",
+    "meaning": "finishes",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "mbàm",
+    "meaning": "money",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "mban",
+    "meaning": "nail",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "mbìír",
+    "meaning": "bell",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "mbong",
+    "meaning": "buffalo",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "méev",
+    "meaning": "theirs",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "melaà",
+    "meaning": "trouble",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "melu",
+    "meaning": "wine ; a beverage",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "mo",
+    "meaning": "me",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "motu",
+    "meaning": "car",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "mum",
+    "meaning": "to try",
+    "type": "verb",
+    "example": ""
+  },
+  {
+    "word": "n'gár",
+    "meaning": "air gun, Dane gun",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "nà",
+    "meaning": "what to call a girl",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "naa",
+    "meaning": "to cook",
+    "type": "verb",
+    "example": ""
+  },
+  {
+    "word": "naàri",
+    "meaning": "to explain ; to correct ; to stretch",
+    "type": "verb",
+    "example": ""
+  },
+  {
+    "word": "nasì",
+    "meaning": "to stretch one's body",
+    "type": "verb",
+    "example": ""
+  },
+  {
+    "word": "nchùm",
+    "meaning": "drum",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "ndzərén",
+    "meaning": "groundnut",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "ne",
+    "meaning": "present perfect tense marker",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "neém",
+    "meaning": "to lie down",
+    "type": "verb",
+    "example": ""
+  },
+  {
+    "word": "netì",
+    "meaning": "to arrange, to apportion",
+    "type": "verb",
+    "example": ""
+  },
+  {
+    "word": "ngav",
+    "meaning": "antelope",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "ngày",
+    "meaning": "crocodile",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "nghven",
+    "meaning": "arrow",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "ngiiv",
+    "meaning": "covered vessel",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "ngon nso; yaa",
+    "meaning": "female figure",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "njíy",
+    "meaning": "sorry",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "nkar",
+    "meaning": "friend",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "nkwàm",
+    "meaning": "bag",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "nó",
+    "meaning": "to drink",
+    "type": "verb",
+    "example": ""
+  },
+  {
+    "word": "nsay",
+    "meaning": "down ; earth ; ground ; the world",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "nsər",
+    "meaning": "lid",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "nsing",
+    "meaning": "container and stopper",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "ntar",
+    "meaning": "needle ; an entertainment or hospitality involving food",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "ntir",
+    "meaning": "advice",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "ntòn",
+    "meaning": "pot",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "nyom",
+    "meaning": "sweet",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "nyóo",
+    "meaning": "soup",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Nyú Tár",
+    "meaning": "God the Father",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "ŋgvev",
+    "meaning": "fowl",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "ŋkaà",
+    "meaning": "basket",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "ŋkar",
+    "meaning": "friend",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "patí",
+    "meaning": "to speed",
+    "type": "verb",
+    "example": ""
+  },
+  {
+    "word": "pòpó",
+    "meaning": "papaya",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "puur",
+    "meaning": "cat",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "ràpá",
+    "meaning": "women's wrapper",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "rèké",
+    "meaning": "very clear ; explicit",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "rú",
+    "meaning": "TRUE",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "rúrú",
+    "meaning": "truly",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "sa",
+    "meaning": "also",
+    "type": "other",
+    "example": ""
+  },
+  {
+    "word": "sá",
+    "meaning": "to fade",
+    "type": "verb",
+    "example": ""
+  },
+  {
+    "word": "san",
+    "meaning": "split or tear by hand",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "saŋ",
+    "meaning": "rice",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "sár",
+    "meaning": "early dry season (November here)",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "satì",
+    "meaning": "tear into parts",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "sé",
+    "meaning": "yours (plural of ké)",
+    "type": "pronoun",
+    "example": ""
+  },
+  {
+    "word": "sèké",
+    "meaning": "chaff",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "sém",
+    "meaning": "to carve ; mine (possessive0",
+    "type": "verb",
+    "example": ""
+  },
+  {
+    "word": "séti",
+    "meaning": "moving small amounts of something from one container to another—dishing",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "sə",
+    "meaning": "the",
+    "type": "other",
+    "example": ""
+  },
+  {
+    "word": "sə´m",
+    "meaning": "witchcraft",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "səəri",
+    "meaning": "to play",
+    "type": "verb",
+    "example": ""
+  },
+  {
+    "word": "shàŋ",
+    "meaning": "chain necklace",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "shé",
+    "meaning": "to laugh",
+    "type": "verb",
+    "example": ""
+  },
+  {
+    "word": "shibvem",
+    "meaning": "carved figure",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "shiliv",
+    "meaning": "heart",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "shilu",
+    "meaning": "palm wine",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "shisar",
+    "meaning": "a little",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "shisi",
+    "meaning": "cat",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "shiy",
+    "meaning": "to wait",
+    "type": "verb",
+    "example": ""
+  },
+  {
+    "word": "shíy",
+    "meaning": "to trim",
+    "type": "verb",
+    "example": ""
+  },
+  {
+    "word": "shóŋ",
+    "meaning": "thief",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "shòŋ",
+    "meaning": "to steal",
+    "type": "verb",
+    "example": ""
+  },
+  {
+    "word": "shun",
+    "meaning": "carried",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "shuuy",
+    "meaning": "sun",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "shwah",
+    "meaning": "knife",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "sí",
+    "meaning": "eyes ; already",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "só",
+    "meaning": "to win",
+    "type": "verb",
+    "example": ""
+  },
+  {
+    "word": "song",
+    "meaning": "tusk",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "sotì",
+    "meaning": "bruise ; scrape ; to hull corn",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "su",
+    "meaning": "to wash",
+    "type": "verb",
+    "example": ""
+  },
+  {
+    "word": "súbù",
+    "meaning": "quack ; charlatan",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "sún",
+    "meaning": "farm",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "suŋním",
+    "meaning": "speak",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "sùsù",
+    "meaning": "ornaments ; decorations",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "tá",
+    "meaning": "to hammer",
+    "type": "verb",
+    "example": ""
+  },
+  {
+    "word": "ta",
+    "meaning": "to want, to desire",
+    "type": "verb",
+    "example": ""
+  },
+  {
+    "word": "tàá",
+    "meaning": "grandfather or grandchild (short for taata)",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "takà",
+    "meaning": "weakling (figuratively)",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "tánrí",
+    "meaning": "to pluck",
+    "type": "verb",
+    "example": ""
+  },
+  {
+    "word": "tátí",
+    "meaning": "to join",
+    "type": "verb",
+    "example": ""
+  },
+  {
+    "word": "távsín",
+    "meaning": "courage",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "té",
+    "meaning": "to kick ; to shoot",
+    "type": "verb",
+    "example": ""
+  },
+  {
+    "word": "tèéter",
+    "meaning": "upside down ; on your back",
+    "type": "pronoun",
+    "example": ""
+  },
+  {
+    "word": "téti",
+    "meaning": "flick ; sweep",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "tiír",
+    "meaning": "to stand ; to place ; to put",
+    "type": "verb",
+    "example": ""
+  },
+  {
+    "word": "tiíty tiíty",
+    "meaning": "straight",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "tín",
+    "meaning": "to cut as in harvest",
+    "type": "verb",
+    "example": ""
+  },
+  {
+    "word": "títí",
+    "meaning": "to place things up, stand them up ; place them right",
+    "type": "verb",
+    "example": ""
+  },
+  {
+    "word": "tíy",
+    "meaning": "stone",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "tó",
+    "meaning": "sunrise",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "to",
+    "meaning": "shoot of a plant",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "ton",
+    "meaning": "to burn",
+    "type": "verb",
+    "example": ""
+  },
+  {
+    "word": "tórí",
+    "meaning": "solo",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "tú",
+    "meaning": "to carry water",
+    "type": "verb",
+    "example": ""
+  },
+  {
+    "word": "vé",
+    "meaning": "yours (plural)",
+    "type": "pronoun",
+    "example": ""
+  },
+  {
+    "word": "ven",
+    "meaning": "you (plural)",
+    "type": "pronoun",
+    "example": ""
+  },
+  {
+    "word": "vén",
+    "meaning": "your",
+    "type": "pronoun",
+    "example": ""
+  },
+  {
+    "word": "vèn",
+    "meaning": "you (plural)",
+    "type": "pronoun",
+    "example": ""
+  },
+  {
+    "word": "ver",
+    "meaning": "us",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "vèr",
+    "meaning": "we",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "vèsən",
+    "meaning": "all of us",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "vibí",
+    "meaning": "animosity",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "vifoori",
+    "meaning": "spices",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "vifú",
+    "meaning": "leaves",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "viku",
+    "meaning": "cocoyams",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "vilu",
+    "meaning": "honey",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "vitó",
+    "meaning": "intestines",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "viyikir",
+    "meaning": "food",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "wà",
+    "meaning": "how to address a close friend",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "wáa",
+    "meaning": "please",
+    "type": "other",
+    "example": ""
+  },
+  {
+    "word": "wán",
+    "meaning": "child (specific)",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "wánle",
+    "meaning": "child (general)",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "way",
+    "meaning": "to put",
+    "type": "verb",
+    "example": ""
+  },
+  {
+    "word": "wáy",
+    "meaning": "market",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "wày",
+    "meaning": "to be serious",
+    "type": "verb",
+    "example": ""
+  },
+  {
+    "word": "wè",
+    "meaning": "«",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "weèweè",
+    "meaning": "slowly",
+    "type": "other",
+    "example": ""
+  },
+  {
+    "word": "wiiybaá",
+    "meaning": "wife of a Shuufaay (woman of the leopard)",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "wiiynto",
+    "meaning": "wife of the palace",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "wiy",
+    "meaning": "coming ; come",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "wo",
+    "meaning": "your",
+    "type": "pronoun",
+    "example": ""
+  },
+  {
+    "word": "wó",
+    "meaning": "hands",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "wò",
+    "meaning": "you",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "wónlé wayí",
+    "meaning": "traders (children of the market)",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "wòso",
+    "meaning": "both of us",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "wù",
+    "meaning": "he/she",
+    "type": "pronoun",
+    "example": ""
+  },
+  {
+    "word": "wun",
+    "meaning": "him/her",
+    "type": "pronoun",
+    "example": ""
+  },
+  {
+    "word": "wún",
+    "meaning": "body",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "wuna",
+    "meaning": "and",
+    "type": "other",
+    "example": ""
+  },
+  {
+    "word": "wundu",
+    "meaning": "window",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "wuù",
+    "meaning": "rain",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "yá",
+    "meaning": "to wander",
+    "type": "verb",
+    "example": ""
+  },
+  {
+    "word": "yàá",
+    "meaning": "grandmother or grandchild (short for yanya)",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "yasì",
+    "meaning": "to shake",
+    "type": "verb",
+    "example": ""
+  },
+  {
+    "word": "yàsi",
+    "meaning": "illness ; sickness",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "ye",
+    "meaning": "yours (used when it feels better in your mouth in context)",
+    "type": "pronoun",
+    "example": ""
+  },
+  {
+    "word": "yéem",
+    "meaning": "mine",
+    "type": "pronoun",
+    "example": ""
+  },
+  {
+    "word": "yéiey",
+    "meaning": "learning",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "yem",
+    "meaning": "my",
+    "type": "pronoun",
+    "example": ""
+  },
+  {
+    "word": "yémé",
+    "meaning": "another form of my, depends on what it refers to",
+    "type": "pronoun",
+    "example": ""
+  },
+  {
+    "word": "yetí",
+    "meaning": "to brush or dust off",
+    "type": "verb",
+    "example": ""
+  },
+  {
+    "word": "yí",
+    "meaning": "to eat",
+    "type": "verb",
+    "example": ""
+  },
+  {
+    "word": "yi",
+    "meaning": "to eat fufu",
+    "type": "verb",
+    "example": ""
+  },
+  {
+    "word": "yii",
+    "meaning": "ongoing action ; is always",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "yír",
+    "meaning": "name",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "yó",
+    "meaning": "snake",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "yò",
+    "meaning": "negative marker",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "yooné",
+    "meaning": "yesterday",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "yòóy",
+    "meaning": "cricket with a long nose—harbinger of misfortune",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "yosì",
+    "meaning": "to boil",
+    "type": "verb",
+    "example": ""
+  },
+  {
+    "word": "yú",
+    "meaning": "to hear ; to understand",
+    "type": "verb",
+    "example": ""
+  },
+  {
+    "word": "yu wún",
+    "meaning": "to have pride ; proud",
+    "type": "verb",
+    "example": ""
+  },
+  {
+    "word": "yun",
+    "meaning": "to buy",
+    "type": "verb",
+    "example": ""
+  },
+  {
+    "word": "yutì",
+    "meaning": "to cajole",
+    "type": "verb",
+    "example": ""
+  },
+  {
+    "word": "yútí",
+    "meaning": "to taste",
+    "type": "verb",
+    "example": ""
+  },
+  {
+    "word": "yúu",
+    "meaning": "bees",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "yuuri",
+    "meaning": "listen",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "yuv",
+    "meaning": "up",
+    "type": "other",
+    "example": ""
+  },
+  {
+    "word": "Ŋgáv",
+    "meaning": "Antelope",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Alùminyun",
+    "meaning": "Aluminium",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Kilii",
+    "meaning": "Ant",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Wanyeeto",
+    "meaning": "Ant eater",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Ŋáv",
+    "meaning": "Antelope",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Ntóŋ",
+    "meaning": "Anus",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Kóoy",
+    "meaning": "Arm",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Mvə̀n",
+    "meaning": "Arrow",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Wóŋ",
+    "meaning": "As he, a traditional society",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Kimbébíy",
+    "meaning": "Ass",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "àntsernsai",
+    "meaning": "Ancestors",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Ŋgùuy bí’",
+    "meaning": "Mathematics",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Nshwáan lóm",
+    "meaning": "Excretory system",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Kfə̀v vito",
+    "meaning": "Duodenum",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Kito ke ŋkóŋ",
+    "meaning": "Tibia plateau",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Bán tù'ur",
+    "meaning": "Alternating current",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Mendzəv",
+    "meaning": "Water",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Sóŋ",
+    "meaning": "Tooth",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Tàr",
+    "meaning": "Father",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Yìy",
+    "meaning": "Mother",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Wan",
+    "meaning": "Child",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Láv",
+    "meaning": "House",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Bvəəy lóŋ",
+    "meaning": "Goat",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Ná",
+    "meaning": "Cow",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Ŋgə̀v",
+    "meaning": "Chicken",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Kún",
+    "meaning": "Beans",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Koki",
+    "meaning": "Koki beans",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Ŋgashiŋa",
+    "meaning": "Cassava",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Meŋwə̀ər",
+    "meaning": "Oil",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Shiŋgwáŋ",
+    "meaning": "Salt",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Ŋwáa",
+    "meaning": "Meeting",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Lámnso",
+    "meaning": "Lamnso language",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Nso",
+    "meaning": "Nso people",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Fon",
+    "meaning": "King",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Ŋgaywir",
+    "meaning": "Elder",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Ŋwá Nyùy",
+    "meaning": "Bible",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Nyùy",
+    "meaning": "God",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Bunri",
+    "meaning": "Pray",
+    "type": "verb",
+    "example": ""
+  },
+  {
+    "word": "Lá yè’ey",
+    "meaning": "School",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Ŋwà",
+    "meaning": "Book",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Kinsáŋ",
+    "meaning": "Pen",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Ntáa",
+    "meaning": "Chair",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Kitaatí",
+    "meaning": "Table",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Dzə̀ə",
+    "meaning": "Road",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Kitenten",
+    "meaning": "Car",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Yikír",
+    "meaning": "Eat",
+    "type": "verb",
+    "example": ""
+  },
+  {
+    "word": "Nú",
+    "meaning": "Drink",
+    "type": "verb",
+    "example": ""
+  },
+  {
+    "word": "Mbùune",
+    "meaning": "Sleep",
+    "type": "verb",
+    "example": ""
+  },
+  {
+    "word": "Yimén",
+    "meaning": "Wake up",
+    "type": "verb",
+    "example": ""
+  },
+  {
+    "word": "Lim",
+    "meaning": "Work",
+    "type": "verb",
+    "example": ""
+  },
+  {
+    "word": "Kishiiy",
+    "meaning": "Day",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Vitsə́",
+    "meaning": "Night",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Kiyá",
+    "meaning": "Year",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Ŋgwee",
+    "meaning": "Month",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Ŋgàm",
+    "meaning": "Week",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Monlé",
+    "meaning": "Monday",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Cúusidey",
+    "meaning": "Tuesday",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Wenesidéy",
+    "meaning": "Wednesday",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Tóosidey",
+    "meaning": "Thursday",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Fə̀raydey",
+    "meaning": "Friday",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Saatudéy",
+    "meaning": "Saturday",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Sónlé",
+    "meaning": "Sunday",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "War",
+    "meaning": "Market",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Là shiv",
+    "meaning": "Hospital",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Ŋgaa shiv",
+    "meaning": "Doctor",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Shív",
+    "meaning": "Medicine",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Kitu",
+    "meaning": "Head",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Sí",
+    "meaning": "Eye",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Kitù’ur",
+    "meaning": "Ear",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Yúuy",
+    "meaning": "Nose",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Shuu",
+    "meaning": "Mouth",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Kiwó",
+    "meaning": "Hand",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Shwíin",
+    "meaning": "Leg",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Kitúr",
+    "meaning": "Stomach",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Tíim",
+    "meaning": "Heart",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Mentsə̀",
+    "meaning": "Blood",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Wúm",
+    "meaning": "Egg",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Sə̀",
+    "meaning": "Fish",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Wúu",
+    "meaning": "Rain",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Shúy",
+    "meaning": "Sun",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Shijìy",
+    "meaning": "Star",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Shwer",
+    "meaning": "Wind",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Və́y",
+    "meaning": "Fire",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Saamba",
+    "meaning": "Seven",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Mve'ey, Sèké",
+    "meaning": "Chaff",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Aay",
+    "meaning": "Negative",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Abu'ur",
+    "meaning": "Boots (Rain boots)",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Abve'ey",
+    "meaning": "Molars",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "A'kang",
+    "meaning": "Multiplication",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "A'kang tang",
+    "meaning": "Multiples",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Anyur",
+    "meaning": "Onion",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Kun vito",
+    "meaning": "Appendix",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Báŋ se Ndzèn",
+    "meaning": "Testicles",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Bà",
+    "meaning": "Knit",
+    "type": "verb",
+    "example": ""
+  },
+  {
+    "word": "Shingeenge",
+    "meaning": "Smallest",
+    "type": "adjective",
+    "example": ""
+  },
+  {
+    "word": "Ba'mshuushiliv",
+    "meaning": "Inferior epigastrium",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Banfogháŋ",
+    "meaning": "Side light",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Bavkir, Baykir, Nge",
+    "meaning": "Tickling sensation/Tingling",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Báy",
+    "meaning": "to explode",
+    "type": "verb",
+    "example": ""
+  },
+  {
+    "word": "Bè’ey",
+    "meaning": "carrier",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Biimbvə̀v",
+    "meaning": "Assets",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Biibi",
+    "meaning": "brown color",
+    "type": "adjective",
+    "example": ""
+  },
+  {
+    "word": "Biibiy",
+    "meaning": "parasite",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Bi' jii",
+    "meaning": "Calculate",
+    "type": "verb",
+    "example": ""
+  },
+  {
+    "word": "Bí’ bey",
+    "meaning": "Logic",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Bínen",
+    "meaning": "copy",
+    "type": "verb",
+    "example": ""
+  },
+  {
+    "word": "Réŋfeyi",
+    "meaning": "perfect",
+    "type": "adjective",
+    "example": ""
+  },
+  {
+    "word": "Nsáŋti vibooŋi",
+    "meaning": "aesthetic",
+    "type": "adjective",
+    "example": ""
+  },
+  {
+    "word": "Bùbá",
+    "meaning": "blouse",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Bòjóo",
+    "meaning": "obesity",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Fémsí",
+    "meaning": "deceive",
+    "type": "verb",
+    "example": ""
+  },
+  {
+    "word": "Abodí",
+    "meaning": "Bra (breast wear)",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Bùu",
+    "meaning": "appetite",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Bubú",
+    "meaning": "phone",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Bùŋ",
+    "meaning": "red",
+    "type": "adjective",
+    "example": ""
+  },
+  {
+    "word": "Bubúu",
+    "meaning": "cheek",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Ntam réŋréŋ",
+    "meaning": "square measure",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Buubvəm ŋkoovi",
+    "meaning": "Left lower quadrant",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Bvə’ən",
+    "meaning": "flex",
+    "type": "verb",
+    "example": ""
+  },
+  {
+    "word": "Bvəybvəəy",
+    "meaning": "eye lashes",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Kiwuv ke sí",
+    "meaning": "eyelid",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Kiyoy ke kiwuu",
+    "meaning": "sole of the foot",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Bìi",
+    "meaning": "Camwood",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Cíciwaar",
+    "meaning": "flag",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Shuuyúm, ntsə̀tishuu",
+    "meaning": "unbelievable",
+    "type": "adjective",
+    "example": ""
+  },
+  {
+    "word": "Cí",
+    "meaning": "spoon",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Saŋlem",
+    "meaning": "computer",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Mnsoŋ",
+    "meaning": "creatures",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Dám",
+    "meaning": "sperm",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Mboor njàkòŋ",
+    "meaning": "dandillion",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Mfí kóo",
+    "meaning": "height",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Dinmbishwer",
+    "meaning": "wind vane",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Bómen",
+    "meaning": "obese",
+    "type": "adjective",
+    "example": ""
+  },
+  {
+    "word": "Díŋ",
+    "meaning": "chin",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Dinmbiv",
+    "meaning": "compass",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Dinsàv",
+    "meaning": "Dictionary",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Kifin (ke ŋwá)",
+    "meaning": "stamp",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Dóon",
+    "meaning": "signature",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Dóoŋ",
+    "meaning": "brain",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Duayìi",
+    "meaning": "License",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Dór shaa",
+    "meaning": "less than",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Mfíi si ŋwá",
+    "meaning": "computer keyboard",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Mòo yíi",
+    "meaning": "Method",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Dzə̀ə yìi",
+    "meaning": "System",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Nshásin baníŕ",
+    "meaning": "light system",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Ghámsín",
+    "meaning": "embedded",
+    "type": "adjective",
+    "example": ""
+  },
+  {
+    "word": "Vidzə̀əsí",
+    "meaning": "weight",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Mfí kúu",
+    "meaning": "amount",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "é fée",
+    "meaning": "to",
+    "type": "preposition",
+    "example": ""
+  },
+  {
+    "word": "Ée na",
+    "meaning": "Hello",
+    "type": "greeting",
+    "example": ""
+  },
+  {
+    "word": "é",
+    "meaning": "@",
+    "type": "symbol",
+    "example": ""
+  },
+  {
+    "word": "Bínsi",
+    "meaning": "positive",
+    "type": "adjective",
+    "example": ""
+  },
+  {
+    "word": "Faar",
+    "meaning": "reduce",
+    "type": "verb",
+    "example": ""
+  },
+  {
+    "word": "Kemshó",
+    "meaning": "ego, interest",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Mavkú",
+    "meaning": "extra large",
+    "type": "adjective",
+    "example": ""
+  },
+  {
+    "word": "é medà",
+    "meaning": "oblong",
+    "type": "adjective",
+    "example": ""
+  },
+  {
+    "word": "Fáa",
+    "meaning": "maogani (tree)",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Fán",
+    "meaning": "fear",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Shisí’nkwí",
+    "meaning": "flash drive",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Féesi",
+    "meaning": "blow",
+    "type": "verb",
+    "example": ""
+  },
+  {
+    "word": "Ton kiláya",
+    "meaning": "fumigate",
+    "type": "verb",
+    "example": ""
+  },
+  {
+    "word": "Dòm é ki dú",
+    "meaning": "push away",
+    "type": "verb",
+    "example": ""
+  },
+  {
+    "word": "Shàŋi, fə̀ŋ, kiyúy ke bí ki",
+    "meaning": "ordour",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Luŋ fòfó",
+    "meaning": "Impact",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Fə́vir",
+    "meaning": "white",
+    "type": "adjective",
+    "example": ""
+  },
+  {
+    "word": "Fə̀ə nsíi",
+    "meaning": "Certificate",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Feesí",
+    "meaning": "Spray",
+    "type": "verb",
+    "example": ""
+  },
+  {
+    "word": "Fəəsí",
+    "meaning": "crimwhite",
+    "type": "adjective",
+    "example": ""
+  },
+  {
+    "word": "Féem yó’",
+    "meaning": "paint",
+    "type": "verb",
+    "example": ""
+  },
+  {
+    "word": "Fí’sin",
+    "meaning": "suffocate",
+    "type": "verb",
+    "example": ""
+  },
+  {
+    "word": "Fó kitu",
+    "meaning": "helm",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Nyumereeto",
+    "meaning": "Numerator",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Kilá’ay",
+    "meaning": "Base",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Kiyà ghə́əm",
+    "meaning": "Decade",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Sártsə́n, ntúŋ kijàv",
+    "meaning": "Denominator",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Táañgàm",
+    "meaning": "Spider",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Kiyùuy",
+    "meaning": "Steam or vapour",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Ciŋkó'o",
+    "meaning": "Cigarette pipe",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Kíŋ",
+    "meaning": "Pot",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Ton kiláay",
+    "meaning": "fumigate",
+    "type": "verb",
+    "example": ""
+  },
+  {
+    "word": "Nta",
+    "meaning": "chair",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Kikún",
+    "meaning": "Bed",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Bvərnaŋkí",
+    "meaning": "Blanket",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Mbuuy",
+    "meaning": "Pillow",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Ŋkiŋkikun",
+    "meaning": "Bed support",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Teŋlav",
+    "meaning": "Window",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Kiseŋ",
+    "meaning": "Door shutter",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Mfin",
+    "meaning": "lock",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Kinsəŋ",
+    "meaning": "foundation",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Kiboo",
+    "meaning": "Backyard",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Mbvəmlav",
+    "meaning": "Inside the house",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Kiy",
+    "meaning": "Fire place",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Faasi",
+    "meaning": "Fire place stone",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Vəy",
+    "meaning": "Fire",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Kiŋ",
+    "meaning": "Pot",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Ciŋkoo",
+    "meaning": "Cigarette pipe",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Nton",
+    "meaning": "Small pot",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Kiyuy",
+    "meaning": "Steam or vapour",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Kóŋ",
+    "meaning": "Pistle / Waterfall / Spear",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Nsaalav",
+    "meaning": "The Floor",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Kitem",
+    "meaning": "Calabash",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Kighiŋ",
+    "meaning": "Calabash bowl",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Kici",
+    "meaning": "Tree",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Tam kici",
+    "meaning": "Branch",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Kibabar",
+    "meaning": "Dry leaf",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Vav",
+    "meaning": "Wet leaf",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Kibuushi",
+    "meaning": "Flower",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Baŋ",
+    "meaning": "Fruit",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Ŋgooy",
+    "meaning": "Seed",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Woŋri kici",
+    "meaning": "Stem",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Ghaŋ",
+    "meaning": "Root",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Ŋkənri",
+    "meaning": "Recapitulation",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Nəŋ",
+    "meaning": "Hairs",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Si",
+    "meaning": "Eye",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Vishi",
+    "meaning": "Face",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Kitu'ur",
+    "meaning": "Ear",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Yuy",
+    "meaning": "Nose",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Juv shuu",
+    "meaning": "Lip",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Kij",
+    "meaning": "Jaw",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Bubu",
+    "meaning": "Cheek",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Diŋ",
+    "meaning": "Chin",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Kiloŋ",
+    "meaning": "Neck",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Kighev",
+    "meaning": "Beard",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Soŋ",
+    "meaning": "Teeth",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Kiliime",
+    "meaning": "Tongue",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Kibu' ke yuy",
+    "meaning": "Nostril",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Vibu' ve yuy",
+    "meaning": "Nostrils",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Kor",
+    "meaning": "Occiput",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Mbe",
+    "meaning": "Shoulder",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Win",
+    "meaning": "Breast",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Kitu ke win",
+    "meaning": "Nipple",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Kavir",
+    "meaning": "Armpit as well axilla",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Mvəm kiwo",
+    "meaning": "Palm of the hand",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Vighiy",
+    "meaning": "Nails of the finger or toes",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Bvəm",
+    "meaning": "Abdomen",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Toŋ",
+    "meaning": "Umbilicus",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Mentin tin",
+    "meaning": "Waist",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Ndzən",
+    "meaning": "Testes",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Baŋ Ndzən",
+    "meaning": "Testicle",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Kfən",
+    "meaning": "Vagina",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Tun",
+    "meaning": "Vagina",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Mee",
+    "meaning": "Pubic hairs",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Kiwo",
+    "meaning": "Hand",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Wan kiwo",
+    "meaning": "Finger",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Won Kiwo",
+    "meaning": "Fingers",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Ndzəm",
+    "meaning": "Back",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Jav wun",
+    "meaning": "Flesh",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Mensə",
+    "meaning": "Blood",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Shwiŋ",
+    "meaning": "Leg",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Shwinsi",
+    "meaning": "Legs",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Wun wir",
+    "meaning": "Human body",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Shinyəŋ",
+    "meaning": "Buttocks",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Ntu' se kinye",
+    "meaning": "Buttocks",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Kibiy",
+    "meaning": "Thigh",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Viyeŋ",
+    "meaning": "Laps",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Kitu ke ndəə",
+    "meaning": "Knee Cap",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Ŋkoŋ",
+    "meaning": "Tibia turberosity",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Shintu",
+    "meaning": "Calf",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Kiwuu",
+    "meaning": "Foot",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Won wuu",
+    "meaning": "Toes",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Sarkiwuu",
+    "meaning": "Sole",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Kiyoy ke kwuu",
+    "meaning": "Median of the sole",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Nsən kiwuu",
+    "meaning": "Heel",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Taŋ shwin",
+    "meaning": "Ankle",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Ndzəə",
+    "meaning": "Knee",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Na",
+    "meaning": "Cow",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Loŋ",
+    "meaning": "Horn",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Kun",
+    "meaning": "Tail",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Mfay",
+    "meaning": "Hoof",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Vifa ve yi",
+    "meaning": "Food",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Kiban",
+    "meaning": "Corn fufu",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Nyoo",
+    "meaning": "Soup",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Nyoo se ji",
+    "meaning": "Huckleberry",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Nyam",
+    "meaning": "Meat",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Nsəmri",
+    "meaning": "Okro",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Kiŋgom",
+    "meaning": "Banana",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Kinŋgom ke Nso",
+    "meaning": "Plantain",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Wum",
+    "meaning": "Egg",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Ŋgvəv",
+    "meaning": "Chicken",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Ŋgwasang",
+    "meaning": "Maize or better still corn",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Ŋgor",
+    "meaning": "Mudfish",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Mbuŋga",
+    "meaning": "Tilapia",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Re",
+    "meaning": "Yam",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Tu",
+    "meaning": "Irish potatoes",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Bo",
+    "meaning": "Pumkin",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Ncem",
+    "meaning": "Pumkin leaves",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Mbu'lam",
+    "meaning": "Sweet potatoe",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Ŋgashiŋga",
+    "meaning": "Cassava",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Ndzəreŋ",
+    "meaning": "Groundnuts",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Shinya",
+    "meaning": "Garden eggs",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Nanar",
+    "meaning": "Pineapple",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Tumatu",
+    "meaning": "Tomato",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Anyor",
+    "meaning": "Onion",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Maŋgri",
+    "meaning": "Mango",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Woren",
+    "meaning": "Orange",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Ŋgwaŋwaŋ",
+    "meaning": "Sugar Cane",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Viku'u",
+    "meaning": "Cocoyams",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Meŋgvər",
+    "meaning": "Oil",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Lam",
+    "meaning": "Gum",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Shiŋwaŋ",
+    "meaning": "Salt",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Sihirum",
+    "meaning": "nan",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Ŋgi",
+    "meaning": "Egusi",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Tan",
+    "meaning": "Cap",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Kikum",
+    "meaning": "Gown or upper dress",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Kur",
+    "meaning": "Coat",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Sher",
+    "meaning": "Shirt",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Tay",
+    "meaning": "Tie",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Ma'ya'aay",
+    "meaning": "Nso traditional dress code",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Abev",
+    "meaning": "Nso traditiona Marked loin dress",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Te",
+    "meaning": "Nso traditional dress for women",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Laaba",
+    "meaning": "Shoe",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Jaalo",
+    "meaning": "Rubber shoe",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Shikev",
+    "meaning": "Skirt",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Buba",
+    "meaning": "Blouse",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Rapa",
+    "meaning": "Loin",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Sanja",
+    "meaning": "Wrapper",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Sela",
+    "meaning": "Trouser",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Sela wo tsəm",
+    "meaning": "Shorts",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Kisoo",
+    "meaning": "Hoe",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Kisoo ke da ki",
+    "meaning": "Spade",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Njam",
+    "meaning": "Axe",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Shwa",
+    "meaning": "Knife",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Nyuy",
+    "meaning": "Cutlasa",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Kem",
+    "meaning": "Scissors",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Ŋgwa",
+    "meaning": "Book",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Kiraŋ",
+    "meaning": "Ladder",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Kiyer",
+    "meaning": "Broom",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Ŋgar",
+    "meaning": "Gun",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Mekaŋ",
+    "meaning": "Gun powder",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Kinte",
+    "meaning": "Bow",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Mvən",
+    "meaning": "Arrow",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Kinter",
+    "meaning": "Club",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Ŋkaa",
+    "meaning": "Basket",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Ker",
+    "meaning": "straw tray",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Bar",
+    "meaning": "Cup",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Kigati",
+    "meaning": "Long Basket made from palm fronds or elephant grass stalks",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Botir",
+    "meaning": "Bottle",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Ci yi",
+    "meaning": "Eating Spoon",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Ci",
+    "meaning": "Spoon",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Luŋga",
+    "meaning": "Bucket",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Kikoŋ",
+    "meaning": "Mortar",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Ŋkem",
+    "meaning": "Woven bamboo peeling with holes for transporting things",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Ŋko",
+    "meaning": "Woven basket with straps for carrying thin on the back.",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Kibam",
+    "meaning": "Bag",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Nyam see lav",
+    "meaning": "Domestic Animals",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Jwi",
+    "meaning": "Dog",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Nyamŋko",
+    "meaning": "Horse",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Sem",
+    "meaning": "Hen",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Kiyuu",
+    "meaning": "Cock",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Gwagwa",
+    "meaning": "Duck",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Kimbe'biy",
+    "meaning": "Donkey",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Njii",
+    "meaning": "Sheep",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Kiya",
+    "meaning": "Ram",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Kibev",
+    "meaning": "He-goat",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Waaŋgaa",
+    "meaning": "Rabbit",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Nyam see Kwa",
+    "meaning": "Wild Animals",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Kitam",
+    "meaning": "Elephant",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Bvərə",
+    "meaning": "Lion",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Baa",
+    "meaning": "Leopard",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Yo",
+    "meaning": "Snake",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Kan",
+    "meaning": "Monkey",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Kibu",
+    "meaning": "Gorilla",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Ŋgay",
+    "meaning": "Crocodile",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Ŋgvem",
+    "meaning": "Python",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Ŋgam Visiy",
+    "meaning": "Scopion",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Ŋgam nsay",
+    "meaning": "Tarantula",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Kiluŋ",
+    "meaning": "Hawk",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Mbav",
+    "meaning": "Rat",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Nshakun",
+    "meaning": "Mice",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Shiyuu",
+    "meaning": "Bee",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Kimfəm",
+    "meaning": "Carpenter bee",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Mbvənjaŋ",
+    "meaning": "Butterfly",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Tamamnkfə",
+    "meaning": "Moth",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Kinshiy",
+    "meaning": "Cricket",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Nshum",
+    "meaning": "Drum",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Kiba",
+    "meaning": "Umbrella",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Ŋgem",
+    "meaning": "Gong",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Ŋgu",
+    "meaning": "Gong",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Kinsaa",
+    "meaning": "Comb",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Kinsaasi",
+    "meaning": "Cactus",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Njaaŋ",
+    "meaning": "Xylophone",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Sum",
+    "meaning": "Farm",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Ŋwee",
+    "meaning": "Moon or Month",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Gwan",
+    "meaning": "Hill",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Kov",
+    "meaning": "Forest",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Kiwooy",
+    "meaning": "Valley",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Dzəə",
+    "meaning": "Road",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "koò",
+    "meaning": "to catch, inhibit",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "koti",
+    "meaning": "to postpone ; to give back a loan",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "kòv",
+    "meaning": "forest",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "ku",
+    "meaning": "must ; pleading or plea",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "kún",
+    "meaning": "beans",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "kùr",
+    "meaning": "wrapping ; covering and tying",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "kútí",
+    "meaning": "baling from a container with a cup ; shooing children away",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "kuúmé",
+    "meaning": "to remember",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "kvər",
+    "meaning": "to chew strongly",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "kwang kwang",
+    "meaning": "bow",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "la",
+    "meaning": "who ; to eat pap, honey",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "lá",
+    "meaning": "to lick ; hoe handle of woman's hoe",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "là ci",
+    "meaning": "don't mind ; don't worry about it",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "láng",
+    "meaning": "dish",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "lárí",
+    "meaning": "lapping ; licking over and over",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "latì",
+    "meaning": "to tap ; to get attention by touching someone",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "látí",
+    "meaning": "sprint ; run fast",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "lav",
+    "meaning": "house",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "lav shiv",
+    "meaning": "clinic (house of medicine)",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "le",
+    "meaning": "how",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "li",
+    "meaning": "to take, as in committing adultery",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "liì",
+    "meaning": "good character",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Kún vito",
+    "meaning": "Appendix",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Ŋgwa'",
+    "meaning": "Book",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Kùn vito",
+    "meaning": "Appendix",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Ntá",
+    "meaning": "Chair",
+    "type": "noun",
+    "example": "Shwiy Ntáa! (Sit on chair!)"
+  },
+  {
+    "word": "Bvəy lóŋ",
+    "meaning": "Goat",
+    "type": "noun",
+    "example": "Bvəəy lóŋ yi lo Dzə̀ə. (The goat is on the road.)"
+  },
+  {
+    "word": "Nta'",
+    "meaning": "chair",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Si'",
+    "meaning": "Eye",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Kiwó",
+    "meaning": "Hand",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Shwiin",
+    "meaning": "Leg",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Kitúr",
+    "meaning": "Stomach",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Tiim",
+    "meaning": "Heart",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Mentsà",
+    "meaning": "Blood",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Wúm",
+    "meaning": "Egg",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Sà",
+    "meaning": "Fish",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Wùu",
+    "meaning": "Rain",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Shúy",
+    "meaning": "Sun",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Shijiy",
+    "meaning": "Star",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Vày",
+    "meaning": "Fire",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Mve'ey",
+    "meaning": "Twin",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Sèkè",
+    "meaning": "Twin",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Bàŋ se Ndzèn",
+    "meaning": "Palm wine tapper",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Bà",
+    "meaning": "Knit",
+    "type": "verb",
+    "example": ""
+  },
+  {
+    "word": "Banfoghán",
+    "meaning": "Spider",
+    "type": "noun",
+    "example": ""
+  }
 ]
