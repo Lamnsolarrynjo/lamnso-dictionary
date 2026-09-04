@@ -1,1 +1,5008 @@
+[
+  {
+    "word": "Alùminyun",
+    "meaning": "Aluminium",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Kilii",
+    "meaning": "Ant",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Wanyeeto",
+    "meaning": "Ant eater",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Ŋáv",
+    "meaning": "Antelope",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Ntóŋ",
+    "meaning": "Anus",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Kóoy",
+    "meaning": "Arm",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Mvə̀n",
+    "meaning": "Arrow",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Wóŋ'",
+    "meaning": "As he, a traditional society",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Kimbébíy",
+    "meaning": "Ass",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "àntsernsai",
+    "meaning": "Ancestors",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Ŋgùuy bí’",
+    "meaning": "Mathematics",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Nshwáan lóm",
+    "meaning": "Excretory system",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Kfə̀v vito",
+    "meaning": "Duodenum",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Kito ke ŋkóŋ",
+    "meaning": "Tibia plateau",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Bán tù'ur",
+    "meaning": "Alternating current",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Mendzəv",
+    "meaning": "Water",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Sóŋ",
+    "meaning": "Tooth",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Tàr",
+    "meaning": "Father",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Yìy",
+    "meaning": "Mother",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Wan",
+    "meaning": "Child",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Láv",
+    "meaning": "House",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Bvəəy lóŋ",
+    "meaning": "Goat",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Ná",
+    "meaning": "Cow",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Ŋgə̀v",
+    "meaning": "Chicken",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Viyikir",
+    "meaning": "Food",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Kún",
+    "meaning": "Beans",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Koki",
+    "meaning": "Koki beans",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Ŋgashiŋa",
+    "meaning": "Cassava",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Meŋwə̀ər",
+    "meaning": "Oil",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Shiŋgwáŋ",
+    "meaning": "Salt",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Ŋwáa",
+    "meaning": "Meeting",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Lámnso",
+    "meaning": "Lamnso language",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Nso",
+    "meaning": "Nso people",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Fon",
+    "meaning": "King",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Ŋgaywir",
+    "meaning": "Elder",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Ŋwá Nyùy",
+    "meaning": "Bible",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Nyùy",
+    "meaning": "God",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Bunri",
+    "meaning": "Pray",
+    "type": "verb",
+    "example": ""
+  },
+  {
+    "word": "Lá yè’ey",
+    "meaning": "School",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Ŋwà",
+    "meaning": "Book",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Kinsáŋ",
+    "meaning": "Pen",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Ntáa",
+    "meaning": "Chair",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Kitaatí",
+    "meaning": "Table",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Dzə̀ə",
+    "meaning": "Road",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Kitenten",
+    "meaning": "Car",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Yikír",
+    "meaning": "Eat",
+    "type": "verb",
+    "example": ""
+  },
+  {
+    "word": "Nú",
+    "meaning": "Drink",
+    "type": "verb",
+    "example": ""
+  },
+  {
+    "word": "Mbùune",
+    "meaning": "Sleep",
+    "type": "verb",
+    "example": ""
+  },
+  {
+    "word": "Yimén",
+    "meaning": "Wake up",
+    "type": "verb",
+    "example": ""
+  },
+  {
+    "word": "Lim",
+    "meaning": "Work",
+    "type": "verb",
+    "example": ""
+  },
+  {
+    "word": "Kishiiy",
+    "meaning": "Day",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Vitsə́",
+    "meaning": "Night",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Kiyá",
+    "meaning": "Year",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Ŋgwee",
+    "meaning": "Month",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Ŋgàm",
+    "meaning": "Week",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Monlé",
+    "meaning": "Monday",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Cúusidey",
+    "meaning": "Tuesday",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Wenesidéy",
+    "meaning": "Wednesday",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Tóosidey",
+    "meaning": "Thursday",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Fə̀raydey",
+    "meaning": "Friday",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Saatudéy",
+    "meaning": "Saturday",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Sónlé",
+    "meaning": "Sunday",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "War",
+    "meaning": "Market",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Là shiv",
+    "meaning": "Hospital",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Ŋgaa shiv",
+    "meaning": "Doctor",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Shív",
+    "meaning": "Medicine",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Kitu",
+    "meaning": "Head",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Sí'",
+    "meaning": "Eye",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Kitù’ur",
+    "meaning": "Ear",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Yúuy",
+    "meaning": "Nose",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Shuu",
+    "meaning": "Mouth",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Kiwó",
+    "meaning": "Hand",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Shwíin",
+    "meaning": "Leg",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Kitúr",
+    "meaning": "Stomach",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Tíim",
+    "meaning": "Heart",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Mentsə̀",
+    "meaning": "Blood",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Wúm",
+    "meaning": "Egg",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Sə̀",
+    "meaning": "Fish",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Wúu",
+    "meaning": "Rain",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Shúy",
+    "meaning": "Sun",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Shijìy",
+    "meaning": "Star",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Shwer",
+    "meaning": "Wind",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Və́y",
+    "meaning": "Fire",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Saamba",
+    "meaning": "Seven",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Mve'ey, Sèké",
+    "meaning": "Chaff",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Aay",
+    "meaning": "Negative",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Abu'ur",
+    "meaning": "Boots (Rain boots)",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Abve'ey",
+    "meaning": "Molars",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "A'kang",
+    "meaning": "Multiplication",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "A'kang tang",
+    "meaning": "Multiples",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Anyur",
+    "meaning": "Onion",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Kun vito",
+    "meaning": "Appendix",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Báŋ se Ndzèn",
+    "meaning": "Testicles",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Bà",
+    "meaning": "Knit",
+    "type": "verb",
+    "example": ""
+  },
+  {
+    "word": "Shingeenge",
+    "meaning": "Smallest",
+    "type": "adjective",
+    "example": ""
+  },
+  {
+    "word": "Ba'mshuushiliv",
+    "meaning": "Inferior epigastrium",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Banfogháŋ",
+    "meaning": "Side light",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Bavkir, Baykir, Nge'",
+    "meaning": "Tickling sensation/Tingling",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Báy",
+    "meaning": "to explode",
+    "type": "verb",
+    "example": ""
+  },
+  {
+    "word": "Bè’ey",
+    "meaning": "carrier",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Biimbvə̀v",
+    "meaning": "Assets",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Biibi",
+    "meaning": "brown color",
+    "type": "adjective",
+    "example": ""
+  },
+  {
+    "word": "Biibiy",
+    "meaning": "parasite",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Bi' jii",
+    "meaning": "Calculate",
+    "type": "verb",
+    "example": ""
+  },
+  {
+    "word": "Bí’ bey",
+    "meaning": "Logic",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Bínen",
+    "meaning": "copy",
+    "type": "verb",
+    "example": ""
+  },
+  {
+    "word": "Réŋfeyi",
+    "meaning": "perfect",
+    "type": "adjective",
+    "example": ""
+  },
+  {
+    "word": "Nsáŋti vibooŋi",
+    "meaning": "aesthetic",
+    "type": "adjective",
+    "example": ""
+  },
+  {
+    "word": "Bùbá",
+    "meaning": "blouse",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Bòjóo",
+    "meaning": "obesity",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Fémsí",
+    "meaning": "deceive",
+    "type": "verb",
+    "example": ""
+  },
+  {
+    "word": "Abodí",
+    "meaning": "Bra (breast wear)",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Bùu",
+    "meaning": "appetite",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Bubú",
+    "meaning": "phone",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Bùŋ",
+    "meaning": "red",
+    "type": "adjective",
+    "example": ""
+  },
+  {
+    "word": "Bubúu",
+    "meaning": "cheek",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Ntam réŋréŋ",
+    "meaning": "square measure",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Buubvəm ŋkoovi",
+    "meaning": "Left lower quadrant",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Bvə’ən",
+    "meaning": "flex",
+    "type": "verb",
+    "example": ""
+  },
+  {
+    "word": "Bvəybvəəy",
+    "meaning": "eye lashes",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Kiwuv ke sí",
+    "meaning": "eyelid",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Kiyoy ke kiwuu",
+    "meaning": "sole of the foot",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Bìi",
+    "meaning": "Camwood",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Cíciwaar",
+    "meaning": "flag",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Shuuyúm, ntsə̀tishuu",
+    "meaning": "unbelievable",
+    "type": "adjective",
+    "example": ""
+  },
+  {
+    "word": "Cí",
+    "meaning": "spoon",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Saŋlem",
+    "meaning": "computer",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Mnsoŋ",
+    "meaning": "creatures",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Dám",
+    "meaning": "sperm",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Mboor njàkòŋ",
+    "meaning": "dandillion",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Mfí kóo",
+    "meaning": "height",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Dinmbishwer",
+    "meaning": "wind vane",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Bómen",
+    "meaning": "obese",
+    "type": "adjective",
+    "example": ""
+  },
+  {
+    "word": "Díŋ",
+    "meaning": "chin",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Dinmbiv",
+    "meaning": "compass",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Dinsàv",
+    "meaning": "Dictionary",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Kifin (ke ŋwá)",
+    "meaning": "stamp",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Dóon",
+    "meaning": "signature",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Dóoŋ",
+    "meaning": "brain",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Duayìi",
+    "meaning": "License",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Dór shaa",
+    "meaning": "less than",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Mfíi si ŋwá",
+    "meaning": "computer keyboard",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Mòo yíi",
+    "meaning": "Method",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Dzə̀ə yìi",
+    "meaning": "System",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Nshásin baníŕ",
+    "meaning": "light system",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Ghámsín",
+    "meaning": "embedded",
+    "type": "adjective",
+    "example": ""
+  },
+  {
+    "word": "Vidzə̀əsí",
+    "meaning": "weight",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Mfí kúu",
+    "meaning": "amount",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "é fée",
+    "meaning": "to",
+    "type": "preposition",
+    "example": ""
+  },
+  {
+    "word": "Ée na",
+    "meaning": "Hello",
+    "type": "greeting",
+    "example": ""
+  },
+  {
+    "word": "é",
+    "meaning": "@",
+    "type": "symbol",
+    "example": ""
+  },
+  {
+    "word": "Bínsi",
+    "meaning": "positive",
+    "type": "adjective",
+    "example": ""
+  },
+  {
+    "word": "Faar",
+    "meaning": "reduce",
+    "type": "verb",
+    "example": ""
+  },
+  {
+    "word": "Kemshó",
+    "meaning": "ego, interest",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Mavkú",
+    "meaning": "extra large",
+    "type": "adjective",
+    "example": ""
+  },
+  {
+    "word": "é medà",
+    "meaning": "oblong",
+    "type": "adjective",
+    "example": ""
+  },
+  {
+    "word": "Fáa",
+    "meaning": "maogani (tree)",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Fán",
+    "meaning": "fear",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Shisí’nkwí",
+    "meaning": "flash drive",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Féesi",
+    "meaning": "blow",
+    "type": "verb",
+    "example": ""
+  },
+  {
+    "word": "Ton kiláya",
+    "meaning": "fumigate",
+    "type": "verb",
+    "example": ""
+  },
+  {
+    "word": "Dòm é ki dú",
+    "meaning": "push away",
+    "type": "verb",
+    "example": ""
+  },
+  {
+    "word": "Shàŋi, fə̀ŋ, kiyúy ke bí ki",
+    "meaning": "ordour",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Luŋ fòfó",
+    "meaning": "Impact",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Fə́vir",
+    "meaning": "white",
+    "type": "adjective",
+    "example": ""
+  },
+  {
+    "word": "Fə̀ə nsíi",
+    "meaning": "Certificate",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Feesí",
+    "meaning": "Spray",
+    "type": "verb",
+    "example": ""
+  },
+  {
+    "word": "Fəəsí",
+    "meaning": "crimwhite",
+    "type": "adjective",
+    "example": ""
+  },
+  {
+    "word": "Féem yó’",
+    "meaning": "paint",
+    "type": "verb",
+    "example": ""
+  },
+  {
+    "word": "Fí’sin",
+    "meaning": "suffocate",
+    "type": "verb",
+    "example": ""
+  },
+  {
+    "word": "Fó kitu",
+    "meaning": "helm",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Nyumereeto",
+    "meaning": "Numerator",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Kilá’ay",
+    "meaning": "Base",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Kiyà ghə́əm",
+    "meaning": "Decade",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Sártsə́n, ntúŋ kijàv",
+    "meaning": "Denominator",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "À",
+    "meaning": "you (singular)",
+    "type": "pronoun",
+    "example": ""
+  },
+  {
+    "word": "Á",
+    "meaning": "they (shortened)",
+    "type": "pronoun",
+    "example": ""
+  },
+  {
+    "word": "atàr",
+    "meaning": "father's",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Áwune",
+    "meaning": "they",
+    "type": "pronoun",
+    "example": ""
+  },
+  {
+    "word": "ba",
+    "meaning": "what to call a boy",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "bá",
+    "meaning": "to plait or weave",
+    "type": "verb",
+    "example": ""
+  },
+  {
+    "word": "ba'",
+    "meaning": "to push down",
+    "type": "verb",
+    "example": ""
+  },
+  {
+    "word": "ba'àr",
+    "meaning": "to make way",
+    "type": "verb",
+    "example": ""
+  },
+  {
+    "word": "ba'rì",
+    "meaning": "to build",
+    "type": "verb",
+    "example": ""
+  },
+  {
+    "word": "bá'tí",
+    "meaning": "to pack",
+    "type": "verb",
+    "example": ""
+  },
+  {
+    "word": "baá",
+    "meaning": "leopard ; to be crazy ; to play",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "bàá",
+    "meaning": "father",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "baamé",
+    "meaning": "to embrace",
+    "type": "verb",
+    "example": ""
+  },
+  {
+    "word": "baamè",
+    "meaning": "to be careful",
+    "type": "verb",
+    "example": ""
+  },
+  {
+    "word": "baáné",
+    "meaning": "to join ; a wall",
+    "type": "verb",
+    "example": ""
+  },
+  {
+    "word": "baar",
+    "meaning": "to redden",
+    "type": "verb",
+    "example": ""
+  },
+  {
+    "word": "baárí",
+    "meaning": "to carry on the back ; to blaze",
+    "type": "verb",
+    "example": ""
+  },
+  {
+    "word": "baay",
+    "meaning": "to filter ; to sharpen",
+    "type": "verb",
+    "example": ""
+  },
+  {
+    "word": "bábár",
+    "meaning": "pneumonia",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "bam",
+    "meaning": "slope of a hill",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "bám",
+    "meaning": "next sibling in line ; one who follows",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "ban",
+    "meaning": "to hate",
+    "type": "verb",
+    "example": ""
+  },
+  {
+    "word": "bán",
+    "meaning": "heating or shining (from the sun)",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "bánén",
+    "meaning": "to gather together",
+    "type": "verb",
+    "example": ""
+  },
+  {
+    "word": "baŋ",
+    "meaning": "reduce in size or number",
+    "type": "verb",
+    "example": ""
+  },
+  {
+    "word": "báŋ",
+    "meaning": "bullets ; seeds",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "baŋgrìn",
+    "meaning": "to pass by without seeing",
+    "type": "verb",
+    "example": ""
+  },
+  {
+    "word": "baŋri",
+    "meaning": "to desire strongly",
+    "type": "verb",
+    "example": ""
+  },
+  {
+    "word": "bár",
+    "meaning": "cup",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "bár",
+    "meaning": "to carry on the back ; to attach",
+    "type": "verb",
+    "example": ""
+  },
+  {
+    "word": "báshí",
+    "meaning": "to blame",
+    "type": "verb",
+    "example": ""
+  },
+  {
+    "word": "bátín",
+    "meaning": "to hang onto",
+    "type": "verb",
+    "example": ""
+  },
+  {
+    "word": "bátír",
+    "meaning": "to attach ; to follow",
+    "type": "verb",
+    "example": ""
+  },
+  {
+    "word": "báv",
+    "meaning": "small tree ants ; to roast",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "bay",
+    "meaning": "to take off ; liver",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "báy",
+    "meaning": "to ache, to explode",
+    "type": "verb",
+    "example": ""
+  },
+  {
+    "word": "báyír",
+    "meaning": "to entice",
+    "type": "verb",
+    "example": ""
+  },
+  {
+    "word": "baysìn",
+    "meaning": "to stumble",
+    "type": "verb",
+    "example": ""
+  },
+  {
+    "word": "bé'",
+    "meaning": "to break ; to carry",
+    "type": "verb",
+    "example": ""
+  },
+  {
+    "word": "be'èy",
+    "meaning": "to pick up and carry",
+    "type": "verb",
+    "example": ""
+  },
+  {
+    "word": "bee",
+    "meaning": "to shelter",
+    "type": "verb",
+    "example": ""
+  },
+  {
+    "word": "beé",
+    "meaning": "to bevel",
+    "type": "verb",
+    "example": ""
+  },
+  {
+    "word": "bèé",
+    "meaning": "whereabouts of a thing",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "beemè",
+    "meaning": "to make ashamed",
+    "type": "verb",
+    "example": ""
+  },
+  {
+    "word": "beémé",
+    "meaning": "to look frightful",
+    "type": "verb",
+    "example": ""
+  },
+  {
+    "word": "beerì",
+    "meaning": "to thank",
+    "type": "verb",
+    "example": ""
+  },
+  {
+    "word": "bér",
+    "meaning": "to remain",
+    "type": "verb",
+    "example": ""
+  },
+  {
+    "word": "bév kimbev",
+    "meaning": "to stutter",
+    "type": "verb",
+    "example": ""
+  },
+  {
+    "word": "bey",
+    "meaning": "like that",
+    "type": "other",
+    "example": ""
+  },
+  {
+    "word": "bí",
+    "meaning": "invite ; inform ; tell",
+    "type": "verb",
+    "example": ""
+  },
+  {
+    "word": "bi'fó",
+    "meaning": "because",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "bií",
+    "meaning": "hole",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "biì",
+    "meaning": "camwood",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "biímé",
+    "meaning": "to agree ; faith",
+    "type": "verb",
+    "example": ""
+  },
+  {
+    "word": "bin",
+    "meaning": "to trade ; branch off",
+    "type": "verb",
+    "example": ""
+  },
+  {
+    "word": "binèr",
+    "meaning": "to turn something ; to answer",
+    "type": "verb",
+    "example": ""
+  },
+  {
+    "word": "binkìr",
+    "meaning": "to turn around",
+    "type": "verb",
+    "example": ""
+  },
+  {
+    "word": "binsin",
+    "meaning": "to refuse",
+    "type": "verb",
+    "example": ""
+  },
+  {
+    "word": "bití",
+    "meaning": "to grapple with",
+    "type": "verb",
+    "example": ""
+  },
+  {
+    "word": "biy",
+    "meaning": "to plant seedlings",
+    "type": "verb",
+    "example": ""
+  },
+  {
+    "word": "bíy",
+    "meaning": "food ready to eat ; already cooked ; kola nut",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "bonén",
+    "meaning": "healing",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "bùbá",
+    "meaning": "blouse (old fashioned word)",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "bun",
+    "meaning": "greet the fon",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "bún",
+    "meaning": "to wander ; storage place for palm wine (hut)",
+    "type": "verb",
+    "example": ""
+  },
+  {
+    "word": "bùn",
+    "meaning": "squirrel",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "búrí",
+    "meaning": "praise",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "buti",
+    "meaning": "rough beating",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "buúné",
+    "meaning": "to sleep",
+    "type": "verb",
+    "example": ""
+  },
+  {
+    "word": "bvəəʻshí",
+    "meaning": "verb referring to tomorrow",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "bvə̀y",
+    "meaning": "goat",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "cá'cá'",
+    "meaning": "only",
+    "type": "other",
+    "example": ""
+  },
+  {
+    "word": "caar",
+    "meaning": "light weight",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "cercér",
+    "meaning": "fast",
+    "type": "other",
+    "example": ""
+  },
+  {
+    "word": "chinyoo",
+    "meaning": "spoon",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "ci",
+    "meaning": "difficulties ; a hard time ; struggle",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "cí",
+    "meaning": "not minding ; don't care",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "cici",
+    "meaning": "hard struggle",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "cor",
+    "meaning": "church",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "cu",
+    "meaning": "sacrifice ; offering",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "cú",
+    "meaning": "spit out",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "da",
+    "meaning": "long",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "dàr",
+    "meaning": "long",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "dìn",
+    "meaning": "show",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "dòtí",
+    "meaning": "dirty (verb and adjective)",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "du",
+    "meaning": "to go",
+    "type": "verb",
+    "example": ""
+  },
+  {
+    "word": "dzə̀",
+    "meaning": "to be",
+    "type": "verb",
+    "example": ""
+  },
+  {
+    "word": "dzəə",
+    "meaning": "road",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "e",
+    "meaning": "to, and (joining verbs)",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "é",
+    "meaning": "at",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "eè",
+    "meaning": "yes (short form)",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "éè",
+    "meaning": "Oh (Oh lord)",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "éno",
+    "meaning": "yes",
+    "type": "other",
+    "example": ""
+  },
+  {
+    "word": "fan",
+    "meaning": "to fear",
+    "type": "verb",
+    "example": ""
+  },
+  {
+    "word": "far",
+    "meaning": "reduce in size or number",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "fàti",
+    "meaning": "tear down tree branches ; reduce in size or number",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "fée",
+    "meaning": "where",
+    "type": "other",
+    "example": ""
+  },
+  {
+    "word": "féti",
+    "meaning": "to winnow",
+    "type": "verb",
+    "example": ""
+  },
+  {
+    "word": "feyi",
+    "meaning": "very",
+    "type": "other",
+    "example": ""
+  },
+  {
+    "word": "fəˋr",
+    "meaning": "sibling",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "fəə",
+    "meaning": "out",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "fiìnè",
+    "meaning": "sell",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "fiirí",
+    "meaning": "long ago",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "fo",
+    "meaning": "there",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "fó",
+    "meaning": "give",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "fo mo",
+    "meaning": "give me",
+    "type": "pronoun",
+    "example": ""
+  },
+  {
+    "word": "fómó",
+    "meaning": "gift",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "for",
+    "meaning": "to smash",
+    "type": "verb",
+    "example": ""
+  },
+  {
+    "word": "fór",
+    "meaning": "to add oil to food (or other ingredients) ; old dry ash",
+    "type": "verb",
+    "example": ""
+  },
+  {
+    "word": "fotì",
+    "meaning": "smashing ; to smash",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "fú",
+    "meaning": "soothsaying from a prophet",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "fum",
+    "meaning": "first time to do something ritual",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "fúm",
+    "meaning": "to pile up ; forehead ; can mean intelligence",
+    "type": "verb",
+    "example": ""
+  },
+  {
+    "word": "gàv",
+    "meaning": "catepillar",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "gày",
+    "meaning": "cow-herd",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "ghán",
+    "meaning": "time",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "gìm",
+    "meaning": "a boil",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "gitì",
+    "meaning": "to hurry ; to be in haste",
+    "type": "verb",
+    "example": ""
+  },
+  {
+    "word": "gotì",
+    "meaning": "touch on someone's jaw to vex them",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "gwəˋi",
+    "meaning": "war spy (traditional mask)",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "jàv",
+    "meaning": "share out ; portion ; divide among",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "ji",
+    "meaning": "that",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "jì",
+    "meaning": "voice ; word",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "jív",
+    "meaning": "to waste time by moving slowly",
+    "type": "verb",
+    "example": ""
+  },
+  {
+    "word": "jiv",
+    "meaning": "a spell (as in witchcraft)",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "jivir",
+    "meaning": "to disturb",
+    "type": "verb",
+    "example": ""
+  },
+  {
+    "word": "jo",
+    "meaning": "grind ; ground",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "juv",
+    "meaning": "skin",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "ka",
+    "meaning": "what",
+    "type": "other",
+    "example": ""
+  },
+  {
+    "word": "ká",
+    "meaning": "to pray ; to incant to gods",
+    "type": "verb",
+    "example": ""
+  },
+  {
+    "word": "kà",
+    "meaning": "to clear the throat",
+    "type": "verb",
+    "example": ""
+  },
+  {
+    "word": "kam",
+    "meaning": "a stingy person",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "kám",
+    "meaning": "to squeeze",
+    "type": "verb",
+    "example": ""
+  },
+  {
+    "word": "kàm",
+    "meaning": "leading character in a masquerade",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "kán",
+    "meaning": "to squeeze out, like juice",
+    "type": "verb",
+    "example": ""
+  },
+  {
+    "word": "káŋrí",
+    "meaning": "to fry",
+    "type": "verb",
+    "example": ""
+  },
+  {
+    "word": "kar",
+    "meaning": "to shake",
+    "type": "verb",
+    "example": ""
+  },
+  {
+    "word": "kár",
+    "meaning": "wheel ; barren woman",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "kati",
+    "meaning": "to uproot poles ; vexed",
+    "type": "verb",
+    "example": ""
+  },
+  {
+    "word": "kàv",
+    "meaning": "wealth",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "kavah",
+    "meaning": "throne",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "kàwár",
+    "meaning": "cowpeas",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "kay",
+    "meaning": "fence ; to hatch ; to tie strongly",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "káy",
+    "meaning": "too small ; eaves",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "kày",
+    "meaning": "person ; rat",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "ke",
+    "meaning": "yours (singular)",
+    "type": "pronoun",
+    "example": ""
+  },
+  {
+    "word": "kér",
+    "meaning": "to have",
+    "type": "verb",
+    "example": ""
+  },
+  {
+    "word": "ketì",
+    "meaning": "to raze ; to demolish a house",
+    "type": "verb",
+    "example": ""
+  },
+  {
+    "word": "kétí",
+    "meaning": "to pluck leaves from plant or legs from an insect",
+    "type": "verb",
+    "example": ""
+  },
+  {
+    "word": "kfəəˋ",
+    "meaning": "rope",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "kfəəʻ",
+    "meaning": "family",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "ki",
+    "meaning": "to know",
+    "type": "verb",
+    "example": ""
+  },
+  {
+    "word": "kí bòŋ",
+    "meaning": "good",
+    "type": "other",
+    "example": ""
+  },
+  {
+    "word": "ki'iy",
+    "meaning": "to yearn for",
+    "type": "verb",
+    "example": ""
+  },
+  {
+    "word": "kibambo",
+    "meaning": "guardian figure",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "kiban",
+    "meaning": "bag",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "kibrə́",
+    "meaning": "ash in the fire",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "kibung",
+    "meaning": "corn fufu",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "kibur",
+    "meaning": "stool",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "kiburú",
+    "meaning": "a sheath",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "kiburuh",
+    "meaning": "scabbard",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "kibuuruh",
+    "meaning": "cutlass and sheath (scabbard)",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "kibvəəˊshí",
+    "meaning": "tomorrow",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "kidzér",
+    "meaning": "cold",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "kifá",
+    "meaning": "a thing you can touch—concrete",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "kifú",
+    "meaning": "medicine ; leaf of large plant like cocoyam or banana",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "kighiin",
+    "meaning": "drinking bowl",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "kighin",
+    "meaning": "bowl",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "kii",
+    "meaning": "please ; to plead (followed by wò or vèn) ; key",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "kika'áy",
+    "meaning": "lintel",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "kiki",
+    "meaning": "to hold a child in your lap",
+    "type": "verb",
+    "example": ""
+  },
+  {
+    "word": "kikong",
+    "meaning": "mask",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "kikum",
+    "meaning": "shirt",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "kikún",
+    "meaning": "bed",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "kikur ke shulav",
+    "meaning": "doorway (post, threshold, lintel)",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "kimbà",
+    "meaning": "a key",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "kinfəˋy",
+    "meaning": "owl",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "kintàn",
+    "meaning": "insect",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "kinyo",
+    "meaning": "a thing you should pay attention to—information, news",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "kiŋgàm",
+    "meaning": "banana",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "kitam",
+    "meaning": "elephant",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "kitam",
+    "meaning": "trap",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "kitem",
+    "meaning": "calabash",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "kiténtén",
+    "meaning": "car",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "kítí",
+    "meaning": "to dish up corn fufu",
+    "type": "verb",
+    "example": ""
+  },
+  {
+    "word": "kitó",
+    "meaning": "earnest or front money ; medicinal healer",
+    "type": "pronoun",
+    "example": ""
+  },
+  {
+    "word": "kitom ke shulav",
+    "meaning": "door post",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "kitu",
+    "meaning": "skull",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "kitú",
+    "meaning": "head",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "kiwó",
+    "meaning": "hard",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "kiwúukí",
+    "meaning": "on foot",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "kiy",
+    "meaning": "fire",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "kiyá",
+    "meaning": "year",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "ko",
+    "meaning": "to snore ; to catch",
+    "type": "verb",
+    "example": ""
+  },
+  {
+    "word": "kò",
+    "meaning": "to take",
+    "type": "verb",
+    "example": ""
+  },
+  {
+    "word": "kòfi",
+    "meaning": "coffee",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "kókó",
+    "meaning": "carved lintel at the Fon's palace",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "kokong",
+    "meaning": "mortar",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "kóng",
+    "meaning": "ceremonial arrow",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "koŋ",
+    "meaning": "to like ; to love",
+    "type": "verb",
+    "example": ""
+  },
+  {
+    "word": "koò",
+    "meaning": "to catch, inhibit",
+    "type": "verb",
+    "example": ""
+  },
+  {
+    "word": "koti",
+    "meaning": "to postpone ; to give back a loan",
+    "type": "verb",
+    "example": ""
+  },
+  {
+    "word": "kòv",
+    "meaning": "forest",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "ku",
+    "meaning": "must ; pleading or plea",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "kún",
+    "meaning": "beans",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "kùr",
+    "meaning": "wrapping ; covering and tying",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "kútí",
+    "meaning": "baling from a container with a cup ; shooing children away",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "kuúmé",
+    "meaning": "to remember",
+    "type": "verb",
+    "example": ""
+  },
+  {
+    "word": "kvər",
+    "meaning": "to chew strongly",
+    "type": "verb",
+    "example": ""
+  },
+  {
+    "word": "kwang kwang",
+    "meaning": "bow",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "la",
+    "meaning": "who ; to eat pap, honey",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "lá",
+    "meaning": "to lick ; hoe handle of woman's hoe",
+    "type": "verb",
+    "example": ""
+  },
+  {
+    "word": "là ci",
+    "meaning": "don't mind ; don't worry about it",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "la'",
+    "meaning": "home ; compound",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "lam",
+    "meaning": "language ; to speak ; lamp",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "láng",
+    "meaning": "dish",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "lárí",
+    "meaning": "lapping ; licking over and over",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "latì",
+    "meaning": "to tap ; to get attention by touching someone",
+    "type": "verb",
+    "example": ""
+  },
+  {
+    "word": "látí",
+    "meaning": "sprint ; run fast",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "lav",
+    "meaning": "house",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "lav shiv",
+    "meaning": "clinic (house of medicine)",
+    "type": "pronoun",
+    "example": ""
+  },
+  {
+    "word": "le",
+    "meaning": "how",
+    "type": "other",
+    "example": ""
+  },
+  {
+    "word": "li",
+    "meaning": "to take, as in committing adultery",
+    "type": "verb",
+    "example": ""
+  },
+  {
+    "word": "liì",
+    "meaning": "good character",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "lim",
+    "meaning": "work",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "litì",
+    "meaning": "to hide something",
+    "type": "verb",
+    "example": ""
+  },
+  {
+    "word": "liy",
+    "meaning": "to raise a child or livestock ; an insult",
+    "type": "verb",
+    "example": ""
+  },
+  {
+    "word": "líy",
+    "meaning": "to jump; to skip",
+    "type": "verb",
+    "example": ""
+  },
+  {
+    "word": "lo",
+    "meaning": "to leave ; to fall",
+    "type": "verb",
+    "example": ""
+  },
+  {
+    "word": "ló",
+    "meaning": "rain",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "lò",
+    "meaning": "stand",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "lóm",
+    "meaning": "dirty skin",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "lòn",
+    "meaning": "misfortune ; bad luck",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "longsé",
+    "meaning": "horns",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "lóo",
+    "meaning": "before ; when",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "lor",
+    "meaning": "misfortune ; curse",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "lum",
+    "meaning": "heat ; husband ; expensive",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "lúm",
+    "meaning": "to bite ; labor (childbirth)",
+    "type": "verb",
+    "example": ""
+  },
+  {
+    "word": "lùm",
+    "meaning": "dry season ; large rat",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "M",
+    "meaning": "I",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "má",
+    "meaning": "dumbfounded (never used alone)",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "mà",
+    "meaning": "please",
+    "type": "other",
+    "example": ""
+  },
+  {
+    "word": "ma",
+    "meaning": "book",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "màmé",
+    "meaning": "mother",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "matí",
+    "meaning": "to dish out in large loaves or portions",
+    "type": "verb",
+    "example": ""
+  },
+  {
+    "word": "maysi",
+    "meaning": "finishes",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "mbàm",
+    "meaning": "money",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "mban",
+    "meaning": "nail",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "mbìír",
+    "meaning": "bell",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "mbong",
+    "meaning": "buffalo",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "méev",
+    "meaning": "theirs",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "melaà",
+    "meaning": "trouble",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "melu'",
+    "meaning": "wine ; a beverage",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "mo",
+    "meaning": "me",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "motu",
+    "meaning": "car",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "mum",
+    "meaning": "to try",
+    "type": "verb",
+    "example": ""
+  },
+  {
+    "word": "n'gár",
+    "meaning": "air gun, Dane gun",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "nà",
+    "meaning": "what to call a girl",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "naa",
+    "meaning": "to cook",
+    "type": "verb",
+    "example": ""
+  },
+  {
+    "word": "naàri",
+    "meaning": "to explain ; to correct ; to stretch",
+    "type": "verb",
+    "example": ""
+  },
+  {
+    "word": "nasì",
+    "meaning": "to stretch one's body",
+    "type": "verb",
+    "example": ""
+  },
+  {
+    "word": "nchùm",
+    "meaning": "drum",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "ndzərén",
+    "meaning": "groundnut",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "ne",
+    "meaning": "present perfect tense marker",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "neém",
+    "meaning": "to lie down",
+    "type": "verb",
+    "example": ""
+  },
+  {
+    "word": "netì",
+    "meaning": "to arrange, to apportion",
+    "type": "verb",
+    "example": ""
+  },
+  {
+    "word": "ngav",
+    "meaning": "antelope",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "ngày",
+    "meaning": "crocodile",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "nghven",
+    "meaning": "arrow",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "ngiiv",
+    "meaning": "covered vessel",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "ngon nso; yaa",
+    "meaning": "female figure",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "njíy",
+    "meaning": "sorry",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "nkar",
+    "meaning": "friend",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "nkwàm",
+    "meaning": "bag",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "nó",
+    "meaning": "to drink",
+    "type": "verb",
+    "example": ""
+  },
+  {
+    "word": "nsay",
+    "meaning": "down ; earth ; ground ; the world",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "nsər",
+    "meaning": "lid",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "nsing",
+    "meaning": "container and stopper",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "ntar",
+    "meaning": "needle ; an entertainment or hospitality involving food",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "ntir",
+    "meaning": "advice",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "ntòn",
+    "meaning": "pot",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "nyom",
+    "meaning": "sweet",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "nyóo",
+    "meaning": "soup",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Nyú Tár",
+    "meaning": "God the Father",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "ŋgvev",
+    "meaning": "fowl",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "ŋkaà",
+    "meaning": "basket",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "ŋkar",
+    "meaning": "friend",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "patí",
+    "meaning": "to speed",
+    "type": "verb",
+    "example": ""
+  },
+  {
+    "word": "pòpó",
+    "meaning": "papaya",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "puur",
+    "meaning": "cat",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "ràpá",
+    "meaning": "women's wrapper",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "rèké",
+    "meaning": "very clear ; explicit",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "rú",
+    "meaning": "TRUE",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "rúrú",
+    "meaning": "truly",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "sa",
+    "meaning": "also",
+    "type": "other",
+    "example": ""
+  },
+  {
+    "word": "sá",
+    "meaning": "to fade",
+    "type": "verb",
+    "example": ""
+  },
+  {
+    "word": "san",
+    "meaning": "split or tear by hand",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "saŋ",
+    "meaning": "rice",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "sár",
+    "meaning": "early dry season (November here)",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "satì",
+    "meaning": "tear into parts",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "sé",
+    "meaning": "yours (plural of ké)",
+    "type": "pronoun",
+    "example": ""
+  },
+  {
+    "word": "sèké",
+    "meaning": "chaff",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "sém",
+    "meaning": "to carve ; mine (possessive0",
+    "type": "verb",
+    "example": ""
+  },
+  {
+    "word": "séti",
+    "meaning": "moving small amounts of something from one container to another—dishing",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "sə",
+    "meaning": "the",
+    "type": "other",
+    "example": ""
+  },
+  {
+    "word": "sə´m",
+    "meaning": "witchcraft",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "səəri",
+    "meaning": "to play",
+    "type": "verb",
+    "example": ""
+  },
+  {
+    "word": "shàŋ",
+    "meaning": "chain necklace",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "shé'",
+    "meaning": "to laugh",
+    "type": "verb",
+    "example": ""
+  },
+  {
+    "word": "shibvem",
+    "meaning": "carved figure",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "shiliv",
+    "meaning": "heart",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "shilu",
+    "meaning": "palm wine",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "shisar",
+    "meaning": "a little",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "shisi",
+    "meaning": "cat",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "shiy",
+    "meaning": "to wait",
+    "type": "verb",
+    "example": ""
+  },
+  {
+    "word": "shíy",
+    "meaning": "to trim",
+    "type": "verb",
+    "example": ""
+  },
+  {
+    "word": "shóŋ",
+    "meaning": "thief",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "shòŋ",
+    "meaning": "to steal",
+    "type": "verb",
+    "example": ""
+  },
+  {
+    "word": "shun",
+    "meaning": "carried",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "shuuy",
+    "meaning": "sun",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "shwah",
+    "meaning": "knife",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "sí",
+    "meaning": "eyes ; already",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "só",
+    "meaning": "to win",
+    "type": "verb",
+    "example": ""
+  },
+  {
+    "word": "song",
+    "meaning": "tusk",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "sotì",
+    "meaning": "bruise ; scrape ; to hull corn",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "su",
+    "meaning": "to wash",
+    "type": "verb",
+    "example": ""
+  },
+  {
+    "word": "súbù",
+    "meaning": "quack ; charlatan",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "sún",
+    "meaning": "farm",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "suŋním",
+    "meaning": "speak",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "sùsù",
+    "meaning": "ornaments ; decorations",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "tá",
+    "meaning": "to hammer",
+    "type": "verb",
+    "example": ""
+  },
+  {
+    "word": "ta'",
+    "meaning": "to want, to desire",
+    "type": "verb",
+    "example": ""
+  },
+  {
+    "word": "tàá",
+    "meaning": "grandfather or grandchild (short for taata)",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "takà",
+    "meaning": "weakling (figuratively)",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "tánrí",
+    "meaning": "to pluck",
+    "type": "verb",
+    "example": ""
+  },
+  {
+    "word": "tátí",
+    "meaning": "to join",
+    "type": "verb",
+    "example": ""
+  },
+  {
+    "word": "távsín",
+    "meaning": "courage",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "té",
+    "meaning": "to kick ; to shoot",
+    "type": "verb",
+    "example": ""
+  },
+  {
+    "word": "té'",
+    "meaning": "to cover",
+    "type": "verb",
+    "example": ""
+  },
+  {
+    "word": "tèéter",
+    "meaning": "upside down ; on your back",
+    "type": "pronoun",
+    "example": ""
+  },
+  {
+    "word": "téti",
+    "meaning": "flick ; sweep",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "tiír",
+    "meaning": "to stand ; to place ; to put",
+    "type": "verb",
+    "example": ""
+  },
+  {
+    "word": "tiíty tiíty",
+    "meaning": "straight",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "tín",
+    "meaning": "to cut as in harvest",
+    "type": "verb",
+    "example": ""
+  },
+  {
+    "word": "títí",
+    "meaning": "to place things up, stand them up ; place them right",
+    "type": "verb",
+    "example": ""
+  },
+  {
+    "word": "tíy",
+    "meaning": "stone",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "tó",
+    "meaning": "sunrise",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "to",
+    "meaning": "shoot of a plant",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "ton",
+    "meaning": "to burn",
+    "type": "verb",
+    "example": ""
+  },
+  {
+    "word": "tórí",
+    "meaning": "solo",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "tú",
+    "meaning": "to carry water",
+    "type": "verb",
+    "example": ""
+  },
+  {
+    "word": "vé",
+    "meaning": "yours (plural)",
+    "type": "pronoun",
+    "example": ""
+  },
+  {
+    "word": "ven",
+    "meaning": "you (plural)",
+    "type": "pronoun",
+    "example": ""
+  },
+  {
+    "word": "vén",
+    "meaning": "your",
+    "type": "pronoun",
+    "example": ""
+  },
+  {
+    "word": "vèn",
+    "meaning": "you (plural)",
+    "type": "pronoun",
+    "example": ""
+  },
+  {
+    "word": "ver",
+    "meaning": "us",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "vèr",
+    "meaning": "we",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "vèsən",
+    "meaning": "all of us",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "vibí",
+    "meaning": "animosity",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "vifoori",
+    "meaning": "spices",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "vifú",
+    "meaning": "leaves",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "viku",
+    "meaning": "cocoyams",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "vilu",
+    "meaning": "honey",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "vitó",
+    "meaning": "intestines",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "viyikir",
+    "meaning": "food",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "wà",
+    "meaning": "how to address a close friend",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "wáa",
+    "meaning": "please",
+    "type": "other",
+    "example": ""
+  },
+  {
+    "word": "wán",
+    "meaning": "child (specific)",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "wánle",
+    "meaning": "child (general)",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "way",
+    "meaning": "to put",
+    "type": "verb",
+    "example": ""
+  },
+  {
+    "word": "wáy",
+    "meaning": "market",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "wày",
+    "meaning": "to be serious",
+    "type": "verb",
+    "example": ""
+  },
+  {
+    "word": "wè",
+    "meaning": "«",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "weèweè",
+    "meaning": "slowly",
+    "type": "other",
+    "example": ""
+  },
+  {
+    "word": "wiiybaá",
+    "meaning": "wife of a Shuufaay (woman of the leopard)",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "wiiynto'",
+    "meaning": "wife of the palace",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "wiy",
+    "meaning": "coming ; come",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "wo",
+    "meaning": "your",
+    "type": "pronoun",
+    "example": ""
+  },
+  {
+    "word": "wó",
+    "meaning": "hands",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "wò",
+    "meaning": "you",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "wónlé wayí",
+    "meaning": "traders (children of the market)",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "wòso",
+    "meaning": "both of us",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "wù",
+    "meaning": "he/she",
+    "type": "pronoun",
+    "example": ""
+  },
+  {
+    "word": "wun",
+    "meaning": "him/her",
+    "type": "pronoun",
+    "example": ""
+  },
+  {
+    "word": "wún",
+    "meaning": "body",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "wuna",
+    "meaning": "and",
+    "type": "other",
+    "example": ""
+  },
+  {
+    "word": "wundu",
+    "meaning": "window",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "wuù",
+    "meaning": "rain",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "yá",
+    "meaning": "to wander",
+    "type": "verb",
+    "example": ""
+  },
+  {
+    "word": "yàá",
+    "meaning": "grandmother or grandchild (short for yanya)",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "yasì",
+    "meaning": "to shake",
+    "type": "verb",
+    "example": ""
+  },
+  {
+    "word": "yàsi",
+    "meaning": "illness ; sickness",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "ye",
+    "meaning": "yours (used when it feels better in your mouth in context)",
+    "type": "pronoun",
+    "example": ""
+  },
+  {
+    "word": "yéem",
+    "meaning": "mine",
+    "type": "pronoun",
+    "example": ""
+  },
+  {
+    "word": "yéiey",
+    "meaning": "learning",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "yem",
+    "meaning": "my",
+    "type": "pronoun",
+    "example": ""
+  },
+  {
+    "word": "yémé",
+    "meaning": "another form of my, depends on what it refers to",
+    "type": "pronoun",
+    "example": ""
+  },
+  {
+    "word": "yetí",
+    "meaning": "to brush or dust off",
+    "type": "verb",
+    "example": ""
+  },
+  {
+    "word": "yí",
+    "meaning": "to eat",
+    "type": "verb",
+    "example": ""
+  },
+  {
+    "word": "yi",
+    "meaning": "to eat fufu",
+    "type": "verb",
+    "example": ""
+  },
+  {
+    "word": "yii",
+    "meaning": "ongoing action ; is always",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "yír",
+    "meaning": "name",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "yó",
+    "meaning": "snake",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "yò'",
+    "meaning": "negative marker",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "yooné",
+    "meaning": "yesterday",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "yòóy",
+    "meaning": "cricket with a long nose—harbinger of misfortune",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "yosì",
+    "meaning": "to boil",
+    "type": "verb",
+    "example": ""
+  },
+  {
+    "word": "yú",
+    "meaning": "to hear ; to understand",
+    "type": "verb",
+    "example": ""
+  },
+  {
+    "word": "yu wún",
+    "meaning": "to have pride ; proud",
+    "type": "verb",
+    "example": ""
+  },
+  {
+    "word": "yun",
+    "meaning": "to buy",
+    "type": "verb",
+    "example": ""
+  },
+  {
+    "word": "yutì",
+    "meaning": "to cajole",
+    "type": "verb",
+    "example": ""
+  },
+  {
+    "word": "yútí",
+    "meaning": "to taste",
+    "type": "verb",
+    "example": ""
+  },
+  {
+    "word": "yúu",
+    "meaning": "bees",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "yuuri",
+    "meaning": "listen",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "yuv",
+    "meaning": "up",
+    "type": "other",
+    "example": ""
+  },
+  {
+    "word": "Kimbunfon",
+    "lamnso": "Kimbunfon",
+    "definition": "Rite of fealty to the King required of every newly installed lineage head and some titled persons",
+    "meaning": "Rite of fealty to the King required of every newly installed lineage head and some titled persons",
+    "english": "Rite of fealty to the King required of every newly installed lineage head and some titled persons",
+    "gloss": "Rite of fealty to the King required of every newly installed lineage head and some titled persons",
+    "category": "other",
+    "type": "other",
+    "language": "lamnso",
+    "cultural_category": "palace_vocabulary"
+  },
+  {
+    "word": "Kikum ke Kom",
+    "lamnso": "Kikum ke Kom",
+    "definition": "A well embroidered, voluminous traditional gown",
+    "meaning": "A well embroidered, voluminous traditional gown",
+    "english": "A well embroidered, voluminous traditional gown",
+    "gloss": "A well embroidered, voluminous traditional gown",
+    "category": "other",
+    "type": "other",
+    "language": "lamnso",
+    "cultural_category": "palace_vocabulary"
+  },
+  {
+    "word": "Ŋgiri",
+    "lamnso": "Ŋgiri",
+    "definition": "Society of princes and male cadet royals",
+    "meaning": "Society of princes and male cadet royals",
+    "english": "Society of princes and male cadet royals",
+    "gloss": "Society of princes and male cadet royals",
+    "category": "other",
+    "type": "other",
+    "language": "lamnso",
+    "cultural_category": "palace_vocabulary"
+  },
+  {
+    "word": "Ŋgay ye teri",
+    "lamnso": "Ŋgay ye teri",
+    "definition": "General assembly hall of Ngwerong",
+    "meaning": "General assembly hall of Ngwerong",
+    "english": "General assembly hall of Ngwerong",
+    "gloss": "General assembly hall of Ngwerong",
+    "category": "other",
+    "type": "other",
+    "language": "lamnso",
+    "cultural_category": "palace_vocabulary"
+  },
+  {
+    "word": "Ŋgaywir",
+    "lamnso": "Ŋgaywir",
+    "definition": "An elder assisting a state councillor in his lineage head functions",
+    "meaning": "An elder assisting a state councillor in his lineage head functions",
+    "english": "An elder assisting a state councillor in his lineage head functions",
+    "gloss": "An elder assisting a state councillor in his lineage head functions",
+    "category": "other",
+    "type": "other",
+    "language": "lamnso",
+    "cultural_category": "palace_vocabulary"
+  },
+  {
+    "word": "Ŋgay",
+    "lamnso": "Ŋgay",
+    "definition": "Family assembly hall",
+    "meaning": "Family assembly hall",
+    "english": "Family assembly hall",
+    "gloss": "Family assembly hall",
+    "category": "other",
+    "type": "other",
+    "language": "lamnso",
+    "cultural_category": "palace_vocabulary"
+  },
+  {
+    "word": "Ŋgaŋ se Ngweroŋ",
+    "lamnso": "Ŋgaŋ se Ngweroŋ",
+    "definition": "Titled members of the highest lodge of Ngwerong known as Yeengwerong",
+    "meaning": "Titled members of the highest lodge of Ngwerong known as Yeengwerong",
+    "english": "Titled members of the highest lodge of Ngwerong known as Yeengwerong",
+    "gloss": "Titled members of the highest lodge of Ngwerong known as Yeengwerong",
+    "category": "other",
+    "type": "other",
+    "language": "lamnso",
+    "cultural_category": "palace_vocabulary"
+  },
+  {
+    "word": "Ŋgaŋ ŋgiri",
+    "lamnso": "Ŋgaŋ ŋgiri",
+    "definition": "Titled member of the highest lodge of ŋgiri",
+    "meaning": "Titled member of the highest lodge of ŋgiri",
+    "english": "Titled member of the highest lodge of ŋgiri",
+    "gloss": "Titled member of the highest lodge of ŋgiri",
+    "category": "other",
+    "type": "other",
+    "language": "lamnso",
+    "cultural_category": "palace_vocabulary"
+  },
+  {
+    "word": "Ŋgaŋ Ngweroŋ",
+    "lamnso": "Ŋgaŋ Ngweroŋ",
+    "definition": "Titled member of the highest lodge of Ngwerong",
+    "meaning": "Titled member of the highest lodge of Ngwerong",
+    "english": "Titled member of the highest lodge of Ngwerong",
+    "gloss": "Titled member of the highest lodge of Ngwerong",
+    "category": "other",
+    "type": "other",
+    "language": "lamnso",
+    "cultural_category": "palace_vocabulary"
+  },
+  {
+    "word": "Ŋgiri figurer",
+    "lamnso": "Ŋgiri figurer",
+    "definition": "Hooded person in a Ngiri gown",
+    "meaning": "Hooded person in a Ngiri gown",
+    "english": "Hooded person in a Ngiri gown",
+    "gloss": "Hooded person in a Ngiri gown",
+    "category": "other",
+    "type": "other",
+    "language": "lamnso",
+    "cultural_category": "palace_vocabulary"
+  },
+  {
+    "word": "Ŋgwá kibú",
+    "lamnso": "Ŋgwá kibú",
+    "definition": "Royal drink club",
+    "meaning": "Royal drink club",
+    "english": "Royal drink club",
+    "gloss": "Royal drink club",
+    "category": "other",
+    "type": "other",
+    "language": "lamnso",
+    "cultural_category": "palace_vocabulary"
+  },
+  {
+    "word": "Ŋgweroŋ",
+    "lamnso": "Ŋgweroŋ",
+    "definition": "1. Regulatory society of retainers; 2. Hooded person in a ŋgwerong gown",
+    "meaning": "1. Regulatory society of retainers; 2. Hooded person in a ŋgwerong gown",
+    "english": "1. Regulatory society of retainers; 2. Hooded person in a ŋgwerong gown",
+    "gloss": "1. Regulatory society of retainers; 2. Hooded person in a ŋgwerong gown",
+    "category": "other",
+    "type": "other",
+    "language": "lamnso",
+    "cultural_category": "palace_vocabulary"
+  },
+  {
+    "word": "Ŋgweroŋ lá",
+    "lamnso": "Ŋgweroŋ lá",
+    "definition": "Compound or precinct of Ngwerong",
+    "meaning": "Compound or precinct of Ngwerong",
+    "english": "Compound or precinct of Ngwerong",
+    "gloss": "Compound or precinct of Ngwerong",
+    "category": "other",
+    "type": "other",
+    "language": "lamnso",
+    "cultural_category": "palace_vocabulary"
+  },
+  {
+    "word": "Ŋgweroŋ vitsə́",
+    "lamnso": "Ŋgweroŋ vitsə́",
+    "definition": "Greater Ngwerong",
+    "meaning": "Greater Ngwerong",
+    "english": "Greater Ngwerong",
+    "gloss": "Greater Ngwerong",
+    "category": "other",
+    "type": "other",
+    "language": "lamnso",
+    "cultural_category": "palace_vocabulary"
+  },
+  {
+    "word": "Ŋgweroŋ wo teri",
+    "lamnso": "Ŋgweroŋ wo teri",
+    "definition": "Lesser Ngwerong",
+    "meaning": "Lesser Ngwerong",
+    "english": "Lesser Ngwerong",
+    "gloss": "Lesser Ngwerong",
+    "category": "other",
+    "type": "other",
+    "language": "lamnso",
+    "cultural_category": "palace_vocabulary"
+  },
+  {
+    "word": "Nsan",
+    "lamnso": "Nsan",
+    "definition": "Section of palace reserved for the Kings wives",
+    "meaning": "Section of palace reserved for the Kings wives",
+    "english": "Section of palace reserved for the Kings wives",
+    "gloss": "Section of palace reserved for the Kings wives",
+    "category": "other",
+    "type": "other",
+    "language": "lamnso",
+    "cultural_category": "palace_vocabulary"
+  },
+  {
+    "word": "Nshiylav",
+    "lamnso": "Nshiylav",
+    "definition": "Retainer, Ngwerong page",
+    "meaning": "Retainer, Ngwerong page",
+    "english": "Retainer, Ngwerong page",
+    "gloss": "Retainer, Ngwerong page",
+    "category": "other",
+    "type": "other",
+    "language": "lamnso",
+    "cultural_category": "palace_vocabulary"
+  },
+  {
+    "word": "Nshiy se lav",
+    "lamnso": "Nshiy se lav",
+    "definition": "Retainers and Ngwerong pages",
+    "meaning": "Retainers and Ngwerong pages",
+    "english": "Retainers and Ngwerong pages",
+    "gloss": "Retainers and Ngwerong pages",
+    "category": "other",
+    "type": "other",
+    "language": "lamnso",
+    "cultural_category": "palace_vocabulary"
+  },
+  {
+    "word": "Nshiy se lav se faay",
+    "lamnso": "Nshiy se lav se faay",
+    "definition": "Fons personal pages",
+    "meaning": "Fons personal pages",
+    "english": "Fons personal pages",
+    "gloss": "Fons personal pages",
+    "category": "other",
+    "type": "other",
+    "language": "lamnso",
+    "cultural_category": "palace_vocabulary"
+  },
+  {
+    "word": "Taakibù vibaay",
+    "lamnso": "Taakibù vibaay",
+    "definition": "State councillors who have the right to sit at the audience court",
+    "meaning": "State councillors who have the right to sit at the audience court",
+    "english": "State councillors who have the right to sit at the audience court",
+    "gloss": "State councillors who have the right to sit at the audience court",
+    "category": "other",
+    "type": "other",
+    "language": "lamnso",
+    "cultural_category": "palace_vocabulary"
+  },
+  {
+    "word": "Taakibù",
+    "lamnso": "Taakibù",
+    "definition": "Audience court",
+    "meaning": "Audience court",
+    "english": "Audience court",
+    "gloss": "Audience court",
+    "category": "other",
+    "type": "other",
+    "language": "lamnso",
+    "cultural_category": "palace_vocabulary"
+  },
+  {
+    "word": "Taadzəə",
+    "lamnso": "Taadzəə",
+    "definition": "Lineage head who reports events happening in a specified direction to the King",
+    "meaning": "Lineage head who reports events happening in a specified direction to the King",
+    "english": "Lineage head who reports events happening in a specified direction to the King",
+    "gloss": "Lineage head who reports events happening in a specified direction to the King",
+    "category": "other",
+    "type": "other",
+    "language": "lamnso",
+    "cultural_category": "palace_vocabulary"
+  },
+  {
+    "word": "Shuufaay ntari",
+    "lamnso": "Shuufaay ntari",
+    "definition": "Entertainment court",
+    "meaning": "Entertainment court",
+    "english": "Entertainment court",
+    "gloss": "Entertainment court",
+    "category": "other",
+    "type": "other",
+    "language": "lamnso",
+    "cultural_category": "palace_vocabulary"
+  },
+  {
+    "word": "Shuufaay",
+    "lamnso": "Shuufaay",
+    "definition": "Great lord, lineage head of state councillor status",
+    "meaning": "Great lord, lineage head of state councillor status",
+    "english": "Great lord, lineage head of state councillor status",
+    "gloss": "Great lord, lineage head of state councillor status",
+    "category": "other",
+    "type": "other",
+    "language": "lamnso",
+    "cultural_category": "palace_vocabulary"
+  },
+  {
+    "word": "Shishwaa",
+    "lamnso": "Shishwaa",
+    "definition": "Cult of hunger or of the earth",
+    "meaning": "Cult of hunger or of the earth",
+    "english": "Cult of hunger or of the earth",
+    "gloss": "Cult of hunger or of the earth",
+    "category": "other",
+    "type": "other",
+    "language": "lamnso",
+    "cultural_category": "palace_vocabulary"
+  },
+  {
+    "word": "Shiŋkan",
+    "lamnso": "Shiŋkan",
+    "definition": "Ritual stick of ebony",
+    "meaning": "Ritual stick of ebony",
+    "english": "Ritual stick of ebony",
+    "gloss": "Ritual stick of ebony",
+    "category": "other",
+    "type": "other",
+    "language": "lamnso",
+    "cultural_category": "palace_vocabulary"
+  },
+  {
+    "word": "Sheey",
+    "lamnso": "Sheey",
+    "definition": "Lordling",
+    "meaning": "Lordling",
+    "english": "Lordling",
+    "gloss": "Lordling",
+    "category": "other",
+    "type": "other",
+    "language": "lamnso",
+    "cultural_category": "palace_vocabulary"
+  },
+  {
+    "word": "Raŋ",
+    "lamnso": "Raŋ",
+    "definition": "Raffia fronds",
+    "meaning": "Raffia fronds",
+    "english": "Raffia fronds",
+    "gloss": "Raffia fronds",
+    "category": "other",
+    "type": "other",
+    "language": "lamnso",
+    "cultural_category": "palace_vocabulary"
+  },
+  {
+    "word": "Nyar",
+    "lamnso": "Nyar",
+    "definition": "Etiquette word used when saying yes to the King",
+    "meaning": "Etiquette word used when saying yes to the King",
+    "english": "Etiquette word used when saying yes to the King",
+    "gloss": "Etiquette word used when saying yes to the King",
+    "category": "other",
+    "type": "other",
+    "language": "lamnso",
+    "cultural_category": "palace_vocabulary"
+  },
+  {
+    "word": "Ntó",
+    "lamnso": "Ntó",
+    "definition": "1. Palace; 2. Fons section of the palace",
+    "meaning": "1. Palace; 2. Fons section of the palace",
+    "english": "1. Palace; 2. Fons section of the palace",
+    "gloss": "1. Palace; 2. Fons section of the palace",
+    "category": "other",
+    "type": "other",
+    "language": "lamnso",
+    "cultural_category": "palace_vocabulary"
+  },
+  {
+    "word": "Nsoon",
+    "lamnso": "Nsoon",
+    "definition": "Etiquette word used particularly when calling the Fons attention",
+    "meaning": "Etiquette word used particularly when calling the Fons attention",
+    "english": "Etiquette word used particularly when calling the Fons attention",
+    "gloss": "Etiquette word used particularly when calling the Fons attention",
+    "category": "other",
+    "type": "other",
+    "language": "lamnso",
+    "cultural_category": "palace_vocabulary"
+  },
+  {
+    "word": "Juu",
+    "lamnso": "Juu",
+    "definition": "Marriage gifts",
+    "meaning": "Marriage gifts",
+    "english": "Marriage gifts",
+    "gloss": "Marriage gifts",
+    "category": "other",
+    "type": "other",
+    "language": "lamnso",
+    "cultural_category": "palace_vocabulary"
+  },
+  {
+    "word": "Yeefon",
+    "lamnso": "Yeefon",
+    "definition": "Real or putative mother of the King",
+    "meaning": "Real or putative mother of the King",
+    "english": "Real or putative mother of the King",
+    "gloss": "Real or putative mother of the King",
+    "category": "other",
+    "type": "other",
+    "language": "lamnso",
+    "cultural_category": "palace_vocabulary"
+  },
+  {
+    "word": "Won Ntó",
+    "lamnso": "Won Ntó",
+    "definition": "Princes and princesses",
+    "meaning": "Princes and princesses",
+    "english": "Princes and princesses",
+    "gloss": "Princes and princesses",
+    "category": "other",
+    "type": "other",
+    "language": "lamnso",
+    "cultural_category": "palace_vocabulary"
+  },
+  {
+    "word": "Vibvəŋrin",
+    "lamnso": "Vibvəŋrin",
+    "definition": "Stools made of bamboo piths",
+    "meaning": "Stools made of bamboo piths",
+    "english": "Stools made of bamboo piths",
+    "gloss": "Stools made of bamboo piths",
+    "category": "other",
+    "type": "other",
+    "language": "lamnso",
+    "cultural_category": "palace_vocabulary"
+  },
+  {
+    "word": "Vibaay vee saamba",
+    "lamnso": "Vibaay vee saamba",
+    "definition": "The seven senior state councillors",
+    "meaning": "The seven senior state councillors",
+    "english": "The seven senior state councillors",
+    "gloss": "The seven senior state councillors",
+    "category": "other",
+    "type": "other",
+    "language": "lamnso",
+    "cultural_category": "palace_vocabulary"
+  },
+  {
+    "word": "Vibaay ve Nsó",
+    "lamnso": "Vibaay ve Nsó",
+    "definition": "Free commoner state councillors",
+    "meaning": "Free commoner state councillors",
+    "english": "Free commoner state councillors",
+    "gloss": "Free commoner state councillors",
+    "category": "other",
+    "type": "other",
+    "language": "lamnso",
+    "cultural_category": "palace_vocabulary"
+  },
+  {
+    "word": "Vibaay ve Duy",
+    "lamnso": "Vibaay ve Duy",
+    "definition": "Cadet royal state councillors",
+    "meaning": "Cadet royal state councillors",
+    "english": "Cadet royal state councillors",
+    "gloss": "Cadet royal state councillors",
+    "category": "other",
+    "type": "other",
+    "language": "lamnso",
+    "cultural_category": "palace_vocabulary"
+  },
+  {
+    "word": "Vibaay",
+    "lamnso": "Vibaay",
+    "definition": "State councillors",
+    "meaning": "State councillors",
+    "english": "State councillors",
+    "gloss": "State councillors",
+    "category": "other",
+    "type": "other",
+    "language": "lamnso",
+    "cultural_category": "palace_vocabulary"
+  },
+  {
+    "word": "Tan làv",
+    "lamnso": "Tan làv",
+    "definition": "Cap of thread",
+    "meaning": "Cap of thread",
+    "english": "Cap of thread",
+    "gloss": "Cap of thread",
+    "category": "other",
+    "type": "other",
+    "language": "lamnso",
+    "cultural_category": "palace_vocabulary"
+  },
+  {
+    "word": "Kincem",
+    "lamnso": "Kincem",
+    "definition": "Illegal marriage",
+    "meaning": "Illegal marriage",
+    "english": "Illegal marriage",
+    "gloss": "Illegal marriage",
+    "category": "other",
+    "type": "other",
+    "language": "lamnso",
+    "cultural_category": "palace_vocabulary"
+  },
+  {
+    "word": "Faay Kibaay",
+    "lamnso": "Faay Kibaay",
+    "definition": "Lineage head who is also a state councillor",
+    "meaning": "Lineage head who is also a state councillor",
+    "english": "Lineage head who is also a state councillor",
+    "gloss": "Lineage head who is also a state councillor",
+    "category": "other",
+    "type": "other",
+    "language": "lamnso",
+    "cultural_category": "palace_vocabulary"
+  },
+  {
+    "word": "Faay",
+    "lamnso": "Faay",
+    "definition": "Lineage head with the title lord",
+    "meaning": "Lineage head with the title lord",
+    "english": "Lineage head with the title lord",
+    "gloss": "Lineage head with the title lord",
+    "category": "other",
+    "type": "other",
+    "language": "lamnso",
+    "cultural_category": "palace_vocabulary"
+  },
+  {
+    "word": "Duy",
+    "lamnso": "Duy",
+    "definition": "Cadet royals",
+    "meaning": "Cadet royals",
+    "english": "Cadet royals",
+    "gloss": "Cadet royals",
+    "category": "other",
+    "type": "other",
+    "language": "lamnso",
+    "cultural_category": "palace_vocabulary"
+  },
+  {
+    "word": "Bom",
+    "lamnso": "Bom",
+    "definition": "Fons palm wine",
+    "meaning": "Fons palm wine",
+    "english": "Fons palm wine",
+    "gloss": "Fons palm wine",
+    "category": "other",
+    "type": "other",
+    "language": "lamnso",
+    "cultural_category": "palace_vocabulary"
+  },
+  {
+    "word": "Bar Ngweroŋ",
+    "lamnso": "Bar Ngweroŋ",
+    "definition": "Ngwerong cup",
+    "meaning": "Ngwerong cup",
+    "english": "Ngwerong cup",
+    "gloss": "Ngwerong cup",
+    "category": "other",
+    "type": "other",
+    "language": "lamnso",
+    "cultural_category": "palace_vocabulary"
+  },
+  {
+    "word": "aYeewoŋ",
+    "lamnso": "aYeewoŋ",
+    "definition": "Princess-deputy high Priestess",
+    "meaning": "Princess-deputy high Priestess",
+    "english": "Princess-deputy high Priestess",
+    "gloss": "Princess-deputy high Priestess",
+    "category": "other",
+    "type": "other",
+    "language": "lamnso",
+    "cultural_category": "palace_vocabulary"
+  },
+  {
+    "word": "aTav Ngweroŋ",
+    "lamnso": "aTav Ngweroŋ",
+    "definition": "Title leaders of the regulatory society",
+    "meaning": "Title leaders of the regulatory society",
+    "english": "Title leaders of the regulatory society",
+    "gloss": "Title leaders of the regulatory society",
+    "category": "other",
+    "type": "other",
+    "language": "lamnso",
+    "cultural_category": "palace_vocabulary"
+  },
+  {
+    "word": "aTaawoŋ",
+    "lamnso": "aTaawoŋ",
+    "definition": "Prince-deputy high priests",
+    "meaning": "Prince-deputy high priests",
+    "english": "Prince-deputy high priests",
+    "gloss": "Prince-deputy high priests",
+    "category": "other",
+    "type": "other",
+    "language": "lamnso",
+    "cultural_category": "palace_vocabulary"
+  },
+  {
+    "word": "Fór",
+    "lamnso": "Fór",
+    "definition": "Castrated he-goat",
+    "meaning": "Castrated he-goat",
+    "english": "Castrated he-goat",
+    "gloss": "Castrated he-goat",
+    "category": "other",
+    "type": "other",
+    "language": "lamnso",
+    "cultural_category": "palace_vocabulary"
+  },
+  {
+    "word": "Kava",
+    "lamnso": "Kava",
+    "definition": "Throne, royal stool",
+    "meaning": "Throne, royal stool",
+    "english": "Throne, royal stool",
+    "gloss": "Throne, royal stool",
+    "category": "other",
+    "type": "other",
+    "language": "lamnso",
+    "cultural_category": "palace_vocabulary"
+  },
+  {
+    "word": "Fondom",
+    "lamnso": "Fondom",
+    "definition": "Kingdom",
+    "meaning": "Kingdom",
+    "english": "Kingdom",
+    "gloss": "Kingdom",
+    "category": "other",
+    "type": "other",
+    "language": "lamnso",
+    "cultural_category": "palace_vocabulary"
+  },
+  {
+    "word": "Fon",
+    "lamnso": "Fon",
+    "definition": "King",
+    "meaning": "King",
+    "english": "King",
+    "gloss": "King",
+    "category": "other",
+    "type": "other",
+    "language": "lamnso",
+    "cultural_category": "palace_vocabulary"
+  },
+  {
+    "word": "Faay Taawoŋ",
+    "lamnso": "Faay Taawoŋ",
+    "definition": "Prince-deputy high priest",
+    "meaning": "Prince-deputy high priest",
+    "english": "Prince-deputy high priest",
+    "gloss": "Prince-deputy high priest",
+    "category": "other",
+    "type": "other",
+    "language": "lamnso",
+    "cultural_category": "palace_vocabulary"
+  },
+  {
+    "word": "Fay kishiiy",
+    "lamnso": "Fay kishiiy",
+    "definition": "Fons bed room",
+    "meaning": "Fons bed room",
+    "english": "Fons bed room",
+    "gloss": "Fons bed room",
+    "category": "other",
+    "type": "other",
+    "language": "lamnso",
+    "cultural_category": "palace_vocabulary"
+  },
+  {
+    "word": "Kibam ke taalá kitaryiy",
+    "lamnso": "Kibam ke taalá kitaryiy",
+    "definition": "Money given to the lineage head during kitaryiy",
+    "meaning": "Money given to the lineage head during kitaryiy",
+    "english": "Money given to the lineage head during kitaryiy",
+    "gloss": "Money given to the lineage head during kitaryiy",
+    "category": "other",
+    "type": "other",
+    "language": "lamnso",
+    "cultural_category": "palace_vocabulary"
+  },
+  {
+    "word": "aTaantó vee saamba",
+    "lamnso": "aTaantó vee saamba",
+    "definition": "The seven senior court officials",
+    "meaning": "The seven senior court officials",
+    "english": "The seven senior court officials",
+    "gloss": "The seven senior court officials",
+    "category": "other",
+    "type": "other",
+    "language": "lamnso",
+    "cultural_category": "palace_vocabulary"
+  },
+  {
+    "word": "aTaantó",
+    "lamnso": "aTaantó",
+    "definition": "Court officials",
+    "meaning": "Court officials",
+    "english": "Court officials",
+    "gloss": "Court officials",
+    "category": "other",
+    "type": "other",
+    "language": "lamnso",
+    "cultural_category": "palace_vocabulary"
+  },
+  {
+    "word": "aTaanté",
+    "lamnso": "aTaanté",
+    "definition": "Village heads",
+    "meaning": "Village heads",
+    "english": "Village heads",
+    "gloss": "Village heads",
+    "category": "other",
+    "type": "other",
+    "language": "lamnso",
+    "cultural_category": "palace_vocabulary"
+  },
+  {
+    "word": "aTaalá",
+    "lamnso": "aTaalá",
+    "definition": "Lineage heads",
+    "meaning": "Lineage heads",
+    "english": "Lineage heads",
+    "gloss": "Lineage heads",
+    "category": "other",
+    "type": "other",
+    "language": "lamnso",
+    "cultural_category": "palace_vocabulary"
+  },
+  {
+    "word": "aShuufaay",
+    "lamnso": "aShuufaay",
+    "definition": "Lineage heads with the title great lord",
+    "meaning": "Lineage heads with the title great lord",
+    "english": "Lineage heads with the title great lord",
+    "gloss": "Lineage heads with the title great lord",
+    "category": "other",
+    "type": "other",
+    "language": "lamnso",
+    "cultural_category": "palace_vocabulary"
+  },
+  {
+    "word": "Aŋkomri kfəəkfər",
+    "lamnso": "Aŋkomri kfəəkfər",
+    "definition": "Court officials in charge of cleaning the palace",
+    "meaning": "Court officials in charge of cleaning the palace",
+    "english": "Court officials in charge of cleaning the palace",
+    "gloss": "Court officials in charge of cleaning the palace",
+    "category": "other",
+    "type": "other",
+    "language": "lamnso",
+    "cultural_category": "palace_vocabulary"
+  },
+  {
+    "word": "aKwan",
+    "lamnso": "aKwan",
+    "definition": "Slaves",
+    "meaning": "Slaves",
+    "english": "Slaves",
+    "gloss": "Slaves",
+    "category": "other",
+    "type": "other",
+    "language": "lamnso",
+    "cultural_category": "palace_vocabulary"
+  },
+  {
+    "word": "aFaay",
+    "lamnso": "aFaay",
+    "definition": "Lineage heads",
+    "meaning": "Lineage heads",
+    "english": "Lineage heads",
+    "gloss": "Lineage heads",
+    "category": "other",
+    "type": "other",
+    "language": "lamnso",
+    "cultural_category": "palace_vocabulary"
+  },
+  {
+    "word": "Kibam ke Fon",
+    "lamnso": "Kibam ke Fon",
+    "definition": "Money given to the King during the kimbunfon",
+    "meaning": "Money given to the King during the kimbunfon",
+    "english": "Money given to the King during the kimbunfon",
+    "gloss": "Money given to the King during the kimbunfon",
+    "category": "other",
+    "type": "other",
+    "language": "lamnso",
+    "cultural_category": "palace_vocabulary"
+  },
+  {
+    "word": "Kibam ke aTaantó",
+    "lamnso": "Kibam ke aTaantó",
+    "definition": "Money given to court officials during the kimbunfon",
+    "meaning": "Money given to court officials during the kimbunfon",
+    "english": "Money given to court officials during the kimbunfon",
+    "gloss": "Money given to court officials during the kimbunfon",
+    "category": "other",
+    "type": "other",
+    "language": "lamnso",
+    "cultural_category": "palace_vocabulary"
+  },
+  {
+    "word": "Kikaayì",
+    "lamnso": "Kikaayì",
+    "definition": "A gadget for carrying special palm wine",
+    "meaning": "A gadget for carrying special palm wine",
+    "english": "A gadget for carrying special palm wine",
+    "gloss": "A gadget for carrying special palm wine",
+    "category": "other",
+    "type": "other",
+    "language": "lamnso",
+    "cultural_category": "palace_vocabulary"
+  },
+  {
+    "word": "Kidzə́ kee ntó",
+    "lamnso": "Kidzə́ kee ntó",
+    "definition": "Royal spear club",
+    "meaning": "Royal spear club",
+    "english": "Royal spear club",
+    "gloss": "Royal spear club",
+    "category": "other",
+    "type": "other",
+    "language": "lamnso",
+    "cultural_category": "palace_vocabulary"
+  },
+  {
+    "word": "Kidiv",
+    "lamnso": "Kidiv",
+    "definition": "Rite of reconciliation and appeasement",
+    "meaning": "Rite of reconciliation and appeasement",
+    "english": "Rite of reconciliation and appeasement",
+    "gloss": "Rite of reconciliation and appeasement",
+    "category": "other",
+    "type": "other",
+    "language": "lamnso",
+    "cultural_category": "palace_vocabulary"
+  },
+  {
+    "word": "Ntá Kibvəŋrin",
+    "lamnso": "Ntá Kibvəŋrin",
+    "definition": "Stool made of bamboo piths",
+    "meaning": "Stool made of bamboo piths",
+    "english": "Stool made of bamboo piths",
+    "gloss": "Stool made of bamboo piths",
+    "category": "other",
+    "type": "other",
+    "language": "lamnso",
+    "cultural_category": "palace_vocabulary"
+  },
+  {
+    "word": "Kiburú ke mbam",
+    "lamnso": "Kiburú ke mbam",
+    "definition": "Royal or noble scabbard embroidered with cowries",
+    "meaning": "Royal or noble scabbard embroidered with cowries",
+    "english": "Royal or noble scabbard embroidered with cowries",
+    "gloss": "Royal or noble scabbard embroidered with cowries",
+    "category": "other",
+    "type": "other",
+    "language": "lamnso",
+    "cultural_category": "palace_vocabulary"
+  },
+  {
+    "word": "Kibay",
+    "lamnso": "Kibay",
+    "definition": "State councillor",
+    "meaning": "State councillor",
+    "english": "State councillor",
+    "gloss": "State councillor",
+    "category": "other",
+    "type": "other",
+    "language": "lamnso",
+    "cultural_category": "palace_vocabulary"
+  },
+  {
+    "word": "Ndzəy njav",
+    "lamnso": "Ndzəy njav",
+    "definition": "Royal cloth",
+    "meaning": "Royal cloth",
+    "english": "Royal cloth",
+    "gloss": "Royal cloth",
+    "category": "other",
+    "type": "other",
+    "language": "lamnso",
+    "cultural_category": "palace_vocabulary"
+  },
+  {
+    "word": "Mtaar",
+    "lamnso": "Mtaar",
+    "definition": "Free commoners",
+    "meaning": "Free commoners",
+    "english": "Free commoners",
+    "gloss": "Free commoners",
+    "category": "other",
+    "type": "other",
+    "language": "lamnso",
+    "cultural_category": "palace_vocabulary"
+  },
+  {
+    "word": "Meŋkfəm",
+    "lamnso": "Meŋkfəm",
+    "definition": "Eponym",
+    "meaning": "Eponym",
+    "english": "Eponym",
+    "gloss": "Eponym",
+    "category": "other",
+    "type": "other",
+    "language": "lamnso",
+    "cultural_category": "palace_vocabulary"
+  },
+  {
+    "word": "Mbùme",
+    "lamnso": "Mbùme",
+    "definition": "Decoration or non heritable award",
+    "meaning": "Decoration or non heritable award",
+    "english": "Decoration or non heritable award",
+    "gloss": "Decoration or non heritable award",
+    "category": "other",
+    "type": "other",
+    "language": "lamnso",
+    "cultural_category": "palace_vocabulary"
+  },
+  {
+    "word": "Mbor",
+    "lamnso": "Mbor",
+    "definition": "Emollient leaf",
+    "meaning": "Emollient leaf",
+    "english": "Emollient leaf",
+    "gloss": "Emollient leaf",
+    "category": "other",
+    "type": "other",
+    "language": "lamnso",
+    "cultural_category": "palace_vocabulary"
+  },
+  {
+    "word": "Mbaŋ kwaŋ",
+    "lamnso": "Mbaŋ kwaŋ",
+    "definition": "Special walking stick",
+    "meaning": "Special walking stick",
+    "english": "Special walking stick",
+    "gloss": "Special walking stick",
+    "category": "other",
+    "type": "other",
+    "language": "lamnso",
+    "cultural_category": "palace_vocabulary"
+  },
+  {
+    "word": "Manjoŋ",
+    "lamnso": "Manjoŋ",
+    "definition": "Military establishment",
+    "meaning": "Military establishment",
+    "english": "Military establishment",
+    "gloss": "Military establishment",
+    "category": "other",
+    "type": "other",
+    "language": "lamnso",
+    "cultural_category": "palace_vocabulary"
+  },
+  {
+    "word": "Maandzə ŋgay",
+    "lamnso": "Maandzə ŋgay",
+    "definition": "Forecourt of Nso palace",
+    "meaning": "Forecourt of Nso palace",
+    "english": "Forecourt of Nso palace",
+    "gloss": "Forecourt of Nso palace",
+    "category": "other",
+    "type": "other",
+    "language": "lamnso",
+    "cultural_category": "palace_vocabulary"
+  },
+  {
+    "word": "Lav",
+    "lamnso": "Lav",
+    "definition": "House, branch of lineage",
+    "meaning": "House, branch of lineage",
+    "english": "House, branch of lineage",
+    "gloss": "House, branch of lineage",
+    "category": "other",
+    "type": "other",
+    "language": "lamnso",
+    "cultural_category": "palace_vocabulary"
+  },
+  {
+    "word": "Lá ŋweroŋ",
+    "lamnso": "Lá ŋweroŋ",
+    "definition": "Ngwerons compound, sanctum or precinct",
+    "meaning": "Ngwerons compound, sanctum or precinct",
+    "english": "Ngwerons compound, sanctum or precinct",
+    "gloss": "Ngwerons compound, sanctum or precinct",
+    "category": "other",
+    "type": "other",
+    "language": "lamnso",
+    "cultural_category": "palace_vocabulary"
+  },
+  {
+    "word": "Lá Ŋgiri",
+    "lamnso": "Lá Ŋgiri",
+    "definition": "Ŋgiris compound or precinct",
+    "meaning": "Ŋgiris compound or precinct",
+    "english": "Ŋgiris compound or precinct",
+    "gloss": "Ŋgiris compound or precinct",
+    "category": "other",
+    "type": "other",
+    "language": "lamnso",
+    "cultural_category": "palace_vocabulary"
+  },
+  {
+    "word": "Lá Kibay",
+    "lamnso": "Lá Kibay",
+    "definition": "Lineage whose head is a state councillor",
+    "meaning": "Lineage whose head is a state councillor",
+    "english": "Lineage whose head is a state councillor",
+    "gloss": "Lineage whose head is a state councillor",
+    "category": "other",
+    "type": "other",
+    "language": "lamnso",
+    "cultural_category": "palace_vocabulary"
+  },
+  {
+    "word": "Kiraŋ",
+    "lamnso": "Kiraŋ",
+    "definition": "Raffia fronds",
+    "meaning": "Raffia fronds",
+    "english": "Raffia fronds",
+    "gloss": "Raffia fronds",
+    "category": "other",
+    "type": "other",
+    "language": "lamnso",
+    "cultural_category": "palace_vocabulary"
+  },
+  {
+    "word": "Kikoŋ",
+    "lamnso": "Kikoŋ",
+    "definition": "Undecorated tree trunk used as a seat",
+    "meaning": "Undecorated tree trunk used as a seat",
+    "english": "Undecorated tree trunk used as a seat",
+    "gloss": "Undecorated tree trunk used as a seat",
+    "category": "other",
+    "type": "other",
+    "language": "lamnso",
+    "cultural_category": "palace_vocabulary"
+  },
+  {
+    "word": "Tàr à yìy bam",
+    "lamnso": "Tàr à yìy bam",
+    "definition": "Second maternal grand-father",
+    "meaning": "Second maternal grand-father",
+    "english": "Second maternal grand-father",
+    "gloss": "Second maternal grand-father",
+    "category": "other",
+    "type": "other",
+    "language": "lamnso",
+    "cultural_category": "marriage_customs"
+  },
+  {
+    "word": "Tàr à tàr",
+    "lamnso": "Tàr à tàr",
+    "definition": "Paternal grand-father",
+    "meaning": "Paternal grand-father",
+    "english": "Paternal grand-father",
+    "gloss": "Paternal grand-father",
+    "category": "other",
+    "type": "other",
+    "language": "lamnso",
+    "cultural_category": "marriage_customs"
+  },
+  {
+    "word": "Tàr à yìy",
+    "lamnso": "Tàr à yìy",
+    "definition": "Maternal grand father",
+    "meaning": "Maternal grand father",
+    "english": "Maternal grand father",
+    "gloss": "Maternal grand father",
+    "category": "other",
+    "type": "other",
+    "language": "lamnso",
+    "cultural_category": "marriage_customs"
+  },
+  {
+    "word": "Ŋkáŋ kinyàv",
+    "lamnso": "Ŋkáŋ kinyàv",
+    "definition": "A kind of corn beer",
+    "meaning": "A kind of corn beer",
+    "english": "A kind of corn beer",
+    "gloss": "A kind of corn beer",
+    "category": "other",
+    "type": "other",
+    "language": "lamnso",
+    "cultural_category": "marriage_customs"
+  },
+  {
+    "word": "Biì",
+    "lamnso": "Biì",
+    "definition": "Camwood",
+    "meaning": "Camwood",
+    "english": "Camwood",
+    "gloss": "Camwood",
+    "category": "other",
+    "type": "other",
+    "language": "lamnso",
+    "cultural_category": "marriage_customs"
+  },
+  {
+    "word": "Bàr kfəə",
+    "lamnso": "Bàr kfəə",
+    "definition": "Family cup",
+    "meaning": "Family cup",
+    "english": "Family cup",
+    "gloss": "Family cup",
+    "category": "other",
+    "type": "other",
+    "language": "lamnso",
+    "cultural_category": "marriage_customs"
+  },
+  {
+    "word": "Kíŋ melù",
+    "lamnso": "Kíŋ melù",
+    "definition": "Palm wine pot",
+    "meaning": "Palm wine pot",
+    "english": "Palm wine pot",
+    "gloss": "Palm wine pot",
+    "category": "other",
+    "type": "other",
+    "language": "lamnso",
+    "cultural_category": "marriage_customs"
+  },
+  {
+    "word": "Taata woo maandzə̀",
+    "lamnso": "Taata woo maandzə̀",
+    "definition": "The elderly man of the compound",
+    "meaning": "The elderly man of the compound",
+    "english": "The elderly man of the compound",
+    "gloss": "The elderly man of the compound",
+    "category": "other",
+    "type": "other",
+    "language": "lamnso",
+    "cultural_category": "marriage_customs"
+  },
+  {
+    "word": "Kidzə",
+    "lamnso": "Kidzə",
+    "definition": "A grudge",
+    "meaning": "A grudge",
+    "english": "A grudge",
+    "gloss": "A grudge",
+    "category": "other",
+    "type": "other",
+    "language": "lamnso",
+    "cultural_category": "marriage_customs"
+  },
+  {
+    "word": "Sə̀jùù",
+    "lamnso": "Sə̀jùù",
+    "definition": "Relative in law",
+    "meaning": "Relative in law",
+    "english": "Relative in law",
+    "gloss": "Relative in law",
+    "category": "other",
+    "type": "other",
+    "language": "lamnso",
+    "cultural_category": "marriage_customs"
+  },
+  {
+    "word": "Kitém ke shilu",
+    "lamnso": "Kitém ke shilu",
+    "definition": "A calabash of palm wine",
+    "meaning": "A calabash of palm wine",
+    "english": "A calabash of palm wine",
+    "gloss": "A calabash of palm wine",
+    "category": "other",
+    "type": "other",
+    "language": "lamnso",
+    "cultural_category": "marriage_customs"
+  },
+  {
+    "word": "Kitám ke bíy",
+    "lamnso": "Kitám ke bíy",
+    "definition": "A pod of kola nut",
+    "meaning": "A pod of kola nut",
+    "english": "A pod of kola nut",
+    "gloss": "A pod of kola nut",
+    "category": "other",
+    "type": "other",
+    "language": "lamnso",
+    "cultural_category": "marriage_customs"
+  },
+  {
+    "word": "Kileey lav",
+    "lamnso": "Kileey lav",
+    "definition": "Visit to the future brides house",
+    "meaning": "Visit to the future brides house",
+    "english": "Visit to the future brides house",
+    "gloss": "Visit to the future brides house",
+    "category": "other",
+    "type": "other",
+    "language": "lamnso",
+    "cultural_category": "marriage_customs"
+  },
+  {
+    "word": "Kà vijín",
+    "lamnso": "Kà vijín",
+    "definition": "Announce the wedding date",
+    "meaning": "Announce the wedding date",
+    "english": "Announce the wedding date",
+    "gloss": "Announce the wedding date",
+    "category": "other",
+    "type": "other",
+    "language": "lamnso",
+    "cultural_category": "marriage_customs"
+  },
+  {
+    "word": "Koŋ shiŋgwaŋ",
+    "lamnso": "Koŋ shiŋgwaŋ",
+    "definition": "A cone of salt",
+    "meaning": "A cone of salt",
+    "english": "A cone of salt",
+    "gloss": "A cone of salt",
+    "category": "other",
+    "type": "other",
+    "language": "lamnso",
+    "cultural_category": "marriage_customs"
+  },
+  {
+    "word": "Mbàm se Nso",
+    "lamnso": "Mbàm se Nso",
+    "definition": "Nso-cowries",
+    "meaning": "Nso-cowries",
+    "english": "Nso-cowries",
+    "gloss": "Nso-cowries",
+    "category": "other",
+    "type": "other",
+    "language": "lamnso",
+    "cultural_category": "marriage_customs"
+  },
+  {
+    "word": "Saŋ",
+    "lamnso": "Saŋ",
+    "definition": "Guinea corn",
+    "meaning": "Guinea corn",
+    "english": "Guinea corn",
+    "gloss": "Guinea corn",
+    "category": "other",
+    "type": "other",
+    "language": "lamnso",
+    "cultural_category": "marriage_customs"
+  },
+  {
+    "word": "Saár",
+    "lamnso": "Saár",
+    "definition": "Millet",
+    "meaning": "Millet",
+    "english": "Millet",
+    "gloss": "Millet",
+    "category": "other",
+    "type": "other",
+    "language": "lamnso",
+    "cultural_category": "marriage_customs"
+  },
+  {
+    "word": "Yò Jín",
+    "lamnso": "Yò Jín",
+    "definition": "Fattening the bride",
+    "meaning": "Fattening the bride",
+    "english": "Fattening the bride",
+    "gloss": "Fattening the bride",
+    "category": "other",
+    "type": "other",
+    "language": "lamnso",
+    "cultural_category": "marriage_customs"
+  },
+  {
+    "word": "Toonè ntèe",
+    "lamnso": "Toonè ntèe",
+    "definition": "Bride's visit to her boy friends during fattening period",
+    "meaning": "Bride's visit to her boy friends during fattening period",
+    "english": "Bride's visit to her boy friends during fattening period",
+    "gloss": "Bride's visit to her boy friends during fattening period",
+    "category": "other",
+    "type": "other",
+    "language": "lamnso",
+    "cultural_category": "marriage_customs"
+  },
+  {
+    "word": "Kinjò ke kibán",
+    "lamnso": "Kinjò ke kibán",
+    "definition": "A basket full of corn fufu",
+    "meaning": "A basket full of corn fufu",
+    "english": "A basket full of corn fufu",
+    "gloss": "A basket full of corn fufu",
+    "category": "other",
+    "type": "other",
+    "language": "lamnso",
+    "cultural_category": "marriage_customs"
+  },
+  {
+    "word": "Cikitaa Jikidaa",
+    "lamnso": "Cikitaa Jikidaa",
+    "definition": "Black flat inflammable beads",
+    "meaning": "Black flat inflammable beads",
+    "english": "Black flat inflammable beads",
+    "gloss": "Black flat inflammable beads",
+    "category": "other",
+    "type": "other",
+    "language": "lamnso",
+    "cultural_category": "marriage_customs"
+  },
+  {
+    "word": "Mfuy",
+    "lamnso": "Mfuy",
+    "definition": "A bangle worn on the arm",
+    "meaning": "A bangle worn on the arm",
+    "english": "A bangle worn on the arm",
+    "gloss": "A bangle worn on the arm",
+    "category": "other",
+    "type": "other",
+    "language": "lamnso",
+    "cultural_category": "marriage_customs"
+  },
+  {
+    "word": "Déŋ",
+    "lamnso": "Déŋ",
+    "definition": "The long strands hairy part of the horse tail",
+    "meaning": "The long strands hairy part of the horse tail",
+    "english": "The long strands hairy part of the horse tail",
+    "gloss": "The long strands hairy part of the horse tail",
+    "category": "other",
+    "type": "other",
+    "language": "lamnso",
+    "cultural_category": "marriage_customs"
+  },
+  {
+    "word": "Kinsii",
+    "lamnso": "Kinsii",
+    "definition": "Rich black plumes of lovely feathers worn on the head by dancers",
+    "meaning": "Rich black plumes of lovely feathers worn on the head by dancers",
+    "english": "Rich black plumes of lovely feathers worn on the head by dancers",
+    "gloss": "Rich black plumes of lovely feathers worn on the head by dancers",
+    "category": "other",
+    "type": "other",
+    "language": "lamnso",
+    "cultural_category": "marriage_customs"
+  },
+  {
+    "word": "Síbáŋ",
+    "lamnso": "Síbáŋ",
+    "definition": "Chevron beads with greenish transparent core",
+    "meaning": "Chevron beads with greenish transparent core",
+    "english": "Chevron beads with greenish transparent core",
+    "gloss": "Chevron beads with greenish transparent core",
+    "category": "other",
+    "type": "other",
+    "language": "lamnso",
+    "cultural_category": "marriage_customs"
+  },
+  {
+    "word": "Nshwaya",
+    "lamnso": "Nshwaya",
+    "definition": "Special blue long beads",
+    "meaning": "Special blue long beads",
+    "english": "Special blue long beads",
+    "gloss": "Special blue long beads",
+    "category": "other",
+    "type": "other",
+    "language": "lamnso",
+    "cultural_category": "marriage_customs"
+  },
+  {
+    "word": "Kinjò ke viku",
+    "lamnso": "Kinjò ke viku",
+    "definition": "A basket full of pounded cocoyams",
+    "meaning": "A basket full of pounded cocoyams",
+    "english": "A basket full of pounded cocoyams",
+    "gloss": "A basket full of pounded cocoyams",
+    "category": "other",
+    "type": "other",
+    "language": "lamnso",
+    "cultural_category": "marriage_customs"
+  },
+  {
+    "word": "Láŋ nyàm",
+    "lamnso": "Láŋ nyàm",
+    "definition": "A pan of cooked meat",
+    "meaning": "A pan of cooked meat",
+    "english": "A pan of cooked meat",
+    "gloss": "A pan of cooked meat",
+    "category": "other",
+    "type": "other",
+    "language": "lamnso",
+    "cultural_category": "marriage_customs"
+  },
+  {
+    "word": "Ŋkò vijin",
+    "lamnso": "Ŋkò vijin",
+    "definition": "Marriage gifts brought by the bride's relatives",
+    "meaning": "Marriage gifts brought by the bride's relatives",
+    "english": "Marriage gifts brought by the bride's relatives",
+    "gloss": "Marriage gifts brought by the bride's relatives",
+    "category": "other",
+    "type": "other",
+    "language": "lamnso",
+    "cultural_category": "marriage_customs"
+  },
+  {
+    "word": "Kilàŋlàŋ",
+    "lamnso": "Kilàŋlàŋ",
+    "definition": "Dyed munshil cloth worn by Royal family",
+    "meaning": "Dyed munshil cloth worn by Royal family",
+    "english": "Dyed munshil cloth worn by Royal family",
+    "gloss": "Dyed munshil cloth worn by Royal family",
+    "category": "other",
+    "type": "other",
+    "language": "lamnso",
+    "cultural_category": "marriage_customs"
+  },
+  {
+    "word": "Ŋgay vijin",
+    "lamnso": "Ŋgay vijin",
+    "definition": "The main bride's house",
+    "meaning": "The main bride's house",
+    "english": "The main bride's house",
+    "gloss": "The main bride's house",
+    "category": "other",
+    "type": "other",
+    "language": "lamnso",
+    "cultural_category": "marriage_customs"
+  },
+  {
+    "word": "Jín",
+    "lamnso": "Jín",
+    "definition": "The bride",
+    "meaning": "The bride",
+    "english": "The bride",
+    "gloss": "The bride",
+    "category": "other",
+    "type": "other",
+    "language": "lamnso",
+    "cultural_category": "marriage_customs"
+  },
+  {
+    "word": "Mlon jin",
+    "lamnso": "Mlon jin",
+    "definition": "I beg for the bride",
+    "meaning": "I beg for the bride",
+    "english": "I beg for the bride",
+    "gloss": "I beg for the bride",
+    "category": "other",
+    "type": "other",
+    "language": "lamnso",
+    "cultural_category": "marriage_customs"
+  },
+  {
+    "word": "Ntar vijin",
+    "lamnso": "Ntar vijin",
+    "definition": "General entertainment of marriage guests",
+    "meaning": "General entertainment of marriage guests",
+    "english": "General entertainment of marriage guests",
+    "gloss": "General entertainment of marriage guests",
+    "category": "other",
+    "type": "other",
+    "language": "lamnso",
+    "cultural_category": "marriage_customs"
+  },
+  {
+    "word": "Jín woo bvəme ",
+    "meaning": "",
+    "type": "noun",
+    "example": ""
+  },
+  {
+    "word": "Yúv ",
+    "meaning": "Up ",
+    "type": "noun",
+    "example": ""
+  }
+]
+
 
