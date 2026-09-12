@@ -1,0 +1,13 @@
+name = "lamnso-dictionary"
+main = "workers.js"
+compatibility_date = "2024-01-01"
+workers_dev = true
+
+[[r2_buckets]]
+binding = "MEDIA_BUCKET"
+bucket_name = "lamnso-media"
+
+[vars]
+GITHUB_REPO = "Lamnsolarrynjo/lamnso-dictionary"
+WORDS_COUNT = "1201"
+PREMIUM_PHONE = "674061572"
