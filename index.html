@@ -74,7 +74,7 @@ body.dark{--bg:#1a1210;--card:#2b1f1a;--text:#f5e6d0;--border:#3d2a1e}
 <div id="duplicatesPanel" style="display:none;margin:12px 0"></div>
 </div>
 <div style="text-align:center;padding:24px;color:#8a6a5a;font-size:11px">
-<b>Larry Njo Digital Lǎmso’ Dictionary. Bamdzeng - Nso - Premium v6.6 MERGE FIX - September 2026</b><br>
+<b>Larry Njo Digital Lǎmso’ Dictionary. Bamdzeng - Nso - Premium v6.7 FOREVER ADMIN FIX - September 2026</b><br>
 <b>HQ: Bamdzeng-Nso, Bui Division, Northwest Region, Cameroon</b><br>
 Merchant: +237674061571 | 10,000 XAF / Year<br>
 <button class="btn btn-light" style="margin:12px auto;font-size:11px" onclick="clearOld()">🧹 Clear Old Data</button>
@@ -144,7 +144,40 @@ let words=JSON.parse(localStorage.getItem('lamnso_final_v65_all')||'[]');
 let currentUser=localStorage.getItem('larry_njo_user')||""; let subActive=false; let editingId=null,tempAudioBlob=null,tempAudioUrl=null,existingAudio=null,existingImage=null,tempImageData=null,mediaRecorder=null,audioChunks=[],learnIndex=0,learnList=[];
 function saveToStorage(){localStorage.setItem('lamnso_final_v65_all',JSON.stringify(words));}
 window.onload=()=>{ if(currentUser) document.getElementById('userEmail').value=currentUser; checkMySubscription(); render(); if(localStorage.getItem('darkMode')==='1') document.body.classList.add('dark'); };
-function checkMySubscription(){ let email=document.getElementById('userEmail').value.trim(); if(!email){ document.getElementById('subStatus').innerText="Enter email/phone to check"; return; } localStorage.setItem('larry_njo_user',email); currentUser=email; let localSub=JSON.parse(localStorage.getItem('larry_njo_sub')||'null'); if(localSub && new Date(localSub.expiry)>new Date()){ subActive=true; let days=Math.ceil((new Date(localSub.expiry)-new Date())/86400000); document.getElementById('subStatus').innerText=`✅ Premium - ${days} days left`; }else{ subActive=false; document.getElementById('subStatus').innerText=`🔴 Preview - ${Math.min(3,words.length)} of ${words.length} words. Pay ${PRICE} XAF to ${MERCHANT}`; } render(); }
+function checkMySubscription(){
+  let email=document.getElementById('userEmail').value.trim();
+  if(!email){ document.getElementById('subStatus').innerText="Enter email/phone to check"; return; }
+  localStorage.setItem('larry_njo_user',email);
+  currentUser=email;
+
+  // --- FOREVER ADMIN — Njolai Lawrence Kuhndze — Bamdzeng-Nso HQ ---
+  const FOREVER_LIST=["00237674061571","+237674061571","237674061571","674061571",MERCHANT];
+  let normDigits = email.replace(/\D/g,'');
+  let isForever = FOREVER_LIST.includes(email) || FOREVER_LIST.includes(normDigits) || normDigits.endsWith("674061571");
+  if(isForever){
+    subActive=true;
+    localStorage.setItem('larry_njo_sub', JSON.stringify({expiry:"2099-12-31T23:59:59.000Z", forever:true, owner:"Njolai Lawrence Kuhndze - Bamdzeng"}));
+    document.getElementById('subStatus').innerText=`✅ Premium FOREVER — Bamdzeng Admin (${words.length} words) — Njolai Lawrence Kuhndze`;
+    render();
+    return;
+  }
+  // --- END FOREVER ADMIN ---
+
+  let localSub=JSON.parse(localStorage.getItem('larry_njo_sub')||'null');
+  if(localSub && localSub.forever){
+    // If forever was set before, keep it unless user changed number away from admin
+    // but we already handled forever above, so this is for other users with old forever flag
+  }
+  if(localSub && new Date(localSub.expiry)>new Date()){
+    subActive=true;
+    let days=Math.ceil((new Date(localSub.expiry)-new Date())/86400000);
+    document.getElementById('subStatus').innerText=`✅ Premium - ${days} days left`;
+  }else{
+    subActive=false;
+    document.getElementById('subStatus').innerText=`🔴 Preview - ${Math.min(3,words.length)} of ${words.length} words. Pay ${PRICE} XAF to ${MERCHANT}`;
+  }
+  render();
+}
 function requireSub(cb){ if(subActive||words.length<=3) cb(); else openSubscribe(); }
 function openSubscribe(){ document.getElementById('subOverlay').classList.add('show'); }
 function closeSub(){ document.getElementById('subOverlay').classList.remove('show'); }
@@ -162,8 +195,6 @@ function openAdd(){ editingId=null; document.getElementById('lam').value=''; doc
 function openEdit(id){ let w=words.find(x=>x.id===id); editingId=id; document.getElementById('lam').value=w.lam; document.getElementById('sensesContainer').innerHTML=''; w.senses.forEach(s=>addSenseRow(s)); existingAudio=w.audio||null; existingImage=w.image||null; tempAudioBlob=null; tempImageData=null; let img=document.getElementById('imgPreview'); if(existingImage){ img.src=existingImage; img.style.display='block'; document.getElementById('imgStatus').innerText='Existing image loaded'; }else{ img.style.display='none'; document.getElementById('imgStatus').innerText=''; } document.getElementById('playExistingBtn').style.display=existingAudio?'inline-flex':'none'; document.getElementById('overlay').classList.add('show'); document.getElementById('deleteRow').style.display='block'; }
 function closeModal(){ document.getElementById('overlay').classList.remove('show'); }
 async function saveWord(){ let lam=document.getElementById('lam').value.trim(); if(!lam){ alert('Enter Lǎmso’ word'); return; } let rows=document.querySelectorAll('.sense-row'); let senses=[]; rows.forEach(r=>{ let eng=r.querySelector('.s-eng').value.trim(); if(!eng) return; senses.push({eng,pos:r.querySelector('.s-pos').value,example:r.querySelector('.s-ex').value.trim()}); }); if(!senses.length){ alert('Enter at least one meaning'); return; } let audioToSave=existingAudio; if(tempAudioBlob) audioToSave=await blobToDataUrl(tempAudioBlob); let imageToSave=existingImage; if(tempImageData) imageToSave=tempImageData; if(editingId){ let idx=words.findIndex(x=>x.id===editingId); words[idx].lam=lam; words[idx].senses=senses; words[idx].audio=audioToSave; words[idx].image=imageToSave; }else{ words.unshift({id:Date.now(),lam,senses,audio:audioToSave,image:imageToSave}); } saveToStorage(); closeModal(); render(); }
-
-// --- FIXED IMPORT - MERGE MODE v6.6 ---
 function openImportPaste(){ document.getElementById('pasteBox').value=''; document.getElementById('importStatus').innerText=''; document.getElementById('importOverlay').classList.add('show'); }
 function closeImportPaste(){ document.getElementById('importOverlay').classList.remove('show'); }
 async function doPasteImport(){
