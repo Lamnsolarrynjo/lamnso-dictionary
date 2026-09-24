@@ -247,12 +247,12 @@ function render(data=localData){
     let realIdx = localData.findIndex(x=>x.lamnso===w.lamnso && x.english===w.english);
     if(realIdx===-1) realIdx = idx;
     return \`<div class="word-row"><div><b>\${w.lamnso}</b> — \${w.english} \${w.pos?'<small>[ '+w.pos+' ]</small>':''}</div><div><button class="btn btn-yellow" style="padding:5px 8px" onclick="editWord(\${realIdx})">Edit</button><button class="btn btn-red" style="padding:5px 8px" onclick="deleteWord(\${realIdx})">Del</button></div></div>\`;
-  }).join('') || '<small>No valid words — Loading WORLD automatically...</small>';
+  }).join('') || '<small>No valid words — Use IMPORT box or Load WORLD</small>';
   document.getElementById('list').innerHTML = html;
 }
 render();
 
-// ===== NEW: AUTO-LOAD WORLD IF LOCAL IS EMPTY - FIX FOR INCOGNITO & WIFE =====
+// ===== AUTO-LOAD FOR NEW VISITORS - FIX FOR INCOGNITO & WIFE - ADDED ONLY =====
 async function autoLoadForNewVisitor(){
   if(localData.length < 10){
     try{
@@ -276,6 +276,7 @@ async function autoLoadForNewVisitor(){
   }
 }
 autoLoadForNewVisitor();
+// ===== END AUTO-LOAD FIX =====
 
 function handleSearch(){
   let q = document.getElementById('searchBox').value.toLowerCase();
