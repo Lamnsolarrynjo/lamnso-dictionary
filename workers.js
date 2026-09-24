@@ -292,6 +292,6 @@ async function generateCode(){ let adminKey = prompt('Enter Admin Key (ending 20
 async function unlock(){ let code=document.getElementById('payCode').value.trim(); if(!code) return alert('Enter code'); let r=await fetch('/api/check-access',{method:'POST', body:JSON.stringify({code}), headers:{'Content-Type':'application/json'}}); let j=await r.json(); if(j.ok){ localStorage.setItem('premium_code_ok','1'); document.getElementById('paywall').style.display='none'; checkTrial(); alert('✅ Unlocked!'); } else { alert('❌ Invalid / Expired code. MoMo: 674 061 571'); } }
 </script>
 </body>
-</html>`);
+</html>`, { headers: { "Content-Type": "text/html;charset=UTF-8" } });
   }
 };
