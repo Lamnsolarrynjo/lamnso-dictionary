@@ -247,10 +247,36 @@ function render(data=localData){
     let realIdx = localData.findIndex(x=>x.lamnso===w.lamnso && x.english===w.english);
     if(realIdx===-1) realIdx = idx;
     return \`<div class="word-row"><div><b>\${w.lamnso}</b> — \${w.english} \${w.pos?'<small>[ '+w.pos+' ]</small>':''}</div><div><button class="btn btn-yellow" style="padding:5px 8px" onclick="editWord(\${realIdx})">Edit</button><button class="btn btn-red" style="padding:5px 8px" onclick="deleteWord(\${realIdx})">Del</button></div></div>\`;
-  }).join('') || '<small>No valid words — Use IMPORT box or Load WORLD</small>';
+  }).join('') || '<small>No valid words — Loading WORLD automatically...</small>';
   document.getElementById('list').innerHTML = html;
 }
 render();
+
+// ===== NEW: AUTO-LOAD WORLD IF LOCAL IS EMPTY - FIX FOR INCOGNITO & WIFE =====
+async function autoLoadForNewVisitor(){
+  if(localData.length < 10){
+    try{
+      document.getElementById('status').innerText = '⏳ Auto-loading WORLD...';
+      let r = await fetch(WORLD_URL);
+      let data = await r.json();
+      data = clean(data);
+      if(data.length > 10){
+        localData = data;
+        saveLocal();
+        render();
+        document.getElementById('status').innerText = '✅ WORLD Auto-Loaded ('+data.length+' words)';
+        console.log('Auto-loaded WORLD:', data.length);
+      } else {
+        document.getElementById('status').innerText = 'WORLD empty - Push from main phone first';
+      }
+    }catch(e){
+      console.log('Auto-load failed', e);
+      document.getElementById('status').innerText = 'LOCAL empty - Tap Load WORLD';
+    }
+  }
+}
+autoLoadForNewVisitor();
+
 function handleSearch(){
   let q = document.getElementById('searchBox').value.toLowerCase();
   let f = localData.filter(w=> JSON.stringify(w).toLowerCase().includes(q));
