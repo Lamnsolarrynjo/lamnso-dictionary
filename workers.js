@@ -4,6 +4,13 @@ export default {
     const DICT = env.DICT;
     const ADMIN_KEY = env.ADMIN_KEY || "njolaik2026";
 
+    // FIX 1: If DICT not bound, return clear error not crash
+    if (!DICT) {
+      if (url.pathname.startsWith("/api/")) {
+        return new Response(JSON.stringify({ ok: false, error: "DICT binding missing. Add KV binding named DICT in Settings > Bindings" }), { status: 500, headers: { "Content-Type": "application/json", "Access-Control-Allow-Origin": "*" } });
+      }
+    }
+
     const isValid = (w) => {
       if (!w) return false;
       const l = (w.lamnso || w.lam || w.word || '').toString().trim();
@@ -29,6 +36,11 @@ export default {
       return { lamnso: lam, english: eng, pos: pos, id: w.id || Date.now() + Math.random() };
     });
 
+    // CORS preflight for all API
+    if (request.method === "OPTIONS") {
+      return new Response("", { headers: { "Access-Control-Allow-Origin": "*", "Access-Control-Allow-Methods": "GET, POST, OPTIONS", "Access-Control-Allow-Headers": "Content-Type" } });
+    }
+
     if (url.pathname === "/api/dictionary") {
       if (request.method === "GET") {
         let data = await DICT.get("dictionary_world", "json") || [];
@@ -43,8 +55,7 @@ export default {
     }
 
     if (url.pathname === "/api/check-access") {
-      if (request.method === "OPTIONS") return new Response("", { headers: { "Access-Control-Allow-Origin": "*", "Access-Control-Allow-Methods": "POST, OPTIONS", "Access-Control-Allow-Headers": "Content-Type" } });
-      let { code } = await request.json();
+      let { code } = await request.json().catch(()=>({}));
       let sub = await DICT.get(`sub_${code}`, "json");
       if (!sub) return new Response(JSON.stringify({ ok: false }), { headers: { "Content-Type": "application/json", "Access-Control-Allow-Origin": "*" } });
       let expired = Date.now() > sub.expires;
@@ -52,8 +63,7 @@ export default {
     }
 
     if (url.pathname === "/api/subscribe") {
-      if (request.method === "OPTIONS") return new Response("", { headers: { "Access-Control-Allow-Origin": "*", "Access-Control-Allow-Methods": "POST, OPTIONS", "Access-Control-Allow-Headers": "Content-Type" } });
-      let { email, phone, code } = await request.json();
+      let { email, phone, code } = await request.json().catch(()=>({}));
       if(!code) return new Response(JSON.stringify({ ok:false, error:"No code" }), { headers: { "Content-Type": "application/json", "Access-Control-Allow-Origin": "*" } });
       let existing = await DICT.get(`sub_${code}`, "json");
       if(!existing) return new Response(JSON.stringify({ ok:false, error:"Invalid code" }), { headers: { "Content-Type": "application/json", "Access-Control-Allow-Origin": "*" } });
@@ -61,7 +71,6 @@ export default {
     }
 
     if (url.pathname === "/api/generate-code") {
-      if (request.method === "OPTIONS") return new Response("", { headers: { "Access-Control-Allow-Origin": "*", "Access-Control-Allow-Methods": "POST, OPTIONS", "Access-Control-Allow-Headers": "Content-Type" } });
       let body = {};
       try { body = await request.json(); } catch(e) {}
       let adminKey = body.adminKey || url.searchParams.get('key');
@@ -187,7 +196,6 @@ function initTrial(){
   }
   checkTrial();
 }
-
 function checkTrial(){
   let start = parseInt(localStorage.getItem(TRIAL_KEY) || '0');
   if(!start){
@@ -237,6 +245,33 @@ const clean = (arr) => (arr||[]).filter(isValid).map(w=>{
 });
 
 localData = clean(localData); saveLocal();
+
+// FIX 2: AUTO-LOAD FOR NEW VISITORS (wife phone)
+async function autoLoadForNewVisitor(){
+  if(localData.length === 0){
+    try{
+      document.getElementById('status').innerText = 'Loading WORLD...';
+      let r = await fetch(WORLD_URL);
+      if(r.ok){
+        let data = await r.json();
+        data = clean(data);
+        if(data.length > 0){
+          localData = data;
+          saveLocal();
+          render();
+          document.getElementById('status').innerText = 'WORLD Auto-Loaded';
+          console.log('Auto-loaded '+data.length+' words for new visitor');
+        } else {
+          document.getElementById('status').innerText = 'LOCAL empty - Tap Lo WORLD';
+        }
+      }
+    }catch(e){
+      console.log('autoLoad fail', e);
+      document.getElementById('status').innerText = 'LOCAL empty - Tap Lo WORLD';
+    }
+  }
+}
+
 function toggleDark(){ document.body.classList.toggle('dark'); localStorage.setItem('dark', document.body.classList.contains('dark')) }
 if(localStorage.getItem('dark')==='true') document.body.classList.add('dark');
 
@@ -251,32 +286,7 @@ function render(data=localData){
   document.getElementById('list').innerHTML = html;
 }
 render();
-
-// ===== AUTO-LOAD FOR NEW VISITORS - FIX FOR INCOGNITO & WIFE - ADDED ONLY =====
-async function autoLoadForNewVisitor(){
-  if(localData.length < 10){
-    try{
-      document.getElementById('status').innerText = '⏳ Auto-loading WORLD...';
-      let r = await fetch(WORLD_URL);
-      let data = await r.json();
-      data = clean(data);
-      if(data.length > 10){
-        localData = data;
-        saveLocal();
-        render();
-        document.getElementById('status').innerText = '✅ WORLD Auto-Loaded ('+data.length+' words)';
-        console.log('Auto-loaded WORLD:', data.length);
-      } else {
-        document.getElementById('status').innerText = 'WORLD empty - Push from main phone first';
-      }
-    }catch(e){
-      console.log('Auto-load failed', e);
-      document.getElementById('status').innerText = 'LOCAL empty - Tap Load WORLD';
-    }
-  }
-}
-autoLoadForNewVisitor();
-// ===== END AUTO-LOAD FIX =====
+autoLoadForNewVisitor(); // <-- AUTO for wife / new phones
 
 function handleSearch(){
   let q = document.getElementById('searchBox').value.toLowerCase();
@@ -319,6 +329,6 @@ async function generateCode(){ let adminKey = prompt('Enter Admin Key (ending 20
 async function unlock(){ let code=document.getElementById('payCode').value.trim(); if(!code) return alert('Enter code'); let r=await fetch('/api/check-access',{method:'POST', body:JSON.stringify({code}), headers:{'Content-Type':'application/json'}}); let j=await r.json(); if(j.ok){ localStorage.setItem('premium_code_ok','1'); document.getElementById('paywall').style.display='none'; checkTrial(); alert('✅ Unlocked!'); } else { alert('❌ Invalid / Expired code. MoMo: 674 061 571'); } }
 </script>
 </body>
-</html>`, { headers: { "Content-Type": "text/html;charset=UTF-8" } });
+</html>`);
   }
 };
