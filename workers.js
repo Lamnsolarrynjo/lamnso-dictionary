@@ -10,23 +10,25 @@ export default {
       const e = (w.english || w.eng || w.meaning || w.definition || w.senses?.[0]?.eng || '').toString().trim();
       if (!l ||!e) return false;
       if (l.toLowerCase() === 'undefined' || e.toLowerCase() === 'undefined') return false;
+      if (l.length < 1 || l.length > 80) return false;
+      if (e.length < 1 || e.length > 300) return false;
+      // BLOCK ghost and -> artefacts
       if (l.startsWith('{') || l.startsWith('[') || l.includes('"id"') || l.includes('"lam"') || l.includes('"senses"')) return false;
-      if (l.length > 80 || e.length > 300) {
-        if (l.includes('id') && l.includes('lam') && l.includes('senses')) return false;
-      }
+      if (l.includes('->') || l.includes('=>') || l.includes('//') || l.includes('>') || l.includes('<')) return false;
       if (e.startsWith('{') || e.includes('"senses"')) return false;
+      if (e.startsWith('>')) return false;
       return true;
     };
+
     const clean = (arr) => (arr || []).filter(isValid).map(w => {
       let lam = (w.lamnso || w.lam || w.word || '').toString().trim().replace(/^["']|["']$/g,'').replace(/"/g, "'");
-      let eng = (w.english || w.eng || w.meaning || w.definition || (w.senses && w.senses[0] && w.senses[0].eng) || '').toString().trim().replace(/^["']|["']$/g,'').replace(/"/g, "'");
+      let eng = (w.english || w.eng || w.meaning || w.definition || (w.senses && w.senses[0] && w.senses[0].eng) || '').toString().trim().replace(/^["']|["']$/g,'').replace(/"/g, "'").replace(/^>+\s*/,'');
       let pos = (w.pos || (w.senses && w.senses[0] && w.senses[0].pos) || 'n').toString().trim().toLowerCase();
       if (pos.length > 20) pos = 'n';
       if (pos.startsWith('n')) pos='n'; else if(pos.startsWith('v')) pos='v'; else if(pos.startsWith('adj')) pos='adj'; else pos='n';
       return { lamnso: lam, english: eng, pos: pos, id: w.id || Date.now() + Math.random() };
     });
 
-    // --- FIX 1: TRY ALL KEYS ---
     async function getWorldData(){
       const tryKeys = ["WORLD","words","dictionary_world","dictionary_world_v1","DICTIONARY","dictionary"];
       for(let k of tryKeys){
@@ -50,7 +52,6 @@ export default {
         let body = await request.json();
         body = clean(body);
         let s = JSON.stringify(body);
-        // --- FIX 2: SAVE TO ALL KEYS AT ONCE ---
         await Promise.all([
           DICT.put("WORLD", s),
           DICT.put("words", s),
@@ -73,7 +74,6 @@ export default {
     if (url.pathname === "/api/subscribe") {
       let { email, phone, code } = await request.json();
       if(!code) return new Response(JSON.stringify({ ok:false, error:"No code" }), { headers: { "Content-Type": "application/json", "Access-Control-Allow-Origin":"*" } });
-      // Check if code exists first
       let existing = await DICT.get(`sub_${code}`, "json");
       if(existing){
         return new Response(JSON.stringify({ ok: true, expires: existing.expires, existing:true }), { headers: { "Content-Type": "application/json", "Access-Control-Allow-Origin":"*" } });
@@ -143,14 +143,14 @@ input,select{padding:10px;border-radius:8px;border:1px solid #999;width:95%;marg
 </div>
 
 <div class="card" style="border:2px dashed var(--primary);background:#e8f5e980">
-  <span class="label">📥 IMPORT - SEPARATE FROM PUSH - No File Search</span>
+  <span class="label">📥 IMPORT - SEPARATE FROM PUSH - FIXED NO NUMBERS</span>
   <h3 style="margin:4px 0">Paste Multiple Words Here</h3>
-  <small>This does NOT search phone. Paste JSON or lines like wán - child, then Import adds to LOCAL only. Push to WORLD is separate.</small>
-  <textarea id="importBox" placeholder="Paste JSON like:
-[{&quot;lam&quot;:&quot;wán&quot;,&quot;eng&quot;:&quot;child&quot;,&quot;pos&quot;:&quot;n&quot;}]
-OR lines like:
-wán - child
-kikum - leg"></textarea><br>
+  <small>FIXED: Uses ONLY " | " and " - " - Ignores -> // => - Never adds numbers</small>
+  <textarea id="importBox" placeholder="Paste like:
+wán | child
+kikum | leg
+OR
+wán - child"></textarea><br>
   <button class="btn btn-primary" onclick="bulkImport()">✅ Import Pasted Words to LOCAL Only</button>
   <button class="btn btn-gray" onclick="document.getElementById('importBox').value='';document.getElementById('importStatus').innerText=''">Clear Box</button>
   <div id="importStatus" style="margin-top:8px;font-weight:bold;color:var(--primary)"></div>
@@ -204,13 +204,15 @@ const isValid = (w) => {
   const e = (w.english || w.eng || w.meaning || w.definition || (w.senses && w.senses[0] && w.senses[0].eng) || '').toString().trim();
   if (!l ||!e) return false;
   if (l.toLowerCase() === 'undefined' || e.toLowerCase() === 'undefined') return false;
-  if (l.startsWith('{') || l.startsWith('[') || l.includes('"id"') || l.includes('"lam"') || l.includes('"senses"')) return false;
-  if (e.startsWith('{') || e.includes('"senses"')) return false;
+  if (l.length>80 || e.length>300) return false;
+  if (l.startsWith('{') || l.startsWith('[') || l.includes('"id"') || l.includes('"lam"')) return false;
+  if (l.includes('->') || l.includes('=>') || l.includes('//') || l.includes('>')) return false;
+  if (e.startsWith('{') || e.includes('"senses"') || e.startsWith('>')) return false;
   return true;
 };
 const clean = (arr) => (arr||[]).filter(isValid).map(w=>{
-  let lam = (w.lamnso || w.lam || w.word || '').toString().trim().replace(/^["']|["']$/g,'').replace(/"/g, "'");
-  let eng = (w.english || w.eng || w.meaning || w.definition || (w.senses && w.senses[0] && w.senses[0].eng) || '').toString().trim().replace(/^["']|["']$/g,'').replace(/"/g, "'");
+  let lam = (w.lamnso || w.lam || w.word || '').toString().trim().replace(/^["']|["']$/g,'').replace(/"/g, "'").replace(/^>+\\s*/,'');
+  let eng = (w.english || w.eng || w.meaning || w.definition || (w.senses && w.senses[0] && w.senses[0].eng) || '').toString().trim().replace(/^["']|["']$/g,'').replace(/"/g, "'").replace(/^>+\\s*/,'');
   let pos = (w.pos || (w.senses && w.senses[0] && w.senses[0].pos) || 'n').toString().trim().toLowerCase();
   if (pos.length > 20) pos = 'n';
   return {lamnso: lam, english: eng, pos: pos, id: w.id || Date.now()+Math.random()};
@@ -234,6 +236,7 @@ function checkTrial(){
 function render(data=localData){
   data = clean(data);
   document.getElementById('wordCount').innerText = data.length + ' words';
+  // FIXED: NO NUMBERS - only word
   let html = data.slice(0,500).map((w,idx)=>{
     let realIdx = localData.findIndex(x=>x.lamnso===w.lamnso && x.english===w.english);
     if(realIdx===-1) realIdx = idx;
@@ -251,11 +254,12 @@ function handleSearch(){
 
 function addWord(){
   let lam = prompt('Lāmso word:'); if(!lam || lam.toLowerCase()==='undefined') return;
+  if(lam.includes('->')||lam.includes('//')) return alert('Invalid: -> // not allowed');
   let eng = prompt('English meaning:'); if(!eng || eng.toLowerCase()==='undefined') return;
   localData.push({lamnso:lam.trim(), english:eng.trim(), pos:'n', id:Date.now()});
   saveLocal(); render(); document.getElementById('status').innerText='LOCAL - Not yet pushed';
 }
-function editWord(i){ let w=localData[i]; if(!w) return; let l=prompt('Edit Lāmso:',w.lamnso); if(l===null) return; let e=prompt('Edit English:',w.english); if(e===null) return; if(!l.trim()||!e.trim()) return; localData[i]={lamnso:l.trim(), english:e.trim(), pos:w.pos, id:w.id}; saveLocal(); render(); }
+function editWord(i){ let w=localData[i]; if(!w) return; let l=prompt('Edit Lāmso:',w.lamnso); if(l===null) return; if(l.includes('->')||l.includes('//')) return alert('Invalid'); let e=prompt('Edit English:',w.english); if(e===null) return; if(!l.trim()||!e.trim()) return; localData[i]={lamnso:l.trim(), english:e.trim(), pos:w.pos, id:w.id}; saveLocal(); render(); }
 function deleteWord(i){ if(!localData[i]) return; if(confirm('Delete '+localData[i].lamnso+'? (LOCAL only, push to delete globally)')){ localData.splice(i,1); saveLocal(); render(); } }
 function saveLocal(){ localData = clean(localData); localStorage.setItem('nte_dict', JSON.stringify(localData)); }
 
@@ -273,6 +277,7 @@ function exportData(){
   let a=document.createElement('a'); a.href=URL.createObjectURL(blob); a.download='nte_nso_dictionary_'+Date.now()+'.json'; a.click();
 }
 
+// FIXED BULK IMPORT - NO NUMBERS, BLOCKS -> WIPE
 function bulkImport(){
   let text=document.getElementById('importBox').value.trim();
   if(!text) return alert('Paste words in box first');
@@ -286,7 +291,7 @@ function bulkImport(){
         let lam = (item.lamnso || item.lam || item.word || '').toString().trim();
         let eng = (item.english || item.eng || item.meaning || item.definition || (item.senses && item.senses[0] && item.senses[0].eng) || '').toString().trim();
         let pos = (item.pos || (item.senses && item.senses[0] && item.senses[0].pos) || 'n').toString().trim();
-        if(lam && eng &&!lam.startsWith('{') &&!lam.includes('"id"')){
+        if(lam && eng &&!lam.includes('->') &&!lam.includes('//')){
           imported.push({lamnso: lam.replace(/"/g,"'"), english: eng.replace(/"/g,"'"), pos: pos, id: item.id || Date.now()+Math.random()});
         }
       });
@@ -297,35 +302,36 @@ function bulkImport(){
     let lines=text.split('\\n');
     for(let line of lines){
       line=line.trim(); if(!line) continue;
+      if(line.includes('->') || line.includes('=>') || line.includes('//') || line.includes('/*')) continue;
       if(line.startsWith('{') || line.startsWith('[') || line.includes('"id"') || line.includes('"lam"')) continue;
+      if(line.toLowerCase().includes('undefined')) continue;
       let parts=null;
-      if(line.includes(' - ')) parts=line.split(' - ');
-      else if(line.includes(' | ')) parts=line.split(' | ');
-      else if(line.includes('|')) parts=line.split('|');
+      if(line.includes(' | ')) parts=line.split(' | ');
+      else if(line.includes(' - ')) parts=line.split(' - ');
       else if(line.includes(' : ')) parts=line.split(' : ');
-      else if(line.includes(':')) parts=line.split(':');
-      else if(line.includes(',')) parts=line.split(',');
-      else if(line.includes('-')) parts=line.split('-');
+      else if(line.includes('\\t')) parts=line.split('\\t');
+      else if(line.includes('|')) parts=line.split('|');
       else continue;
       if(parts && parts.length>=2){
-        let lam=parts[0].trim().replace(/^["']|["']$/g,'');
-        let eng=parts.slice(1).join(' ').trim().replace(/^["']|["']$/g,'');
-        if(lam && eng &&!lam.startsWith('{') && lam.toLowerCase()!=='undefined' && eng.toLowerCase()!=='undefined'){
-          imported.push({lamnso:lam, english:eng, pos:'n', id:Date.now()+Math.random()});
-        }
+        let lam=parts[0].trim().replace(/^["']|["']$/g,'').replace(/^>+\\s*/,'');
+        let eng=parts.slice(1).join(' | ').trim().replace(/^["']|["']$/g,'').replace(/^>+\\s*/,'');
+        if(!lam ||!eng) continue;
+        if(lam.length>80 || eng.length>300) continue;
+        if(lam.includes('>') || eng.startsWith('>')) continue;
+        imported.push({lamnso:lam, english:eng, pos:'n', id:Date.now()+Math.random()});
       }
     }
   }
   imported=clean(imported);
   if(!imported.length){
-    document.getElementById('importStatus').innerText='❌ No valid words. Pasted ghost fragments.';
+    document.getElementById('importStatus').innerText='❌ No valid words. Use " | " not "->"';
     return;
   }
   let existing=new Set(localData.map(w=>w.lamnso.toLowerCase()));
   let added=0;
   for(let w of imported){ if(!existing.has(w.lamnso.toLowerCase())){ localData.push(w); existing.add(w.lamnso.toLowerCase()); added++; } }
   saveLocal(); render();
-  document.getElementById('importStatus').innerText='✅ Parsed '+imported.length+' | Added '+added+' new to LOCAL only.';
+  document.getElementById('importStatus').innerText='✅ Parsed '+imported.length+' | Added '+added+' new to LOCAL only. No numbers.';
   document.getElementById('status').innerText='LOCAL - Imported, not yet pushed';
 }
 
@@ -399,7 +405,7 @@ async function autoLoadForNewVisitor(){
   if(localData.length===0){
     try{
       let r=await fetch(WORLD_URL); let d=await r.json();
-      if(d.length>0){ localData=clean(d); saveLocal(); render(); document.getElementById('status').innerText='WORLD Auto-Loaded'; console.log('Auto-loaded '+d.length); }
+      if(d.length>0){ localData=clean(d); saveLocal(); render(); document.getElementById('status').innerText='WORLD Auto-Loaded'; }
     }catch(e){}
   }
 }
