@@ -2,6 +2,7 @@ export default {
   async fetch(request, env, ctx) {
     const url = new URL(request.url);
     const DICT = env.DICT;
+    const ADMIN_KEY = env.ADMIN_KEY || "njolaik2026";
 
     const isValid = (w) => {
       if (!w) return false;
@@ -9,10 +10,8 @@ export default {
       const e = (w.english || w.eng || w.meaning || w.definition || w.senses?.[0]?.eng || '').toString().trim();
       if (!l ||!e) return false;
       if (l.toLowerCase() === 'undefined' || e.toLowerCase() === 'undefined') return false;
-      // REJECT GHOST JSON FRAGMENTS
-      if (l.startsWith('{') || l.startsWith('[') || l.includes('"id"') || l.includes('"lam"') || l.includes('"senses"') || l.includes('"eng"') || l.includes('—') && l.includes(',')) return false;
+      if (l.startsWith('{') || l.startsWith('[') || l.includes('"id"') || l.includes('"lam"') || l.includes('"senses"')) return false;
       if (l.length > 80 || e.length > 300) {
-        // If it looks like JSON stringified, reject
         if (l.includes('id') && l.includes('lam') && l.includes('senses')) return false;
       }
       if (e.startsWith('{') || e.includes('"senses"')) return false;
@@ -23,28 +22,42 @@ export default {
       let eng = (w.english || w.eng || w.meaning || w.definition || (w.senses && w.senses[0] && w.senses[0].eng) || '').toString().trim().replace(/^["']|["']$/g,'').replace(/"/g, "'");
       let pos = (w.pos || (w.senses && w.senses[0] && w.senses[0].pos) || 'n').toString().trim().toLowerCase();
       if (pos.length > 20) pos = 'n';
-      // Normalize pos
-      if (['noun','verb','adjective','adverb','pronoun','preposition','other','greeting','symbol'].includes(pos)) {}
-      else if (pos === 'n' || pos.startsWith('n')) pos = 'n';
-      else if (pos.startsWith('v')) pos = 'v';
-      else pos = 'n';
-      return {
-        lamnso: lam,
-        english: eng,
-        pos: pos,
-        id: w.id || Date.now() + Math.random()
-      };
+      if (pos.startsWith('n')) pos='n'; else if(pos.startsWith('v')) pos='v'; else if(pos.startsWith('adj')) pos='adj'; else pos='n';
+      return { lamnso: lam, english: eng, pos: pos, id: w.id || Date.now() + Math.random() };
     });
+
+    // --- FIX 1: TRY ALL KEYS ---
+    async function getWorldData(){
+      const tryKeys = ["WORLD","words","dictionary_world","dictionary_world_v1","DICTIONARY","dictionary"];
+      for(let k of tryKeys){
+        try{
+          let data = await DICT.get(k, "json");
+          if(Array.isArray(data) && data.length>0){
+            let c = clean(data);
+            if(c.length>0) return c;
+          }
+        }catch(e){}
+      }
+      return [];
+    }
 
     if (url.pathname === "/api/dictionary") {
       if (request.method === "GET") {
-        let data = await DICT.get("dictionary_world", "json") || [];
-        return new Response(JSON.stringify(clean(data)), { headers: { "Content-Type": "application/json", "Access-Control-Allow-Origin": "*" } });
+        let data = await getWorldData();
+        return new Response(JSON.stringify(data), { headers: { "Content-Type": "application/json", "Access-Control-Allow-Origin": "*" } });
       }
       if (request.method === "POST") {
         let body = await request.json();
         body = clean(body);
-        await DICT.put("dictionary_world", JSON.stringify(body));
+        let s = JSON.stringify(body);
+        // --- FIX 2: SAVE TO ALL KEYS AT ONCE ---
+        await Promise.all([
+          DICT.put("WORLD", s),
+          DICT.put("words", s),
+          DICT.put("dictionary_world", s),
+          DICT.put("DICTIONARY", s),
+          DICT.put("dictionary_world_v1", s)
+        ]);
         return new Response(JSON.stringify({ ok: true, count: body.length }), { headers: { "Content-Type": "application/json", "Access-Control-Allow-Origin": "*" } });
       }
     }
@@ -52,22 +65,32 @@ export default {
     if (url.pathname === "/api/check-access") {
       let { code } = await request.json();
       let sub = await DICT.get(`sub_${code}`, "json");
-      if (!sub) return new Response(JSON.stringify({ ok: false }), { headers: { "Content-Type": "application/json" } });
+      if (!sub) return new Response(JSON.stringify({ ok: false }), { headers: { "Content-Type": "application/json", "Access-Control-Allow-Origin":"*" } });
       let expired = Date.now() > sub.expires;
-      return new Response(JSON.stringify({ ok:!expired, data: sub }), { headers: { "Content-Type": "application/json" } });
+      return new Response(JSON.stringify({ ok:!expired, data: sub }), { headers: { "Content-Type": "application/json", "Access-Control-Allow-Origin":"*" } });
     }
 
     if (url.pathname === "/api/subscribe") {
       let { email, phone, code } = await request.json();
-      if(!code) return new Response(JSON.stringify({ ok:false, error:"No code" }), { headers: { "Content-Type": "application/json" } });
+      if(!code) return new Response(JSON.stringify({ ok:false, error:"No code" }), { headers: { "Content-Type": "application/json", "Access-Control-Allow-Origin":"*" } });
+      // Check if code exists first
+      let existing = await DICT.get(`sub_${code}`, "json");
+      if(existing){
+        return new Response(JSON.stringify({ ok: true, expires: existing.expires, existing:true }), { headers: { "Content-Type": "application/json", "Access-Control-Allow-Origin":"*" } });
+      }
       let expires = Date.now() + 365*24*60*60*1000;
       await DICT.put(`sub_${code}`, JSON.stringify({ email, phone, code, expires, created: Date.now() }));
-      return new Response(JSON.stringify({ ok: true, expires }), { headers: { "Content-Type": "application/json" } });
+      return new Response(JSON.stringify({ ok: true, expires }), { headers: { "Content-Type": "application/json", "Access-Control-Allow-Origin":"*" } });
     }
 
     if (url.pathname === "/api/generate-code") {
-      let code = "NTE-" + Math.random().toString(36).substring(2,8).toUpperCase() + "-" + Date.now().toString().slice(-4);
-      return new Response(JSON.stringify({ code }), { headers: { "Content-Type": "application/json" } });
+      let { adminKey, email, phone, days } = await request.json();
+      if(adminKey!== ADMIN_KEY) return new Response(JSON.stringify({ ok:false, error:"Unauthorized - wrong admin key" }), { status:401, headers: { "Content-Type": "application/json", "Access-Control-Allow-Origin":"*" } });
+      let code = "NTE-" + Math.random().toString(36).substring(2,6).toUpperCase() + "-" + Date.now().toString().slice(-4);
+      let d = parseInt(days||365);
+      let expires = Date.now() + d*24*60*60*1000;
+      await DICT.put(`sub_${code}`, JSON.stringify({ email:email||"", phone:phone||"", code, expires, created: Date.now(), days:d }));
+      return new Response(JSON.stringify({ ok:true, code, expires, days:d }), { headers: { "Content-Type": "application/json", "Access-Control-Allow-Origin":"*" } });
     }
 
     return new Response(`<!DOCTYPE html>
@@ -104,6 +127,8 @@ input,select{padding:10px;border-radius:8px;border:1px solid #999;width:95%;marg
   <button class="btn btn-gray" onclick="toggleDark()">🌙 Dark Mode</button>
 </div>
 
+<div class="card" id="trialBanner"></div>
+
 <div class="card">
   <span class="label">SEARCH & CORE - All Separate</span>
   <input id="searchBox" placeholder="Search Lāmso' or English..." oninput="handleSearch()">
@@ -125,9 +150,7 @@ input,select{padding:10px;border-radius:8px;border:1px solid #999;width:95%;marg
 [{&quot;lam&quot;:&quot;wán&quot;,&quot;eng&quot;:&quot;child&quot;,&quot;pos&quot;:&quot;n&quot;}]
 OR lines like:
 wán - child
-kikum - leg
-shuu - water
-SUPPORTS: JSON, - | :,"></textarea><br>
+kikum - leg"></textarea><br>
   <button class="btn btn-primary" onclick="bulkImport()">✅ Import Pasted Words to LOCAL Only</button>
   <button class="btn btn-gray" onclick="document.getElementById('importBox').value='';document.getElementById('importStatus').innerText=''">Clear Box</button>
   <div id="importStatus" style="margin-top:8px;font-weight:bold;color:var(--primary)"></div>
@@ -202,7 +225,10 @@ function checkTrial(){
   let start = parseInt(localStorage.getItem(TRIAL_KEY));
   let days = (Date.now()-start)/(1000*60*60*24);
   let codeOk = localStorage.getItem('premium_code_ok');
-  if(days>7 &&!codeOk){ document.getElementById('paywall').style.display='flex'; }
+  let banner=document.getElementById('trialBanner');
+  if(codeOk){ banner.innerText='Premium Active ✅'; return;}
+  if(days>7){ document.getElementById('paywall').style.display='flex'; banner.innerText='Trial ended - Premium required'; }
+  else{ banner.innerText=Math.ceil(7-days)+' Days Free Trial left'; }
 }
 
 function render(data=localData){
@@ -239,7 +265,7 @@ function killGhost(){
   let cleaned = clean(raw);
   localData = cleaned;
   saveLocal(); render();
-  alert('Ghost killed: '+(before-cleaned.length)+' invalid removed (like {"id -...}). Now Push to WORLD Global separately to kill globally.');
+  alert('Ghost killed: '+(before-cleaned.length)+' invalid removed. Now Push to WORLD Global separately to kill globally.');
 }
 
 function exportData(){
@@ -251,8 +277,6 @@ function bulkImport(){
   let text=document.getElementById('importBox').value.trim();
   if(!text) return alert('Paste words in box first');
   let imported=[];
-
-  // 1. TRY JSON FIRST (your format with senses)
   let triedJson = false;
   if(text.startsWith('[') || text.startsWith('{')){
     try {
@@ -267,18 +291,13 @@ function bulkImport(){
         }
       });
       triedJson = true;
-    } catch(e){
-      triedJson = false;
-    }
+    } catch(e){ triedJson = false; }
   }
-
-  // 2. IF NOT JSON, FALL BACK TO LINE PARSING (wán - child)
   if(!triedJson){
     let lines=text.split('\\n');
     for(let line of lines){
       line=line.trim(); if(!line) continue;
-      // Skip lines that look like JSON fragments
-      if(line.startsWith('{') || line.startsWith('[') || line.includes('"id"') || line.includes('"lam"') || line.includes('"senses"')) continue;
+      if(line.startsWith('{') || line.startsWith('[') || line.includes('"id"') || line.includes('"lam"')) continue;
       let parts=null;
       if(line.includes(' - ')) parts=line.split(' - ');
       else if(line.includes(' | ')) parts=line.split(' | ');
@@ -297,17 +316,16 @@ function bulkImport(){
       }
     }
   }
-
   imported=clean(imported);
   if(!imported.length){
-    document.getElementById('importStatus').innerText='❌ No valid words. You pasted JSON fragments like {"id... which are now rejected as ghost. Paste clean JSON array like [{"lam":"bánén","eng":"to gather together","pos":"verb"}] or lines like wán - child';
+    document.getElementById('importStatus').innerText='❌ No valid words. Pasted ghost fragments.';
     return;
   }
   let existing=new Set(localData.map(w=>w.lamnso.toLowerCase()));
   let added=0;
   for(let w of imported){ if(!existing.has(w.lamnso.toLowerCase())){ localData.push(w); existing.add(w.lamnso.toLowerCase()); added++; } }
   saveLocal(); render();
-  document.getElementById('importStatus').innerText='✅ Parsed '+imported.length+' | Added '+added+' new to LOCAL only. Duplicate skipped '+(imported.length-added)+'. Now separately Push to WORLD Global if you want worldwide.';
+  document.getElementById('importStatus').innerText='✅ Parsed '+imported.length+' | Added '+added+' new to LOCAL only.';
   document.getElementById('status').innerText='LOCAL - Imported, not yet pushed';
 }
 
@@ -317,15 +335,15 @@ async function loadWorld(){
   data = clean(data);
   localData = data; saveLocal(); render();
   document.getElementById('status').innerText='WORLD Loaded';
-  alert('WORLD Loaded: '+data.length+' words (cleaned)');
+  alert('WORLD Loaded: '+data.length+' words');
 }
 async function pushToWorld(){
   let c = clean(localData);
-  if(!c.length) return alert('LOCAL is empty — cannot push empty to WORLD');
-  if(!confirm('Push '+c.length+' words to WORLD Global? This will OVERWRITE world database. This is SEPARATE from Import.')) return;
+  if(!c.length) return alert('LOCAL empty');
+  if(!confirm('Push '+c.length+' words to WORLD Global? This will OVERWRITE world database.')) return;
   await fetch(WORLD_URL,{method:'POST', body:JSON.stringify(c), headers:{'Content-Type':'application/json'}});
   document.getElementById('status').innerText='WORLD Pushed';
-  alert('✅ Pushed to WORLD Global: '+c.length+' words. Import remains separate.');
+  alert('✅ Pushed to WORLD Global: '+c.length+' words');
 }
 
 function viewDuplicates(){
@@ -342,31 +360,52 @@ function removeDuplicates(){
   let before=localData.length; localData=Object.values(map); saveLocal(); render(); alert('Removed '+(before-localData.length)+' duplicates! Now '+localData.length);
 }
 function sortAZ(){ localData.sort((a,b)=>(a.lamnso||'').localeCompare(b.lamnso||'')); saveLocal(); render(); }
-
 function startLearn(){
   if(!localData.length) return alert('No words');
   let i=0; let show=()=>{ let w=localData[i]; alert((i+1)+'/'+localData.length+'\\n'+w.lamnso+' = '+w.english); i=(i+1)%localData.length };
-  show(); let t=setInterval(()=>{ if(confirm('Next word?')) show(); else clearInterval(t) },150);
+  show();
 }
 
 async function checkAccess(){
   let code=document.getElementById('accessCode').value.trim();
   if(!code) return alert('Enter code');
-  let r=await fetch('/api/check-access',{method:'POST', body:JSON.stringify({code}), headers:{'Content-Type':'application/json'}});
-  let j=await r.json(); document.getElementById('subStatus').innerText=j.ok?'✅ Access Valid 365 days':'❌ Invalid / Expired';
-  if(j.ok){ localStorage.setItem('premium_code_ok','1'); document.getElementById('paywall').style.display='none' }
+  let r=await fetch('/api/check-access',{method:'POST', body:JSON.stringify({code})});
+  let j=await r.json(); document.getElementById('subStatus').innerText=j.ok?'✅ Valid':'❌ Invalid/Expired';
+  if(j.ok){ localStorage.setItem('premium_code_ok','1'); document.getElementById('paywall').style.display='none'; checkTrial(); }
 }
 async function subscribe(){
   let email=document.getElementById('subEmail').value;
   let phone=document.getElementById('subPhone').value;
   let code=document.getElementById('accessCode').value;
-  if(!code) return alert('Enter Activation Code after payment to +237 674 061 571');
-  let r=await fetch('/api/subscribe',{method:'POST', body:JSON.stringify({email,phone,code}), headers:{'Content-Type':'application/json'}});
-  let j=await r.json(); if(j.ok){ alert('Subscribed! Vlet j=await r.json(); if(j.ok){ alert('Subscribed! Valid 365 days'); document.getElementById('paywall').style.display='none'; checkTrial(); } else { alert('❌ '+(j.error||'Invalid code')); } }
-async function generateCode(){ let adminKey = prompt('Enter Admin Key (ending 2026):'); if(!adminKey) return; let email = prompt('Customer email (optional):') || ''; let phone = prompt('Customer phone (optional):') || ''; let days = prompt('Days (default 365):') || '365'; let r=await fetch('/api/generate-code',{method:'POST', body:JSON.stringify({adminKey, email, phone, days: parseInt(days)}), headers:{'Content-Type':'application/json'}}); let j=await r.json(); if(j.ok){ document.getElementById('accessCode').value=j.code; document.getElementById('subStatus').innerText='✅ Generated: '+j.code+' ('+j.days+' days)'; alert('Code Generated: '+j.code); } else { alert('❌ '+(j.error||'Failed')); } }
-async function unlock(){ let code=document.getElementById('payCode').value.trim(); if(!code) return alert('Enter code'); let r=await fetch('/api/check-access',{method:'POST', body:JSON.stringify({code}), headers:{'Content-Type':'application/json'}}); let j=await r.json(); if(j.ok){ localStorage.setItem('premium_code_ok','1'); document.getElementById('paywall').style.display='none'; checkTrial(); alert('✅ Unlocked!'); } else { alert('❌ Invalid / Expired code. MoMo: 674 061 571'); } }
+  if(!code) return alert('Enter Activation Code after MoMo');
+  let r=await fetch('/api/subscribe',{method:'POST', body:JSON.stringify({email,phone,code})});
+  let j=await r.json();
+  if(j.ok){ alert('✅ Subscribed 365 days'); document.getElementById('paywall').style.display='none'; checkTrial(); }
+  else { alert('❌ '+(j.error||'Invalid')); }
+}
+async function generateCode(){
+  let adminKey = prompt('Enter Admin Key (njolaik2026):'); if(!adminKey) return;
+  let email = prompt('Customer email:') || '';
+  let phone = prompt('Customer phone:') || '';
+  let days = prompt('Days (365):') || '365';
+  let r=await fetch('/api/generate-code',{method:'POST', body:JSON.stringify({adminKey, email, phone, days: parseInt(days)})});
+  let j=await r.json();
+  if(j.ok){ document.getElementById('accessCode').value=j.code; document.getElementById('subStatus').innerText='✅ Generated: '+j.code+' ('+j.days+' days)'; alert('Code: '+j.code); }
+  else { alert('❌ '+(j.error||'Failed')); }
+}
+async function unlock(){ let code=document.getElementById('payCode').value.trim(); if(!code) return alert('Enter code'); let r=await fetch('/api/check-access',{method:'POST', body:JSON.stringify({code})}); let j=await r.json(); if(j.ok){ localStorage.setItem('premium_code_ok','1'); document.getElementById('paywall').style.display='none'; checkTrial(); alert('✅ Unlocked!'); } else { alert('❌ Invalid/Expired. MoMo: 674 061 571'); } }
+
+async function autoLoadForNewVisitor(){
+  if(localData.length===0){
+    try{
+      let r=await fetch(WORLD_URL); let d=await r.json();
+      if(d.length>0){ localData=clean(d); saveLocal(); render(); document.getElementById('status').innerText='WORLD Auto-Loaded'; console.log('Auto-loaded '+d.length); }
+    }catch(e){}
+  }
+}
+render(); autoLoadForNewVisitor();
 </script>
 </body>
-</html>`, { headers: { "Content-Type": "text/html;charset=utf-8" } });
+</html>`, { headers: { "Content-Type": "text/html;charset=utf-8", "Access-Control-Allow-Origin":"*" } });
   }
 };
