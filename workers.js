@@ -2,7 +2,7 @@ export default {
   async fetch(request, env, ctx) {
     const url = new URL(request.url);
     const DICT = env.DICT;
-    const ADMIN_KEY = env.ADMIN_KEY || "njolaik2026";
+    const ADMIN_KEY = (env.ADMIN_KEY || "njolaik2026").trim();
 
     const isValid = (w) => {
       if (!w) return false;
@@ -12,7 +12,6 @@ export default {
       if (l.toLowerCase() === 'undefined' || e.toLowerCase() === 'undefined') return false;
       if (l.length < 1 || l.length > 80) return false;
       if (e.length < 1 || e.length > 300) return false;
-      // BLOCK ghost and -> artefacts
       if (l.startsWith('{') || l.startsWith('[') || l.includes('"id"') || l.includes('"lam"') || l.includes('"senses"')) return false;
       if (l.includes('->') || l.includes('=>') || l.includes('//') || l.includes('>') || l.includes('<')) return false;
       if (e.startsWith('{') || e.includes('"senses"')) return false;
@@ -43,10 +42,12 @@ export default {
       return [];
     }
 
+    const cors = { "Content-Type": "application/json", "Access-Control-Allow-Origin":"*" };
+
     if (url.pathname === "/api/dictionary") {
       if (request.method === "GET") {
         let data = await getWorldData();
-        return new Response(JSON.stringify(data), { headers: { "Content-Type": "application/json", "Access-Control-Allow-Origin": "*" } });
+        return new Response(JSON.stringify(data), { headers: cors });
       }
       if (request.method === "POST") {
         let body = await request.json();
@@ -59,38 +60,58 @@ export default {
           DICT.put("DICTIONARY", s),
           DICT.put("dictionary_world_v1", s)
         ]);
-        return new Response(JSON.stringify({ ok: true, count: body.length }), { headers: { "Content-Type": "application/json", "Access-Control-Allow-Origin": "*" } });
+        return new Response(JSON.stringify({ ok: true, count: body.length }), { headers: cors });
       }
     }
 
     if (url.pathname === "/api/check-access") {
-      let { code } = await request.json();
-      let sub = await DICT.get(`sub_${code}`, "json");
-      if (!sub) return new Response(JSON.stringify({ ok: false }), { headers: { "Content-Type": "application/json", "Access-Control-Allow-Origin":"*" } });
-      let expired = Date.now() > sub.expires;
-      return new Response(JSON.stringify({ ok:!expired, data: sub }), { headers: { "Content-Type": "application/json", "Access-Control-Allow-Origin":"*" } });
+      try{
+        let { code } = await request.json();
+        code = (code||"").trim();
+        let sub = await DICT.get(`sub_${code}`, "json");
+        if (!sub) return new Response(JSON.stringify({ ok: false, error:"Code not found in WORLD - Generate first via Admin" }), { headers: cors });
+        let expired = Date.now() > sub.expires;
+        return new Response(JSON.stringify({ ok:!expired, data: sub, expired }), { headers: cors });
+      }catch(e){ return new Response(JSON.stringify({ ok:false, error:e.message }), { headers: cors }); }
     }
 
     if (url.pathname === "/api/subscribe") {
-      let { email, phone, code } = await request.json();
-      if(!code) return new Response(JSON.stringify({ ok:false, error:"No code" }), { headers: { "Content-Type": "application/json", "Access-Control-Allow-Origin":"*" } });
-      let existing = await DICT.get(`sub_${code}`, "json");
-      if(existing){
-        return new Response(JSON.stringify({ ok: true, expires: existing.expires, existing:true }), { headers: { "Content-Type": "application/json", "Access-Control-Allow-Origin":"*" } });
-      }
-      let expires = Date.now() + 365*24*60*60*1000;
-      await DICT.put(`sub_${code}`, JSON.stringify({ email, phone, code, expires, created: Date.now() }));
-      return new Response(JSON.stringify({ ok: true, expires }), { headers: { "Content-Type": "application/json", "Access-Control-Allow-Origin":"*" } });
+      try{
+        let { email, phone, code } = await request.json();
+        if(!code) return new Response(JSON.stringify({ ok:false, error:"No code" }), { headers: cors });
+        code = code.trim();
+        let existing = await DICT.get(`sub_${code}`, "json");
+        if(existing){
+          let expired = Date.now() > existing.expires;
+          if(expired) return new Response(JSON.stringify({ ok:false, error:"Code expired" }), { headers: cors });
+          return new Response(JSON.stringify({ ok: true, expires: existing.expires, existing:true, data: existing }), { headers: cors });
+        }
+        return new Response(JSON.stringify({ ok:false, error:"Invalid code - Generate via Admin first" }), { headers: cors });
+      }catch(e){ return new Response(JSON.stringify({ ok:false, error:e.message }), { headers: cors }); }
     }
 
     if (url.pathname === "/api/generate-code") {
-      let { adminKey, email, phone, days } = await request.json();
-      if(adminKey!== ADMIN_KEY) return new Response(JSON.stringify({ ok:false, error:"Unauthorized - wrong admin key" }), { status:401, headers: { "Content-Type": "application/json", "Access-Control-Allow-Origin":"*" } });
-      let code = "NTE-" + Math.random().toString(36).substring(2,6).toUpperCase() + "-" + Date.now().toString().slice(-4);
-      let d = parseInt(days||365);
-      let expires = Date.now() + d*24*60*60*1000;
-      await DICT.put(`sub_${code}`, JSON.stringify({ email:email||"", phone:phone||"", code, expires, created: Date.now(), days:d }));
-      return new Response(JSON.stringify({ ok:true, code, expires, days:d }), { headers: { "Content-Type": "application/json", "Access-Control-Allow-Origin":"*" } });
+      try{
+        let { adminKey, email, phone, days } = await request.json();
+        if((adminKey||"").trim()!== ADMIN_KEY) {
+          return new Response(JSON.stringify({ ok:false, error:`Unauthorized - wrong admin key` }), { status:401, headers: cors });
+        }
+        let e = (email||"").trim().toLowerCase();
+        let p = (phone||"").trim();
+        if(!p &&!e){
+          return new Response(JSON.stringify({ ok:false, error:"Need at least Phone or Email - phone required if no email" }), { status:400, headers: cors });
+        }
+        let code = "NTE-" + Math.random().toString(36).substring(2,6).toUpperCase() + Math.random().toString(36).substring(2,6).toUpperCase() + "-" + Date.now().toString().slice(-4);
+        let d = parseInt(days||365); if(isNaN(d)||d<1) d=365;
+        let expires = Date.now() + d*24*60*60*1000;
+        let payload = { email:e, phone:p, code, expires, created: Date.now(), days:d };
+        await DICT.put(`sub_${code}`, JSON.stringify(payload));
+        let check = await DICT.get(`sub_${code}`, "json");
+        if(!check) throw new Error("DICT KV save failed - check binding DICT exists");
+        return new Response(JSON.stringify({ ok:true, code, expires, days:d, saved:payload }), { headers: cors });
+      }catch(e){
+        return new Response(JSON.stringify({ ok:false, error:"Generate failed: "+e.message }), { status:500, headers: cors });
+      }
     }
 
     return new Response(`<!DOCTYPE html>
@@ -168,8 +189,8 @@ wán - child"></textarea><br>
 
 <div class="card">
   <h3>Subscription — Premium Access (Separate System)</h3>
-  <input id="subEmail" placeholder="Email">
-  <input id="subPhone" placeholder="Phone (MTN/Orange)">
+  <input id="subEmail" placeholder="Email (optional - leave empty if client has no email)">
+  <input id="subPhone" placeholder="Phone (MTN/Orange) - Required">
   <input id="accessCode" placeholder="Activation Code">
   <div>
     <button class="btn btn-blue" onclick="checkAccess()">🔓 Check Access</button>
@@ -236,7 +257,6 @@ function checkTrial(){
 function render(data=localData){
   data = clean(data);
   document.getElementById('wordCount').innerText = data.length + ' words';
-  // FIXED: NO NUMBERS - only word
   let html = data.slice(0,500).map((w,idx)=>{
     let realIdx = localData.findIndex(x=>x.lamnso===w.lamnso && x.english===w.english);
     if(realIdx===-1) realIdx = idx;
@@ -277,7 +297,6 @@ function exportData(){
   let a=document.createElement('a'); a.href=URL.createObjectURL(blob); a.download='nte_nso_dictionary_'+Date.now()+'.json'; a.click();
 }
 
-// FIXED BULK IMPORT - NO NUMBERS, BLOCKS -> WIPE
 function bulkImport(){
   let text=document.getElementById('importBox').value.trim();
   if(!text) return alert('Paste words in box first');
@@ -375,31 +394,56 @@ function startLearn(){
 async function checkAccess(){
   let code=document.getElementById('accessCode').value.trim();
   if(!code) return alert('Enter code');
-  let r=await fetch('/api/check-access',{method:'POST', body:JSON.stringify({code})});
-  let j=await r.json(); document.getElementById('subStatus').innerText=j.ok?'✅ Valid':'❌ Invalid/Expired';
-  if(j.ok){ localStorage.setItem('premium_code_ok','1'); document.getElementById('paywall').style.display='none'; checkTrial(); }
+  let r=await fetch('/api/check-access',{method:'POST', body:JSON.stringify({code}), headers:{'Content-Type':'application/json'}});
+  let j=await r.json();
+  document.getElementById('subStatus').innerText=j.ok?'✅ Valid for '+(j.data.phone||j.data.email||'')+' until '+new Date(j.data.expires).toLocaleDateString():'❌ '+(j.error||'Invalid/Expired');
+  if(j.ok){ localStorage.setItem('premium_code_ok','1'); localStorage.setItem('premium_code', code); document.getElementById('paywall').style.display='none'; checkTrial(); }
 }
 async function subscribe(){
-  let email=document.getElementById('subEmail').value;
-  let phone=document.getElementById('subPhone').value;
-  let code=document.getElementById('accessCode').value;
-  if(!code) return alert('Enter Activation Code after MoMo');
-  let r=await fetch('/api/subscribe',{method:'POST', body:JSON.stringify({email,phone,code})});
+  let email=document.getElementById('subEmail').value.trim();
+  let phone=document.getElementById('subPhone').value.trim();
+  let code=document.getElementById('accessCode').value.trim();
+  if(!code) return alert('Enter Activation Code after MoMo - code given by Admin');
+  if(!phone &&!email) return alert('Enter at least Phone');
+  let r=await fetch('/api/subscribe',{method:'POST', body:JSON.stringify({email,phone,code}), headers:{'Content-Type':'application/json'}});
   let j=await r.json();
-  if(j.ok){ alert('✅ Subscribed 365 days'); document.getElementById('paywall').style.display='none'; checkTrial(); }
-  else { alert('❌ '+(j.error||'Invalid')); }
+  if(j.ok){
+    localStorage.setItem('premium_code_ok','1');
+    localStorage.setItem('premium_code', code);
+    document.getElementById('subStatus').innerText='✅ Subscribed 365 days until '+new Date(j.expires).toLocaleDateString();
+    document.getElementById('paywall').style.display='none'; checkTrial();
+    alert('✅ Subscribed 365 days - '+code);
+  } else { alert('❌ '+(j.error||'Invalid')); document.getElementById('subStatus').innerText='❌ '+(j.error||'Invalid'); }
 }
 async function generateCode(){
-  let adminKey = prompt('Enter Admin Key (njolaik2026):'); if(!adminKey) return;
-  let email = prompt('Customer email:') || '';
-  let phone = prompt('Customer phone:') || '';
-  let days = prompt('Days (365):') || '365';
-  let r=await fetch('/api/generate-code',{method:'POST', body:JSON.stringify({adminKey, email, phone, days: parseInt(days)})});
-  let j=await r.json();
-  if(j.ok){ document.getElementById('accessCode').value=j.code; document.getElementById('subStatus').innerText='✅ Generated: '+j.code+' ('+j.days+' days)'; alert('Code: '+j.code); }
-  else { alert('❌ '+(j.error||'Failed')); }
+  try{
+    let adminKey = prompt('Enter Admin Key (njolaik2026):'); if(!adminKey) return;
+    let email = prompt('Customer email (OPTIONAL - leave empty if client has no email):') || '';
+    let phone = prompt('Customer phone (MTN/Orange) - REQUIRED if no email:') || '';
+    if(!phone &&!email) return alert('Need at least Phone or Email to generate code');
+    let days = prompt('Days (365):','365') || '365';
+    document.getElementById('subStatus').innerText='⏳ Generating code for '+(phone||email)+'...';
+    let r=await fetch('/api/generate-code',{method:'POST', body:JSON.stringify({adminKey: adminKey.trim(), email, phone, days: parseInt(days)}), headers:{'Content-Type':'application/json'}});
+    let text = await r.text();
+    let j;
+    try{ j=JSON.parse(text); }catch(e){ throw new Error('Server returned: '+text.slice(0,200)); }
+    if(j.ok){
+      document.getElementById('accessCode').value=j.code;
+      document.getElementById('subEmail').value=email;
+      document.getElementById('subPhone').value=phone;
+      document.getElementById('subStatus').innerHTML='✅ Generated: <b>'+j.code+'</b> for '+(phone||email)+' ('+j.days+' days) <br> Expires: '+new Date(j.expires).toLocaleString()+' <br> <small>Copy this code and give to client</small>';
+      alert('✅ CODE FOR CLIENT:\\n\\nCode: '+j.code+'\\nEmail: '+(email||'No email')+'\\nPhone: '+phone+'\\nDays: '+j.days+'\\n\\nGive this code to client to enter in Activation Code + Check Access');
+      try{ navigator.clipboard.writeText(j.code); }catch(e){}
+    } else {
+      document.getElementById('subStatus').innerText='❌ Failed: '+(j.error||'Unknown');
+      alert('❌ Generate failed:\\n'+(j.error||'Unknown'));
+    }
+  }catch(e){
+    document.getElementById('subStatus').innerText='❌ Error: '+e.message;
+    alert('❌ Error: '+e.message);
+  }
 }
-async function unlock(){ let code=document.getElementById('payCode').value.trim(); if(!code) return alert('Enter code'); let r=await fetch('/api/check-access',{method:'POST', body:JSON.stringify({code})}); let j=await r.json(); if(j.ok){ localStorage.setItem('premium_code_ok','1'); document.getElementById('paywall').style.display='none'; checkTrial(); alert('✅ Unlocked!'); } else { alert('❌ Invalid/Expired. MoMo: 674 061 571'); } }
+async function unlock(){ let code=document.getElementById('payCode').value.trim(); if(!code) return alert('Enter code'); let r=await fetch('/api/check-access',{method:'POST', body:JSON.stringify({code}), headers:{'Content-Type':'application/json'}}); let j=await r.json(); if(j.ok){ localStorage.setItem('premium_code_ok','1'); localStorage.setItem('premium_code', code); document.getElementById('paywall').style.display='none'; checkTrial(); alert('✅ Unlocked!'); } else { alert('❌ Invalid/Expired. MoMo: 674 061 571 - '+(j.error||'')); } }
 
 async function autoLoadForNewVisitor(){
   if(localData.length===0){
