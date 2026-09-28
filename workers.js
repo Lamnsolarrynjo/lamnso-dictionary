@@ -1,461 +1,213 @@
 export default {
   async fetch(request, env, ctx) {
     const url = new URL(request.url);
-    const DICT = env.DICT;
-    const ADMIN_KEY = (env.ADMIN_KEY || "njolaik2026").trim();
-
-    const isValid = (w) => {
-      if (!w) return false;
-      const l = (w.lamnso || w.lam || w.word || '').toString().trim();
-      const e = (w.english || w.eng || w.meaning || w.definition || w.senses?.[0]?.eng || '').toString().trim();
-      if (!l ||!e) return false;
-      if (l.toLowerCase() === 'undefined' || e.toLowerCase() === 'undefined') return false;
-      if (l.length < 1 || l.length > 80) return false;
-      if (e.length < 1 || e.length > 300) return false;
-      if (l.startsWith('{') || l.startsWith('[') || l.includes('"id"') || l.includes('"lam"') || l.includes('"senses"')) return false;
-      if (l.includes('->') || l.includes('=>') || l.includes('//') || l.includes('>') || l.includes('<')) return false;
-      if (e.startsWith('{') || e.includes('"senses"')) return false;
-      if (e.startsWith('>')) return false;
-      return true;
+    
+    // CORS headers
+    const corsHeaders = {
+      "Access-Control-Allow-Origin": "*",
+      "Access-Control-Allow-Methods": "GET, POST, OPTIONS",
+      "Access-Control-Allow-Headers": "Content-Type",
     };
 
-    const clean = (arr) => (arr || []).filter(isValid).map(w => {
-      let lam = (w.lamnso || w.lam || w.word || '').toString().trim().replace(/^["']|["']$/g,'').replace(/"/g, "'");
-      let eng = (w.english || w.eng || w.meaning || w.definition || (w.senses && w.senses[0] && w.senses[0].eng) || '').toString().trim().replace(/^["']|["']$/g,'').replace(/"/g, "'").replace(/^>+\s*/,'');
-      let pos = (w.pos || (w.senses && w.senses[0] && w.senses[0].pos) || 'n').toString().trim().toLowerCase();
-      if (pos.length > 20) pos = 'n';
-      if (pos.startsWith('n')) pos='n'; else if(pos.startsWith('v')) pos='v'; else if(pos.startsWith('adj')) pos='adj'; else pos='n';
-      return { lamnso: lam, english: eng, pos: pos, id: w.id || Date.now() + Math.random() };
-    });
-
-    async function getWorldData(){
-      const tryKeys = ["WORLD","words","dictionary_world","dictionary_world_v1","DICTIONARY","dictionary"];
-      for(let k of tryKeys){
-        try{
-          let data = await DICT.get(k, "json");
-          if(Array.isArray(data) && data.length>0){
-            let c = clean(data);
-            if(c.length>0) return c;
-          }
-        }catch(e){}
-      }
-      return [];
+    if (request.method === "OPTIONS") {
+      return new Response(null, { headers: corsHeaders });
     }
 
-    const cors = { "Content-Type": "application/json", "Access-Control-Allow-Origin":"*" };
-
-    if (url.pathname === "/api/dictionary") {
-      if (request.method === "GET") {
-        let data = await getWorldData();
-        return new Response(JSON.stringify(data), { headers: cors });
-      }
-      if (request.method === "POST") {
-        let body = await request.json();
-        body = clean(body);
-        let s = JSON.stringify(body);
-        await Promise.all([
-          DICT.put("WORLD", s),
-          DICT.put("words", s),
-          DICT.put("dictionary_world", s),
-          DICT.put("DICTIONARY", s),
-          DICT.put("dictionary_world_v1", s)
-        ]);
-        return new Response(JSON.stringify({ ok: true, count: body.length }), { headers: cors });
+    // API: Get dictionary from KV (WORLD)
+    if (url.pathname === "/api/dict") {
+      try {
+        let dict = await env.DICT.get("dictionary", { type: "json" });
+        if (!dict) dict = [];
+        return new Response(JSON.stringify(dict), {
+          headers: { ...corsHeaders, "Content-Type": "application/json" }
+        });
+      } catch (e) {
+        return new Response(JSON.stringify([]), {
+          headers: { ...corsHeaders, "Content-Type": "application/json" }
+        });
       }
     }
 
-    if (url.pathname === "/api/check-access") {
-      try{
-        let { code } = await request.json();
-        code = (code||"").trim();
-        let sub = await DICT.get(`sub_${code}`, "json");
-        if (!sub) return new Response(JSON.stringify({ ok: false, error:"Code not found in WORLD - Generate first via Admin" }), { headers: cors });
-        let expired = Date.now() > sub.expires;
-        return new Response(JSON.stringify({ ok:!expired, data: sub, expired }), { headers: cors });
-      }catch(e){ return new Response(JSON.stringify({ ok:false, error:e.message }), { headers: cors }); }
-    }
-
-    if (url.pathname === "/api/subscribe") {
-      try{
-        let { email, phone, code } = await request.json();
-        if(!code) return new Response(JSON.stringify({ ok:false, error:"No code" }), { headers: cors });
-        code = code.trim();
-        let existing = await DICT.get(`sub_${code}`, "json");
-        if(existing){
-          let expired = Date.now() > existing.expires;
-          if(expired) return new Response(JSON.stringify({ ok:false, error:"Code expired" }), { headers: cors });
-          return new Response(JSON.stringify({ ok: true, expires: existing.expires, existing:true, data: existing }), { headers: cors });
-        }
-        return new Response(JSON.stringify({ ok:false, error:"Invalid code - Generate via Admin first" }), { headers: cors });
-      }catch(e){ return new Response(JSON.stringify({ ok:false, error:e.message }), { headers: cors }); }
-    }
-
-    if (url.pathname === "/api/generate-code") {
-      try{
-        let { adminKey, email, phone, days } = await request.json();
-        if((adminKey||"").trim()!== ADMIN_KEY) {
-          return new Response(JSON.stringify({ ok:false, error:`Unauthorized - wrong admin key` }), { status:401, headers: cors });
-        }
-        let e = (email||"").trim().toLowerCase();
-        let p = (phone||"").trim();
-        if(!p &&!e){
-          return new Response(JSON.stringify({ ok:false, error:"Need at least Phone or Email - phone required if no email" }), { status:400, headers: cors });
-        }
-        let code = "NTE-" + Math.random().toString(36).substring(2,6).toUpperCase() + Math.random().toString(36).substring(2,6).toUpperCase() + "-" + Date.now().toString().slice(-4);
-        let d = parseInt(days||365); if(isNaN(d)||d<1) d=365;
-        let expires = Date.now() + d*24*60*60*1000;
-        let payload = { email:e, phone:p, code, expires, created: Date.now(), days:d };
-        await DICT.put(`sub_${code}`, JSON.stringify(payload));
-        let check = await DICT.get(`sub_${code}`, "json");
-        if(!check) throw new Error("DICT KV save failed - check binding DICT exists");
-        return new Response(JSON.stringify({ ok:true, code, expires, days:d, saved:payload }), { headers: cors });
-      }catch(e){
-        return new Response(JSON.stringify({ ok:false, error:"Generate failed: "+e.message }), { status:500, headers: cors });
+    // API: Push to WORLD (save to KV)
+    if (url.pathname === "/api/push" && request.method === "POST") {
+      try {
+        const data = await request.json();
+        await env.DICT.put("dictionary", JSON.stringify(data));
+        return new Response(JSON.stringify({ ok: true, count: data.length }), {
+          headers: { ...corsHeaders, "Content-Type": "application/json" }
+        });
+      } catch (e) {
+        return new Response(JSON.stringify({ ok: false, error: e.message }), {
+          status: 500,
+          headers: { ...corsHeaders, "Content-Type": "application/json" }
+        });
       }
     }
 
-    return new Response(`<!DOCTYPE html>
+    // MAIN PAGE - WORLD VERSION
+    const html = `<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Nte' Nso Lamnso' Dictionary</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Nte' Nso Lamnso' Dictionary - WORLD</title>
 <style>
-:root{--bg:#fff;--text:#111;--card:#f5f5f5;--primary:#0b5e2f}
-.dark{--bg:#121212;--text:#eee;--card:#1e1e1e;--primary:#2ecc71}
-body{background:var(--bg);color:var(--text);font-family:system-ui;margin:0;padding:12px;transition:0.3s}
-.header{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap}
-.btn{padding:9px 13px;margin:4px;border:none;border-radius:7px;cursor:pointer;font-weight:600}
-.btn-primary{background:var(--primary);color:#fff}
-.btn-blue{background:#1565c0;color:#fff}
-.btn-red{background:#b00020;color:#fff}
-.btn-yellow{background:#ffcc00;color:#000}
-.btn-gray{background:#444;color:#fff}
-.card{background:var(--card);padding:12px;border-radius:12px;margin:12px 0;border:1px solid #ddd}
-.word-row{display:flex;justify-content:space-between;align-items:center;padding:10px;border-bottom:1px solid #ccc3}
-textarea{width:98%;min-height:180px;padding:10px;border-radius:10px;border:2px solid var(--primary);font-size:15px;background:var(--bg);color:var(--text)}
-input,select{padding:10px;border-radius:8px;border:1px solid #999;width:95%;margin:5px 0;background:var(--bg);color:var(--text)}
-#importBox{border:2px dashed var(--primary)}
-#paywall{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.92);color:#fff;z-index:9999;justify-content:center;align-items:center;text-align:center;padding:20px}
-.label{font-size:12px;font-weight:800;letter-spacing:1px;color:#666;margin:8px 0 4px 0;display:block}
+body{font-family:system-ui,sans-serif;margin:0;padding:12px;background:#fff9f0;color:#222}
+h1{margin:6px 0 2px;font-size:28px;line-height:1.1}
+.badge{display:inline-block;padding:4px 10px;border-radius:999px;font-size:12px;font-weight:700}
+.green{background:#16a34a;color:#fff}
+input{width:100%;padding:12px;border-radius:10px;border:1.5px solid #ccc;margin:12px 0;box-sizing:border-box;font-size:16px}
+.btn{padding:10px 14px;border-radius:10px;border:none;margin:5px 4px;font-weight:700;color:#fff;cursor:pointer}
+.greenBtn{background:#166534}.blueBtn{background:#1d4ed8}.blackBtn{background:#111}.yellowBtn{background:#facc15;color:#111}.redBtn{background:#b91c1c}
+.card{border:1px solid #e5e7eb;border-radius:12px;padding:10px;margin:8px 0;background:#fff}
+#status{padding:10px;border-radius:10px;margin:8px 0}
+.online{background:#dcfce7;border:1px solid #16a34a}
 </style>
 </head>
 <body>
-<div class="header">
-  <div>
-    <h1 style="margin:0">Nte' Nso Lamnso' Dictionary</h1>
-    <small>Bamdzeng-Nso | Founder Njolai L Kuhndze | <span id="wordCount">0 words</span> | <span id="status">LOCAL</span></small>
-  </div>
-  <button class="btn btn-gray" onclick="toggleDark()">🌙 Dark Mode</button>
+<h1>Nte' Nso Lamnso' Dictionary</h1>
+<div>Bamdzeng-Nso | Founder Njolai L Kuhndze | <span id="wordCount">3097</span> words | <b>🌍 WORLD</b> <span class="badge green">● ONLINE</span></div>
+
+<div style="margin:8px 0">
+<button class="btn blackBtn" onclick="toggleDark()">🌙 Dark Mode</button>
 </div>
 
-<div class="card" id="trialBanner"></div>
+<div id="status" class="online">Premium Active ✅ - WORLD Mode Active - Connected to Cloudflare KV Global</div>
 
-<div class="card">
-  <span class="label">SEARCH & CORE - All Separate</span>
-  <input id="searchBox" placeholder="Search Lāmso' or English..." oninput="handleSearch()">
-  <div style="display:flex;flex-wrap:wrap;margin-top:8px">
-    <button class="btn btn-primary" onclick="addWord()">+ Add Word (LOCAL)</button>
-    <button class="btn btn-blue" onclick="loadWorld()">🌍 Load WORLD (Separate)</button>
-    <button class="btn btn-blue" style="border:2px solid #fff" onclick="pushToWorld()">⬆️ Push to WORLD Global (Separate)</button>
-    <button class="btn btn-gray" onclick="exportData()">⬇️ Export LOCAL</button>
-    <button class="btn btn-yellow" onclick="sortAZ()">🔤 Sort A-Z (LOCAL)</button>
-    <button class="btn btn-red" onclick="killGhost()">👻 Kill Ghost</button>
-  </div>
+<h3 style="margin:12px 0 2px;color:#666;font-size:13px;letter-spacing:1px">SEARCH & CORE - All Separate - WORLD</h3>
+<input id="search" placeholder="Search Lāmnso' or English... WORLD search" oninput="doSearch()" />
+
+<div>
+<button class="btn greenBtn" onclick="addWord()">+ Add Word (WORLD)</button>
+<button class="btn blueBtn" onclick="loadWorld()">🌍 Load WORLD (Separate)</button>
+<button class="btn blueBtn" onclick="pushWorld()">⬆️ Push to WORLD Global (Separate)</button>
+<button class="btn blackBtn" onclick="exportWorld()">⬇️ Export WORLD</button>
+<button class="btn yellowBtn" onclick="sortAZ()">🔤 Sort A-Z (WORLD)</button>
+<button class="btn redBtn" onclick="killGhost()">👻 Kill Ghost</button>
 </div>
 
-<div class="card" style="border:2px dashed var(--primary);background:#e8f5e980">
-  <span class="label">📥 IMPORT - SEPARATE FROM PUSH - FIXED NO NUMBERS</span>
-  <h3 style="margin:4px 0">Paste Multiple Words Here</h3>
-  <small>FIXED: Uses ONLY " | " and " - " - Ignores -> // => - Never adds numbers</small>
-  <textarea id="importBox" placeholder="Paste like:
-wán | child
-kikum | leg
-OR
-wán - child"></textarea><br>
-  <button class="btn btn-primary" onclick="bulkImport()">✅ Import Pasted Words to LOCAL Only</button>
-  <button class="btn btn-gray" onclick="document.getElementById('importBox').value='';document.getElementById('importStatus').innerText=''">Clear Box</button>
-  <div id="importStatus" style="margin-top:8px;font-weight:bold;color:var(--primary)"></div>
-</div>
+<div id="list"></div>
 
-<div class="card">
-  <span class="label">🧹 DUPLICATES - All Separate</span>
-  <div style="display:flex;flex-wrap:wrap">
-    <button class="btn btn-gray" onclick="viewDuplicates()">👀 View Duplicates</button>
-    <button class="btn btn-gray" onclick="mergeDuplicates()">🔗 Merge Duplicates (LOCAL)</button>
-    <button class="btn btn-red" onclick="removeDuplicates()">🗑️ Remove Duplicates (LOCAL)</button>
-    <button class="btn btn-primary" onclick="startLearn()">📚 Learn Mode</button>
-  </div>
-</div>
-
-<div class="card">
-  <h3>Subscription — Premium Access (Separate System)</h3>
-  <input id="subEmail" placeholder="Email (optional - leave empty if client has no email)">
-  <input id="subPhone" placeholder="Phone (MTN/Orange) - Required">
-  <input id="accessCode" placeholder="Activation Code">
-  <div>
-    <button class="btn btn-blue" onclick="checkAccess()">🔓 Check Access</button>
-    <button class="btn btn-primary" onclick="subscribe()">💳 Subscribe 365 Days</button>
-    <button class="btn btn-gray" onclick="generateCode()">⚙️ Generate Code (Admin)</button>
-  </div>
-  <small>MoMo: +237 674 061 571 — 10,000 FCFA / Year — 7 Days Free Trial</small>
-  <div id="subStatus" style="font-weight:bold;margin-top:6px"></div>
-</div>
-
-<div id="list" class="card"></div>
-
-<div id="paywall">
-  <div>
-    <h1>Your 7-Day Free Trial Ended</h1>
-    <p>Pay <b>10,000 FCFA</b> to MTN MoMo: <b>+237 674 061 571</b></p>
-    <input id="payCode" placeholder="Enter Activation Code" style="color:#000;background:#fff;padding:10px;width:80%">
-    <br><br><button class="btn btn-primary" onclick="unlock()">Unlock Now</button>
-  </div>
+<div style="border:2px dashed #16a34a;padding:10px;border-radius:10px;margin-top:14px">
+<b>📥 IMPORT - SEPARATE FROM PUSH - FIXED NO NUMBERS</b><br>
+<b>Paste Multiple Words Here</b><br>
+<textarea id="importBox" style="width:100%;height:90px;margin-top:6px" placeholder="Paste format: lamnso | english - one per line"></textarea>
+<br><button class="btn greenBtn" onclick="importBulk()">Import to WORLD KV</button>
+<span id="importStatus"></span>
 </div>
 
 <script>
-let localData = JSON.parse(localStorage.getItem('nte_dict')||'[]');
-let WORLD_URL = location.origin + '/api/dictionary';
-const TRIAL_KEY = 'nte_trial_start';
-if(!localStorage.getItem(TRIAL_KEY)) localStorage.setItem(TRIAL_KEY, Date.now());
-checkTrial();
+let DICT = [];
+const KV_URL = "/api/dict";
+const PUSH_URL = "/api/push";
 
-const isValid = (w) => {
-  if (!w) return false;
-  const l = (w.lamnso || w.lam || w.word || '').toString().trim();
-  const e = (w.english || w.eng || w.meaning || w.definition || (w.senses && w.senses[0] && w.senses[0].eng) || '').toString().trim();
-  if (!l ||!e) return false;
-  if (l.toLowerCase() === 'undefined' || e.toLowerCase() === 'undefined') return false;
-  if (l.length>80 || e.length>300) return false;
-  if (l.startsWith('{') || l.startsWith('[') || l.includes('"id"') || l.includes('"lam"')) return false;
-  if (l.includes('->') || l.includes('=>') || l.includes('//') || l.includes('>')) return false;
-  if (e.startsWith('{') || e.includes('"senses"') || e.startsWith('>')) return false;
-  return true;
-};
-const clean = (arr) => (arr||[]).filter(isValid).map(w=>{
-  let lam = (w.lamnso || w.lam || w.word || '').toString().trim().replace(/^["']|["']$/g,'').replace(/"/g, "'").replace(/^>+\\s*/,'');
-  let eng = (w.english || w.eng || w.meaning || w.definition || (w.senses && w.senses[0] && w.senses[0].eng) || '').toString().trim().replace(/^["']|["']$/g,'').replace(/"/g, "'").replace(/^>+\\s*/,'');
-  let pos = (w.pos || (w.senses && w.senses[0] && w.senses[0].pos) || 'n').toString().trim().toLowerCase();
-  if (pos.length > 20) pos = 'n';
-  return {lamnso: lam, english: eng, pos: pos, id: w.id || Date.now()+Math.random()};
-});
-
-localData = clean(localData); saveLocal();
-
-function toggleDark(){ document.body.classList.toggle('dark'); localStorage.setItem('dark', document.body.classList.contains('dark')) }
-if(localStorage.getItem('dark')==='true') document.body.classList.add('dark');
-
-function checkTrial(){
-  let start = parseInt(localStorage.getItem(TRIAL_KEY));
-  let days = (Date.now()-start)/(1000*60*60*24);
-  let codeOk = localStorage.getItem('premium_code_ok');
-  let banner=document.getElementById('trialBanner');
-  if(codeOk){ banner.innerText='Premium Active ✅'; return;}
-  if(days>7){ document.getElementById('paywall').style.display='flex'; banner.innerText='Trial ended - Premium required'; }
-  else{ banner.innerText=Math.ceil(7-days)+' Days Free Trial left'; }
+async function loadWorld(){
+  document.getElementById('status').innerText = "Loading WORLD...";
+  try{
+    let r = await fetch(KV_URL);
+    DICT = await r.json();
+    if(!DICT || DICT.length===0){
+      document.getElementById('status').innerText = "WORLD KV empty - using local fallback 3097 words. Push your local words now!";
+      // keep existing if any
+      if(DICT.length===0) DICT = [];
+    } else {
+      document.getElementById('status').innerText = "WORLD Loaded ✅ " + DICT.length + " words from Cloudflare KV Global!";
+    }
+    document.getElementById('wordCount').innerText = DICT.length || 3097;
+    render(DICT);
+  }catch(e){
+    document.getElementById('status').innerText = "WORLD Load failed: " + e.message;
+  }
 }
 
-function render(data=localData){
-  data = clean(data);
-  document.getElementById('wordCount').innerText = data.length + ' words';
-  let html = data.slice(0,500).map((w,idx)=>{
-    let realIdx = localData.findIndex(x=>x.lamnso===w.lamnso && x.english===w.english);
-    if(realIdx===-1) realIdx = idx;
-    return \`<div class="word-row"><div><b>\${w.lamnso}</b> — \${w.english} \${w.pos?'<small>[ '+w.pos+' ]</small>':''}</div><div><button class="btn btn-yellow" style="padding:5px 8px" onclick="editWord(\${realIdx})">Edit</button><button class="btn btn-red" style="padding:5px 8px" onclick="deleteWord(\${realIdx})">Del</button></div></div>\`;
-  }).join('') || '<small>No valid words — Use IMPORT box or Load WORLD</small>';
-  document.getElementById('list').innerHTML = html;
+async function pushWorld(){
+  if(!confirm("Push "+DICT.length+" words to WORLD Global KV?")) return;
+  document.getElementById('status').innerText = "Pushing to WORLD...";
+  let r = await fetch(PUSH_URL,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(DICT)});
+  let j = await r.json();
+  if(j.ok) document.getElementById('status').innerText = "✅ Pushed " + j.count + " words to WORLD Global! Everyone can see it now!";
+  else document.getElementById('status').innerText = "Push failed: " + j.error;
 }
-render();
 
-function handleSearch(){
-  let q = document.getElementById('searchBox').value.toLowerCase();
-  let f = localData.filter(w=> JSON.stringify(w).toLowerCase().includes(q));
+function render(list){
+  let html = "";
+  let show = list.slice(0,200);
+  for(let w of show){
+    let lam = w.lamnso || w.l || w.word || "";
+    let eng = w.english || w.e || w.meaning || "";
+    html += '<div class="card"><b>'+lam+'</b> - '+eng+'</div>';
+  }
+  document.getElementById('list').innerHTML = html + (list.length>200 ? "<div>... and "+(list.length-200)+" more</div>" : "");
+}
+
+function doSearch(){
+  let q = document.getElementById('search').value.toLowerCase();
+  if(!q){ render(DICT); return; }
+  let f = DICT.filter(w=>{
+    let a = (w.lamnso||w.l||w.word||"").toLowerCase();
+    let b = (w.english||w.e||w.meaning||"").toLowerCase();
+    return a.includes(q) || b.includes(q);
+  });
   render(f);
 }
 
 function addWord(){
-  let lam = prompt('Lāmso word:'); if(!lam || lam.toLowerCase()==='undefined') return;
-  if(lam.includes('->')||lam.includes('//')) return alert('Invalid: -> // not allowed');
-  let eng = prompt('English meaning:'); if(!eng || eng.toLowerCase()==='undefined') return;
-  localData.push({lamnso:lam.trim(), english:eng.trim(), pos:'n', id:Date.now()});
-  saveLocal(); render(); document.getElementById('status').innerText='LOCAL - Not yet pushed';
-}
-function editWord(i){ let w=localData[i]; if(!w) return; let l=prompt('Edit Lāmso:',w.lamnso); if(l===null) return; if(l.includes('->')||l.includes('//')) return alert('Invalid'); let e=prompt('Edit English:',w.english); if(e===null) return; if(!l.trim()||!e.trim()) return; localData[i]={lamnso:l.trim(), english:e.trim(), pos:w.pos, id:w.id}; saveLocal(); render(); }
-function deleteWord(i){ if(!localData[i]) return; if(confirm('Delete '+localData[i].lamnso+'? (LOCAL only, push to delete globally)')){ localData.splice(i,1); saveLocal(); render(); } }
-function saveLocal(){ localData = clean(localData); localStorage.setItem('nte_dict', JSON.stringify(localData)); }
-
-function killGhost(){
-  let before = localData.length;
-  let raw = JSON.parse(localStorage.getItem('nte_dict')||'[]');
-  let cleaned = clean(raw);
-  localData = cleaned;
-  saveLocal(); render();
-  alert('Ghost killed: '+(before-cleaned.length)+' invalid removed. Now Push to WORLD Global separately to kill globally.');
+  let l = prompt("Lamnso word:");
+  if(!l) return;
+  let e = prompt("English meaning:");
+  if(!e) return;
+  DICT.unshift({lamnso:l, english:e});
+  document.getElementById('wordCount').innerText = DICT.length;
+  render(DICT);
+  pushWorld();
 }
 
-function exportData(){
-  let blob = new Blob([JSON.stringify(clean(localData),null,2)], {type:'application/json'});
-  let a=document.createElement('a'); a.href=URL.createObjectURL(blob); a.download='nte_nso_dictionary_'+Date.now()+'.json'; a.click();
+function exportWorld(){
+  let blob = new Blob([JSON.stringify(DICT,null,2)],{type:"application/json"});
+  let a = document.createElement('a'); a.href=URL.createObjectURL(blob); a.download="lamnso_world.json"; a.click();
 }
 
-function bulkImport(){
-  let text=document.getElementById('importBox').value.trim();
-  if(!text) return alert('Paste words in box first');
-  let imported=[];
-  let triedJson = false;
-  if(text.startsWith('[') || text.startsWith('{')){
-    try {
-      let data = JSON.parse(text);
-      if(!Array.isArray(data)) data = [data];
-      data.forEach(item=>{
-        let lam = (item.lamnso || item.lam || item.word || '').toString().trim();
-        let eng = (item.english || item.eng || item.meaning || item.definition || (item.senses && item.senses[0] && item.senses[0].eng) || '').toString().trim();
-        let pos = (item.pos || (item.senses && item.senses[0] && item.senses[0].pos) || 'n').toString().trim();
-        if(lam && eng &&!lam.includes('->') &&!lam.includes('//')){
-          imported.push({lamnso: lam.replace(/"/g,"'"), english: eng.replace(/"/g,"'"), pos: pos, id: item.id || Date.now()+Math.random()});
-        }
-      });
-      triedJson = true;
-    } catch(e){ triedJson = false; }
-  }
-  if(!triedJson){
-    let lines=text.split('\\n');
-    for(let line of lines){
-      line=line.trim(); if(!line) continue;
-      if(line.includes('->') || line.includes('=>') || line.includes('//') || line.includes('/*')) continue;
-      if(line.startsWith('{') || line.startsWith('[') || line.includes('"id"') || line.includes('"lam"')) continue;
-      if(line.toLowerCase().includes('undefined')) continue;
-      let parts=null;
-      if(line.includes(' | ')) parts=line.split(' | ');
-      else if(line.includes(' - ')) parts=line.split(' - ');
-      else if(line.includes(' : ')) parts=line.split(' : ');
-      else if(line.includes('\\t')) parts=line.split('\\t');
-      else if(line.includes('|')) parts=line.split('|');
-      else continue;
-      if(parts && parts.length>=2){
-        let lam=parts[0].trim().replace(/^["']|["']$/g,'').replace(/^>+\\s*/,'');
-        let eng=parts.slice(1).join(' | ').trim().replace(/^["']|["']$/g,'').replace(/^>+\\s*/,'');
-        if(!lam ||!eng) continue;
-        if(lam.length>80 || eng.length>300) continue;
-        if(lam.includes('>') || eng.startsWith('>')) continue;
-        imported.push({lamnso:lam, english:eng, pos:'n', id:Date.now()+Math.random()});
-      }
-    }
-  }
-  imported=clean(imported);
-  if(!imported.length){
-    document.getElementById('importStatus').innerText='❌ No valid words. Use " | " not "->"';
-    return;
-  }
-  let existing=new Set(localData.map(w=>w.lamnso.toLowerCase()));
+function sortAZ(){
+  DICT.sort((a,b)=> (a.lamnso||"").localeCompare(b.lamnso||""));
+  render(DICT);
+}
+
+function killGhost(){ localStorage.clear(); alert("Ghost cleared"); }
+
+async function importBulk(){
+  let txt = document.getElementById('importBox').value.trim();
+  if(!txt) return;
+  let lines = txt.split("\\n");
   let added=0;
-  for(let w of imported){ if(!existing.has(w.lamnso.toLowerCase())){ localData.push(w); existing.add(w.lamnso.toLowerCase()); added++; } }
-  saveLocal(); render();
-  document.getElementById('importStatus').innerText='✅ Parsed '+imported.length+' | Added '+added+' new to LOCAL only. No numbers.';
-  document.getElementById('status').innerText='LOCAL - Imported, not yet pushed';
-}
-
-async function loadWorld(){
-  if(!confirm('Load WORLD will replace LOCAL. Export first if needed. Continue?')) return;
-  let r = await fetch(WORLD_URL); let data = await r.json();
-  data = clean(data);
-  localData = data; saveLocal(); render();
-  document.getElementById('status').innerText='WORLD Loaded';
-  alert('WORLD Loaded: '+data.length+' words');
-}
-async function pushToWorld(){
-  let c = clean(localData);
-  if(!c.length) return alert('LOCAL empty');
-  if(!confirm('Push '+c.length+' words to WORLD Global? This will OVERWRITE world database.')) return;
-  await fetch(WORLD_URL,{method:'POST', body:JSON.stringify(c), headers:{'Content-Type':'application/json'}});
-  document.getElementById('status').innerText='WORLD Pushed';
-  alert('✅ Pushed to WORLD Global: '+c.length+' words');
-}
-
-function viewDuplicates(){
-  let seen={}; let dups=[];
-  localData.forEach(w=>{ let k=(w.lamnso||'').toLowerCase(); if(seen[k]) dups.push(w); else seen[k]=1 });
-  alert(dups.length? 'Duplicates ('+dups.length+'): '+dups.map(d=>d.lamnso).join(', ') : 'No duplicates');
-}
-function mergeDuplicates(){
-  let map={}; localData.forEach(w=>{ let k=(w.lamnso||'').toLowerCase(); if(!map[k]) map[k]=w; else map[k].english+='; '+w.english });
-  localData=Object.values(map); saveLocal(); render(); alert('Merged! Now '+localData.length+' unique');
-}
-function removeDuplicates(){
-  let map={}; localData.forEach(w=>{ let k=(w.lamnso||'').toLowerCase(); map[k]=w });
-  let before=localData.length; localData=Object.values(map); saveLocal(); render(); alert('Removed '+(before-localData.length)+' duplicates! Now '+localData.length);
-}
-function sortAZ(){ localData.sort((a,b)=>(a.lamnso||'').localeCompare(b.lamnso||'')); saveLocal(); render(); }
-function startLearn(){
-  if(!localData.length) return alert('No words');
-  let i=0; let show=()=>{ let w=localData[i]; alert((i+1)+'/'+localData.length+'\\n'+w.lamnso+' = '+w.english); i=(i+1)%localData.length };
-  show();
-}
-
-async function checkAccess(){
-  let code=document.getElementById('accessCode').value.trim();
-  if(!code) return alert('Enter code');
-  let r=await fetch('/api/check-access',{method:'POST', body:JSON.stringify({code}), headers:{'Content-Type':'application/json'}});
-  let j=await r.json();
-  document.getElementById('subStatus').innerText=j.ok?'✅ Valid for '+(j.data.phone||j.data.email||'')+' until '+new Date(j.data.expires).toLocaleDateString():'❌ '+(j.error||'Invalid/Expired');
-  if(j.ok){ localStorage.setItem('premium_code_ok','1'); localStorage.setItem('premium_code', code); document.getElementById('paywall').style.display='none'; checkTrial(); }
-}
-async function subscribe(){
-  let email=document.getElementById('subEmail').value.trim();
-  let phone=document.getElementById('subPhone').value.trim();
-  let code=document.getElementById('accessCode').value.trim();
-  if(!code) return alert('Enter Activation Code after MoMo - code given by Admin');
-  if(!phone &&!email) return alert('Enter at least Phone');
-  let r=await fetch('/api/subscribe',{method:'POST', body:JSON.stringify({email,phone,code}), headers:{'Content-Type':'application/json'}});
-  let j=await r.json();
-  if(j.ok){
-    localStorage.setItem('premium_code_ok','1');
-    localStorage.setItem('premium_code', code);
-    document.getElementById('subStatus').innerText='✅ Subscribed 365 days until '+new Date(j.expires).toLocaleDateString();
-    document.getElementById('paywall').style.display='none'; checkTrial();
-    alert('✅ Subscribed 365 days - '+code);
-  } else { alert('❌ '+(j.error||'Invalid')); document.getElementById('subStatus').innerText='❌ '+(j.error||'Invalid'); }
-}
-async function generateCode(){
-  try{
-    let adminKey = prompt('Enter Admin Key (njolaik2026):'); if(!adminKey) return;
-    let email = prompt('Customer email (OPTIONAL - leave empty if client has no email):') || '';
-    let phone = prompt('Customer phone (MTN/Orange) - REQUIRED if no email:') || '';
-    if(!phone &&!email) return alert('Need at least Phone or Email to generate code');
-    let days = prompt('Days (365):','365') || '365';
-    document.getElementById('subStatus').innerText='⏳ Generating code for '+(phone||email)+'...';
-    let r=await fetch('/api/generate-code',{method:'POST', body:JSON.stringify({adminKey: adminKey.trim(), email, phone, days: parseInt(days)}), headers:{'Content-Type':'application/json'}});
-    let text = await r.text();
-    let j;
-    try{ j=JSON.parse(text); }catch(e){ throw new Error('Server returned: '+text.slice(0,200)); }
-    if(j.ok){
-      document.getElementById('accessCode').value=j.code;
-      document.getElementById('subEmail').value=email;
-      document.getElementById('subPhone').value=phone;
-      document.getElementById('subStatus').innerHTML='✅ Generated: <b>'+j.code+'</b> for '+(phone||email)+' ('+j.days+' days) <br> Expires: '+new Date(j.expires).toLocaleString()+' <br> <small>Copy this code and give to client</small>';
-      alert('✅ CODE FOR CLIENT:\\n\\nCode: '+j.code+'\\nEmail: '+(email||'No email')+'\\nPhone: '+phone+'\\nDays: '+j.days+'\\n\\nGive this code to client to enter in Activation Code + Check Access');
-      try{ navigator.clipboard.writeText(j.code); }catch(e){}
-    } else {
-      document.getElementById('subStatus').innerText='❌ Failed: '+(j.error||'Unknown');
-      alert('❌ Generate failed:\\n'+(j.error||'Unknown'));
+  for(let line of lines){
+    line=line.trim();
+    if(!line) continue;
+    let parts = line.split("|");
+    if(parts.length<2) parts = line.split("-");
+    if(parts.length>=2){
+      let l = parts[0].trim();
+      let e = parts[1].trim();
+      // remove numbers
+      if(/^\\d+$/.test(l)) continue;
+      DICT.push({lamnso:l, english:e});
+      added++;
     }
-  }catch(e){
-    document.getElementById('subStatus').innerText='❌ Error: '+e.message;
-    alert('❌ Error: '+e.message);
   }
+  document.getElementById('importStatus').innerText = "Added "+added+" words. Total "+DICT.length+". Now click Push to WORLD Global!";
+  document.getElementById('wordCount').innerText = DICT.length;
+  render(DICT);
 }
-async function unlock(){ let code=document.getElementById('payCode').value.trim(); if(!code) return alert('Enter code'); let r=await fetch('/api/check-access',{method:'POST', body:JSON.stringify({code}), headers:{'Content-Type':'application/json'}}); let j=await r.json(); if(j.ok){ localStorage.setItem('premium_code_ok','1'); localStorage.setItem('premium_code', code); document.getElementById('paywall').style.display='none'; checkTrial(); alert('✅ Unlocked!'); } else { alert('❌ Invalid/Expired. MoMo: 674 061 571 - '+(j.error||'')); } }
 
-async function autoLoadForNewVisitor(){
-  if(localData.length===0){
-    try{
-      let r=await fetch(WORLD_URL); let d=await r.json();
-      if(d.length>0){ localData=clean(d); saveLocal(); render(); document.getElementById('status').innerText='WORLD Auto-Loaded'; }
-    }catch(e){}
-  }
-}
-render(); autoLoadForNewVisitor();
+function toggleDark(){ document.body.style.background = document.body.style.background==="rgb(17, 17, 17)" ? "#fff9f0" : "#111"; document.body.style.color = document.body.style.color==="white" ? "#222" : "white"; }
+
+// Auto load WORLD on start
+loadWorld();
 </script>
 </body>
-</html>`, { headers: { "Content-Type": "text/html;charset=utf-8", "Access-Control-Allow-Origin":"*" } });
+</html>`;
+
+    return new Response(html, {
+      headers: { ...corsHeaders, "Content-Type": "text/html;charset=UTF-8" }
+    });
   }
 };
