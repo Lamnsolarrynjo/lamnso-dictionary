@@ -1,3 +1,10 @@
 name = "lamnso-dictionary-auto"
 main = "workers.js"
 compatibility_date = "2024-01-01"
+
+[[kv_namespaces]]
+binding = "DICT"
+id = "PASTE_YOUR_KV_ID_HERE"
+
+[vars]
+ENVIRONMENT = "production"
