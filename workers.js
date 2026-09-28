@@ -5,9 +5,14 @@ export default {
     if(req.method==="OPTIONS") return new Response(null,{headers});
 
     if(url.pathname === "/api/dict" && req.method === "GET"){
+      let single = await env.DICT.get("DICTIONARY");
+      if(single){
+        try{ return new Response(single, {headers:{...headers,"content-type":"application/json"}}); }catch(e){}
+      }
       let list = await env.DICT.list();
       let words = [];
       for(let k of list.keys){
+        if(k.name==="DICTIONARY") continue;
         let v = await env.DICT.get(k.name);
         try{ words.push(JSON.parse(v)); }catch(e){}
       }
@@ -16,16 +21,12 @@ export default {
     if(url.pathname === "/api/dict" && req.method === "POST"){
       let body = await req.json();
       let words = Array.isArray(body) ? body : body.words || [];
-      let count=0;
-      for(let w of words){
-        if(w && w.id){
-          await env.DICT.put(String(w.id), JSON.stringify(w));
-          count++;
-        }
-      }
-      return new Response(JSON.stringify({ok:true,count}), {headers:{...headers,"content-type":"application/json"}});
+      if(words.length===0) return new Response(JSON.stringify({ok:false,count:0}), {headers});
+      await env.DICT.put("DICTIONARY", JSON.stringify(words));
+      return new Response(JSON.stringify({ok:true,count:words.length,mode:"single-key"}), {headers:{...headers,"content-type":"application/json"}});
     }
     if(url.pathname === "/api/clear" && req.method==="POST"){
+      await env.DICT.delete("DICTIONARY");
       let list = await env.DICT.list();
       for(let k of list.keys) await env.DICT.delete(k.name);
       return new Response(JSON.stringify({ok:true}), {headers:{...headers,"content-type":"application/json"}});
@@ -43,11 +44,11 @@ input{width:100%;padding:12px;margin:6px 0;border:1px solid #ccc;border-radius:8
 </style>
 </head><body>
 <h1>Nte' Nso Lamnso' Dictionary</h1>
-<div style="margin-bottom:8px">Bamdzeng-Nso | Founder Njolai L Kuhndze | <b><span id="wordCount">0</span> words</b> | 🌍 WORLD <span style="background:#22c55e;color:white;padding:3px 10px;border-radius:12px">● ONLINE</span></div>
-<div id="status" style="background:#dcfce7;padding:10px;margin:10px 0;border-radius:8px;border:1px solid #22c55e;font-weight:bold">Ready</div>
+<div style="margin-bottom:8px">Bamdzeng-Nso | Founder Njolai L Kuhndze | <b><span id="wordCount">0</span> words</b> | 🌍 WORLD <span style="background:#22c55e;color:white;padding:3px 10px;border-radius:12px">● ONLINE - SINGLE KEY MODE (1 PUT)</span></div>
+<div id="status" style="background:#dcfce7;padding:10px;margin:10px 0;border-radius:8px;border:1px solid #22c55e;font-weight:bold">Ready - New mode uses only 1 PUT for 3098 words!</div>
 
 <div style="border:2px dashed #22c55e;padding:12px;margin:12px 0;border-radius:10px;background:#f0fdf4">
-<h3 style="margin:0 0 8px 0">📥 IMPORT - FIXED - Supports your exported JSON file!</h3>
+<h3 style="margin:0 0 8px 0">📥 IMPORT - FINAL FIX - 1 PUT MODE!</h3>
 <input type="file" id="fileInput" accept=".json">
 <div id="importStatus" style="background:#fff;padding:8px;margin:6px 0;border-radius:5px;font-weight:bold;min-height:20px"></div>
 <button style="background:#22c55e;color:white" onclick="importBulk()">📥 Import to WORLD KV</button>
@@ -56,7 +57,7 @@ input{width:100%;padding:12px;margin:6px 0;border:1px solid #ccc;border-radius:8
 
 <div>
 <button style="background:#16a34a;color:white" onclick="loadWorld()">🌍 Load WORLD (Separate)</button>
-<button style="background:#3b82f6;color:white" onclick="pushWorld()">⬆️ Push to WORLD Global</button>
+<button style="background:#3b82f6;color:white" onclick="pushWorld()">⬆️ Push to WORLD Global (1 PUT)</button>
 <button style="background:#111827;color:white" onclick="exportW()">⬇️ Export WORLD</button>
 <button style="background:#ef4444;color:white" onclick="killGhost()">👻 Kill Ghost</button>
 </div>
@@ -74,7 +75,7 @@ async function loadWorld(){
   let data=await r.json();
   DICT=data;
   document.getElementById('wordCount').innerText=DICT.length;
-  document.getElementById('status').innerText='✅ Loaded '+DICT.length+' words from WORLD!';
+  document.getElementById('status').innerText='✅ Loaded '+DICT.length+' words from WORLD! Mode: Single-Key (1 PUT)';
   render(DICT);
  }catch(e){
   document.getElementById('status').innerText='Load failed: '+e.message;
@@ -83,26 +84,18 @@ async function loadWorld(){
 
 async function pushWorld(){
  if(DICT.length==0){ alert('No words loaded! Import first!'); return; }
- if(!confirm('Push '+DICT.length+' words to WORLD Global in chunks of 100? This takes ~30 sec. Keep screen on!')) return;
- let chunkSize=100;
- let total=DICT.length;
- let pushed=0;
- for(let i=0;i<total;i+=chunkSize){
-  let chunk=DICT.slice(i,i+chunkSize);
-  document.getElementById('status').innerText='Pushing '+(i+1)+' to '+Math.min(i+chunkSize,total)+' of '+total+'... ('+Math.round((i/total)*100)+'%)';
-  try{
-   let r=await fetch('/api/dict',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify(chunk)});
-   let j=await r.json();
-   pushed+=j.count;
-  }catch(e){
-   alert('Push failed at '+i+': '+e.message+'. Pushed '+pushed+' so far. Try again.');
-   break;
-  }
-  await new Promise(res=>setTimeout(res,200));
+ if(!confirm('Push '+DICT.length+' words to WORLD Global? New mode uses ONLY 1 PUT operation!')) return;
+ document.getElementById('status').innerText='Pushing '+DICT.length+' words in ONE PUT...';
+ try{
+  let r=await fetch('/api/dict',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify(DICT)});
+  let j=await r.json();
+  document.getElementById('status').innerText='✅ Pushed '+j.count+' words to WORLD Global in 1 PUT! All phones will see it!';
+  alert('✅ SUCCESS! Pushed '+j.count+' words using only 1 PUT! KV limit problem solved! Now wife phone Load WORLD!');
+  loadWorld();
+ }catch(e){
+  document.getElementById('status').innerText='Push failed (KV still blocked until 1am). Try after 1am Bamenda time: '+e.message;
+  alert('KV blocked until 1am tonight (00:00 UTC). After 1am, push will work in 1 PUT and never block again!');
  }
- document.getElementById('status').innerText='✅ Pushed '+pushed+' words to WORLD Global! All phones will see '+pushed+' after Load WORLD!';
- alert('✅ SUCCESS! Pushed '+pushed+' words in chunks! Wife phone: tap Load WORLD (Separate) now!');
- loadWorld();
 }
 
 function exportW(){
@@ -127,20 +120,20 @@ async function importBulk(){
  s.innerText='Reading '+file.name+'...';
  try{
   let text=await file.text();
-  alert('Step 2: File read '+text.length+' chars. Parsing JSON...');
+  alert('Step 2: File read '+text.length+' chars. Parsing...');
   s.innerText='Parsing JSON...';
   let parsed=JSON.parse(text);
   let arr = Array.isArray(parsed) ? parsed : (parsed.words || parsed.data || []);
-  alert('Step 3: Parsed '+arr.length+' items. Loading to screen...');
+  alert('Step 3: Parsed '+arr.length+' items. Loading...');
   if(arr.length>0){
    DICT=arr;
    document.getElementById('wordCount').innerText=DICT.length;
-   s.innerText='✅ File Loaded! '+DICT.length+' words! Now tap Push to WORLD Global!';
+   s.innerText='✅ Loaded! '+DICT.length+' words! Now Push (1 PUT)!';
    render(DICT);
-   alert('✅ SUCCESS! Loaded '+DICT.length+' words! Now tap Push to WORLD Global to save permanently!');
+   alert('✅ SUCCESS! Loaded '+DICT.length+' words! Now Push to WORLD Global - only 1 PUT needed!');
   }else{
-   alert('File parsed but no words found!');
-   s.innerText='No words found';
+   alert('No words found!');
+   s.innerText='No words';
   }
  }catch(e){
   alert('ERROR: '+e.message);
