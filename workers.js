@@ -58,10 +58,30 @@ input,textarea{width:100%;padding:12px;margin:6px 0;border:1px solid #ccc;border
 <div id="adminPanel" class="adminOnly" style="border:2px dashed #ef4444;padding:12px;margin:12px 0;border-radius:10px;background:#fef2f2">
 <h3 style="margin:0 0 8px 0;color:#ef4444">🔐 FOUNDER ADMIN</h3>
 <div style="border:2px dashed #22c55e;padding:12px;margin:12px 0;border-radius:10px;background:#f0fdf4">
-<h4 style="margin:0 0 8px 0">📥 IMPORT</h4>
-<input type="file" id="fileInput" accept=".json"><div id="importStatus" style="background:#fff;padding:8px;margin:6px 0;border-radius:5px;font-weight:bold;min-height:20px"></div>
-<button style="background:#22c55e;color:white" onclick="importBulk()">📥 Import Local</button>
+<h4 style="margin:0 0 8px 0">📥 IMPORT MULTIPLE (MERGE - SAFE)</h4>
+<input type="file" id="fileInput" accept=".json">
+<textarea id="pasteJson" placeholder='PASTE SPACE - Paste many words here as JSON. Example:
+[
+  {"lamnso":"gaá","partOfSpeech":"n","english":"your own meaning","example":"..."},
+  {"lamnso":"gaari","english":"garri"}
+]
+You can paste 10 to 500 words at once - good for phone & bad network' style="height:120px;background:#fff;border:2px solid #16a34a;margin-top:8px"></textarea>
+<div id="importStatus" style="background:#fff;padding:8px;margin:6px 0;border-radius:5px;font-weight:bold;min-height:20px"></div>
+<button style="background:#22c55e;color:white" onclick="importBulk()">📥 Import From File - MERGE</button>
+<button style="background:#0b5fff;color:white" onclick="importFromPaste()">📋 Import Pasted Text - MERGE</button>
 </div>
+
+<div style="border:2px dashed #0b5fff;padding:12px;margin:12px 0;border-radius:10px;background:#eff6ff">
+<h4 style="margin:0 0 8px 0;color:#0b5fff">➕ ADD SINGLE WORD</h4>
+<input id="singleLamnso" placeholder="Lamnso' word e.g. gaá">
+<input id="singlePOS" placeholder="Part of speech e.g. n, v" style="width:48%;display:inline-block">
+<input id="singleEnglish" placeholder="English meaning - your own words" style="margin-top:6px">
+<textarea id="singleEx" placeholder="Example in Lamnso'"></textarea>
+<input id="singleExEn" placeholder="Example English">
+<button style="background:#0b5fff;color:white;width:100%;margin-top:6px" onclick="addSingleWord()">➕ Add Single Word to List</button>
+<div id="singleStatus" style="background:#fff;padding:6px;margin-top:6px;border-radius:5px;min-height:15px;font-size:13px"></div>
+</div>
+
 <div>
 <button style="background:#16a34a;color:white" onclick="loadWorld()">🌍 Load WORLD</button>
 <button style="background:#3b82f6;color:white" onclick="pushWorld()">⬆️ Push WORLD (1 PUT)</button>
@@ -106,7 +126,15 @@ async function loadWorld(){ document.getElementById('status').innerText='Loading
 async function pushWorld(){ if(!isAdminNow()){ alert('Only Founder can push! Click Founder Login'); return; } if(DICT.length==0){ alert('No words!'); return; } if(!confirm('Push '+DICT.length+' words?')) return; document.getElementById('status').innerText='Pushing...'; try{ let r=await fetch('/api/dict?key='+getAdminKey(),{method:'POST',headers:{'content-type':'application/json','x-admin-key':getAdminKey()},body:JSON.stringify(DICT)}); if(r.status===401){ alert('Unauthorized! Login again'); return; } let j=await r.json(); document.getElementById('status').innerText='✅ Pushed '+j.count+' words!'; alert('SUCCESS! '+j.count+' words pushed!'); }catch(e){ document.getElementById('status').innerText='Failed: '+e.message; } }
 function exportW(){ let blob=new Blob([JSON.stringify(DICT,null,2)],{type:'application/json'}); let a=document.createElement('a'); a.href=URL.createObjectURL(blob); a.download='nte_nso_'+Date.now()+'.json'; a.click(); }
 async function killGhost(){ if(!isAdminNow()){ alert('Only Founder!'); return; } if(!confirm('Clear ALL?')) return; await fetch('/api/clear?key='+getAdminKey(),{method:'POST',headers:{'x-admin-key':getAdminKey()}}); DICT=[]; document.getElementById('wordCount').innerText='0'; render([]); }
-async function importBulk(){ if(!isAdminNow()){ alert('Login first'); return; } let f=document.getElementById('fileInput'); let s=document.getElementById('importStatus'); if(f.files.length==0){ alert('Choose file'); return; } let file=f.files[0]; s.innerText='Reading...'; try{ let text=await file.text(); let parsed=JSON.parse(text); let arr = Array.isArray(parsed) ? parsed : (parsed.words||parsed.data||[]); if(arr.length>0){ DICT=arr; document.getElementById('wordCount').innerText=DICT.length; s.innerText='✅ Loaded '+DICT.length+' words!'; render(DICT); } }catch(e){ s.innerText='Error: '+e.message; } }
+
+// MERGE IMPORT - FILE
+async function importBulk(){ if(!isAdminNow()){ alert('Login first'); return; } let f=document.getElementById('fileInput'); let s=document.getElementById('importStatus'); if(f.files.length==0){ alert('Choose file first OR use paste box'); return; } let file=f.files[0]; s.innerText='Reading...'; try{ let text=await file.text(); let parsed=JSON.parse(text); let arr = Array.isArray(parsed) ? parsed : (parsed.words||parsed.data||[]); if(arr.length===0){ s.innerText='❌ No words found in file'; return; } let added=0; for(let nw of arr){ let key=(nw.lamnso||nw.lam||'').toLowerCase().trim(); if(!key) continue; let exists=DICT.some(e=>(e.lamnso||e.lam||'').toLowerCase().trim()===key); if(!exists){ DICT.push({lamnso:nw.lamnso||nw.lam||'', partOfSpeech:nw.partOfSpeech||nw.pos||'', english:nw.english||nw.eng||'', example:nw.example||nw.ex||'', exampleEnglish:nw.exampleEnglish||nw.exEn||''}); added++; } } document.getElementById('wordCount').innerText=DICT.length; s.innerText='✅ MERGED file: '+added+' new! Total '+DICT.length+'. PUSH WORLD to save!'; render(DICT); }catch(e){ s.innerText='Error: '+e.message; } }
+
+// NEW - MERGE IMPORT - PASTE BOX
+async function importFromPaste(){ if(!isAdminNow()){ alert('Login first'); return; } let s=document.getElementById('importStatus'); let txt=document.getElementById('pasteJson').value.trim(); if(!txt){ s.innerText='❌ Paste JSON first in the big box!'; return; } try{ let parsed=JSON.parse(txt); let arr = Array.isArray(parsed) ? parsed : (parsed.words||parsed.data||[]); if(arr.length===0){ s.innerText='❌ No words found in pasted text'; return; } let added=0; for(let nw of arr){ let key=(nw.lamnso||nw.lam||'').toLowerCase().trim(); if(!key) continue; let exists=DICT.some(e=>(e.lamnso||e.lam||'').toLowerCase().trim()===key); if(!exists){ DICT.push({lamnso:nw.lamnso||nw.lam||'', partOfSpeech:nw.partOfSpeech||nw.pos||'', english:nw.english||nw.eng||'', example:nw.example||nw.ex||'', exampleEnglish:nw.exampleEnglish||nw.exEn||''}); added++; } } document.getElementById('wordCount').innerText=DICT.length; s.innerText='✅ MERGED paste: '+added+' new! Total '+DICT.length+' (old 3098 preserved). PUSH WORLD now!'; render(DICT); document.getElementById('pasteJson').value=''; document.getElementById('status').innerText='✅ Merged '+added+' from paste! Click PUSH WORLD to save online!'; }catch(e){ s.innerText='❌ JSON Error: '+e.message; } }
+
+function addSingleWord(){ if(!isAdminNow()){ alert('Login first'); return; } let lam=document.getElementById('singleLamnso').value.trim(); let pos=document.getElementById('singlePOS').value.trim(); let eng=document.getElementById('singleEnglish').value.trim(); let ex=document.getElementById('singleEx').value.trim(); let exEn=document.getElementById('singleExEn').value.trim(); let s=document.getElementById('singleStatus'); if(!lam||!eng){ s.innerText='❌ Fill Lamnso and English'; return; } let key=lam.toLowerCase().trim(); if(DICT.some(e=>(e.lamnso||e.lam||'').toLowerCase().trim()===key)){ s.innerText='⚠️ Exists: '+lam; return; } DICT.push({lamnso:lam, partOfSpeech:pos, english:eng, example:ex, exampleEnglish:exEn}); document.getElementById('wordCount').innerText=DICT.length; s.innerText='✅ Added '+lam+'! Total '+DICT.length+'. PUSH WORLD!'; render(DICT); document.getElementById('singleLamnso').value=''; document.getElementById('singlePOS').value=''; document.getElementById('singleEnglish').value=''; document.getElementById('singleEx').value=''; document.getElementById('singleExEn').value=''; }
+
 function doSearch(){ let q=document.getElementById('search').value.toLowerCase(); if(!q){ render(DICT); return; } let f=DICT.filter(w=>(w.lamnso||'').toLowerCase().includes(q)||(w.english||'').toLowerCase().includes(q)); render(f.slice(0,300)); }
 function render(arr){
   let admin = isAdminNow();
